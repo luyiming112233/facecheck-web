@@ -15,8 +15,7 @@
     .wrapper{width:800px;margin-right:auto;margin-left:auto;}
 </style>
 <html>
-<%@ include file="UIhead.jsp" %>
-
+<%@ include file="UIStuOpeHead.jsp" %>
 <div class="layui-body">
     <div class="layui-text" style="font-size: 25px; color: #393D49;width: 400px;height: 30px;padding: 35px">
         添加学生信息

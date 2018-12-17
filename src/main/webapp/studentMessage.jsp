@@ -12,7 +12,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <body>
-<%@ include file="UIhead.jsp" %>
+<%@ include file="UIStuOpeHead.jsp" %>
 <div class="layui-body">
     <div class="layui-text" style="font-size: 25px; color: #393D49;width: 400px;height: 30px;padding: 35px">
         更新学生信息
@@ -83,21 +83,7 @@
             </div>
         </div>
     </form>
-<%--
-    <s:form action="stuMessageUpdate" method="POST">
-        <s:textfield name="student.stuID" key="学号"/>
-        <s:textfield name="student.name" key="姓名"/>
-        <s:textfield name="student.password" key="密码"/>
-        <s:textfield name="student.clazz" key="班级"/>
-        <s:textfield name="student.depart" key="专业"/>
-        <s:textfield name="student.email" key="邮箱"/>
-        <s:submit value="修改"/>
-    </s:form>
-    <s:form action="stuMessageDelete" method="POST">
-        <s:hidden name="stuID" value="%{student.stuID}"/>
-        <s:submit value="删除"/>
-    </s:form>
-    --%>
+
 </div>
 <script>
     //Demo
