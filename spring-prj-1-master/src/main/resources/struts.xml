@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="strutsBean" extends="struts-default" >
+
+        <!--****************************黄丹部分开始*****************************-->
+        <action name="getAllSign" class="cn.edu.zjut.action.QuerySignaction" method="getAllSign">
+            <result name="getAllSignsuccess">/displaySign.jsp</result>
+            <result name="getAllSignfail">/Fail.jsp</result>
+        </action>
+        <action name="getAllSignByName" class="cn.edu.zjut.action.QuerySignaction" method="getAllSignByName">
+            <result name="getAllSignByNamesuccess">/displaySign.jsp</result>
+            <result name="getAllSignByNamefail">/Fail.jsp</result>
+        </action>
+        <action name="getAllSignByCreatetime" class="cn.edu.zjut.action.QuerySignaction" method="getAllSignByCreatetime">
+            <result name="getAllSignByCreatetimesuccess">/displaySign.jsp</result>
+            <result name="getAllSignByCreatetimefail">/Fail.jsp</result>
+        </action>
+        <action name="getAllSignByTeaid" class="cn.edu.zjut.action.QuerySignaction" method="getAllSignByTeaid">
+            <result name="getAllSignByTeaidsuccess">/displaySign.jsp</result>
+            <result name="getAllSignByTeaidfail">/Fail.jsp</result>
+        </action>
+        <action name="getSignInstance" class="cn.edu.zjut.action.QuerySignInstanceaction" method="getSignInstance">
+            <result name="getSignInstancesuccess">/displaySignInstance.jsp</result>
+            <result name="getSignInstancefail">/Fail.jsp</result>
+        </action>
+        <!--****************************黄丹部分结束*****************************-->
+
+    </package>
+</struts>
