@@ -10,8 +10,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!DOCTYPE html>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<style>
+    body{font-family:"微软雅黑";font-size:14px;}
+    .wrapper{width:800px;margin-right:auto;margin-left:auto;}
+</style>
 <html>
 <%@ include file="UIhead.jsp" %>
+
 <div class="layui-body">
     <div class="layui-text" style="font-size: 25px; color: #393D49;width: 400px;height: 30px;padding: 35px">
         添加学生信息
@@ -80,7 +85,28 @@
             });
         });
     </script>
+    <div>
+        <div class="layui-text" style="font-size: 25px; color: #393D49;width: 400px;height: 30px;padding: 35px">
+            批量导入
+                <font size="2">可以批量导入后缀为xls的excel表格</font>
+            </div>
+        <div class="layui-input-block">
+            <button class="layui-btn test" lay-data="{url: '/inputExcel/', accept: 'file'}" name="file">选择文件</button>
+        </div>
+            <div class="layui-input-block">
+            <button class="layui-btn"  type="submit">上传文件</button>
+            </div>
 </div>
+    <script>
 
+        upload.render({
+    elem: '.test'
+    ,done: function(res, index, upload){
+    //获取当前触发上传的元素，一般用于 elem 绑定 class 的情况，注意：此乃 layui 2.1.0 新增
+    var item = this.item;
+    }
+    })
+    </script>
+<div>
 <%@ include file="UIbottom.jsp" %>
 </html>

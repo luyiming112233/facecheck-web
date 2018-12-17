@@ -81,6 +81,19 @@
             <result name="success">/loginSuccess.jsp</result>
             <result name="fail">/error.jsp</result>
         </action>
+        <action name="exportExcel" class="cn.edu.zjut.action.ListAction" method="exportExcel">
+            <result name="success" type="stream">
+                <param name="contentType">application/vnd.ms-excel</param>
+                <param name="contentDisposition">attachment;filename="nishizhu".xls</param>
+                <param name="bufferSize">1024</param>
+                <param name="inputName">excelFile</param>
+            </result>
+            <result name="fail">Fail.jsp</result>
+        </action>
+        <action name="inputExcel" class="cn.edu.zjut.action.ListAction" method="inputExcel">
+            <result name="success">index.jsp</result>
+            <result name="fail">Fail.jsp</result>
+        </action>
         <!--***************************金炜炜部分结束****************************-->
 
         <!--****************************黄丹部分开始*****************************-->

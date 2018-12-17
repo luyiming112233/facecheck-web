@@ -10,8 +10,8 @@
         <result column="teacher_phone" property="phone"/>
     </resultMap>
 
-    <select id="findById" parameterType="java.lang.Integer" resultType="cn.edu.zjut.po.Teacher">
-	select * from teacher where teaID=#{id}
+    <select id="findById" parameterType="int" resultMap="teacherMap">
+	select * from teacher where teacher_id=#{id}
 	</select>
 
     <select id="getTeacherById" parameterType="int" resultMap="teacherMap">
