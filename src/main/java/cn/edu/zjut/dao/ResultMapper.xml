@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.zjut.dao.ResultMapper">
+    <!-- 自定义返回结果集 -->
+    <resultMap id="resultMap" type="cn.edu.zjut.po.Result">
+        <id property="sign_id" column="Id" javaType="java.lang.Integer"></id>
+        <result property="name" column="name" javaType="java.lang.String"/>
+        <result property="all" column="allpeople" javaType="java.lang.Integer"/>
+        <result property="fact" column="fact" javaType="java.lang.Integer"/>
+        <result property="time" column="time" javaType="java.sql.Date"/>
+        <result property="PId" column="PId" javaType="java.lang.Integer"/>
+    </resultMap>
+
+    <select id="selectRById" resultMap="resultMap" resultType="cn.edu.zjut.po.Result">
+    select * from Result where Id=#{Id}
+    </select>
+    <!-- 按发布者序号查找 -->
+    <select id="selectRByPId" resultMap="resultMap" resultType="cn.edu.zjut.po.Result">
+    select * from Result where PId=#{PId}
+    </select>
+    <!-- 按发布时间 -->
+    <select id="selectRByTime" resultMap="resultMap" resultType="cn.edu.zjut.po.Result">
+    select * from Result where time=#{0} and PId=#{1}
+    </select>
+    <!-- 按发布名称查找 -->
+    <select id="selectRByName" resultMap="resultMap" resultType="cn.edu.zjut.po.Result">
+    select * from Result where name=#{0} and PId=#{1}
+    </select>
+
+</mapper>

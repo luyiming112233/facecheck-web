@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="cn.edu.zjut.dao.AllDailyDao">
+     <!-- 查询全部的打卡信息 -->
+      <select id="getAllDaily" resultType="cn.edu.zjut.po.AllDaily" parameterType="cn.edu.zjut.po.AllDaily">
+	 SELECT * FROM alldaily
+     </select> 
+     <!-- 根据是否处于有效期来查询 -->
+     <select id="getallDailyByVal" resultType="cn.edu.zjut.po.AllDaily" parameterType="cn.edu.zjut.po.AllDaily">
+     SELECT * FROM alldaily
+     where isValidate=#{isValidate}
+     </select>
+     <!-- 根据打卡发布日期来查询 -->
+     <select id="getAllDailyByCal" resultType="cn.edu.zjut.po.AllDaily" parameterType="cn.edu.zjut.po.AllDaily">
+     select * from alldaily
+     where cal=#{cal}
+     </select>
+     <!-- 根据发布人信息来查询 -->
+     <select id="getAllDailyByArrp" resultType="cn.edu.zjut.po.AllDaily" parameterType="cn.edu.zjut.po.AllDaily">
+     select * from alldaily
+     where arrPerson=#{arrPerson}
+     </select>
+     <!-- 根据打卡名来查询 -->
+     <select id="getallDailyByDName" resultType="cn.edu.zjut.po.AllDaily" parameterType="cn.edu.zjut.po.AllDaily">
+     select * from alldaily
+     where dailyName=#{dailyName}
+     </select>
+     <!-- 根据打卡的id号来查询 -->
+     <select id="getallDailyByDID" resultType="cn.edu.zjut.po.AllDaily" parameterType="cn.edu.zjut.po.AllDaily">
+     select * from alldaily
+     where dailyID=#{dailyID}
+     </select>
+     <!-- 模糊输入发布人的名字查询打卡信息 -->
+     <select id="getallDailyByfuzzyArrp" resultType="cn.edu.zjut.po.AllDaily" parameterType="cn.edu.zjut.po.AllDaily">
+     select * from alldaily
+     where arrPerson like CONCAT('%',#{arrPerson},'%')  
+     </select>
+     <!-- 模糊输入发布日期查询打卡信息 -->
+     <select id="getallDailyByfuzzyCal" resultType="cn.edu.zjut.po.AllDaily" parameterType="cn.edu.zjut.po.AllDaily">
+     select * from alldaily
+     where cal like CONCAT('%',#{cal},'%')  
+     </select>
+</mapper> 
