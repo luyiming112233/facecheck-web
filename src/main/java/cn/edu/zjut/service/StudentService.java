@@ -46,6 +46,12 @@ public class StudentService implements IStudentService {
     public boolean deleteStudent(int stuID) {
         ActionContext ctx = ActionContext.getContext();
         session = ctx.getSession();
+        try {
+            studentMapper.deleteStudent(stuID);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
         List<Student> studentList = (List<Student>) session.get("studentList");
         for(Student student:studentList){
             if(student.getStuID()==stuID) {
@@ -54,12 +60,6 @@ public class StudentService implements IStudentService {
             }
         }
         session.put("studentList",studentList);
-        try {
-            studentMapper.deleteStudent(stuID);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
         return true;
     }
 

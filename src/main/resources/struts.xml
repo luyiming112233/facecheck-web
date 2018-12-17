@@ -11,7 +11,7 @@
             <result name="studentAddSuccess">/addStudent.jsp</result>
             <result name="studentAddFail">/error.jsp</result>
         </action>
-        <!--查找页面初始化-->
+        <!--查找所有学生-->
         <action name="allStudents" class="cn.edu.zjut.action.StudentAction" method="allStudents">
             <result name="allStudentsSuccess">/searchStudent.jsp</result>
             <result name="allStudentsFail">/error.jsp</result>
@@ -38,17 +38,17 @@
         </action>
         <!--添加教师信息-->
         <action name="teacherAdd" class="cn.edu.zjut.action.TeacherAction" method="teacherAdd">
-            <result name="teacherAddSuccess">/manageTeacherMessage.jsp</result>
+            <result name="teacherAddSuccess">/addTeacher.jsp</result>
             <result name="teacherAddFail">/error.jsp</result>
         </action>
         <!--获得所有教师信息-->
-        <action name="getAllTeachers" class="cn.edu.zjut.action.TeacherAction" method="getAllTeachers">
-            <result name="getAllTeachersSuccess">/manageTeacherMessage.jsp</result>
+        <action name="allTeachers" class="cn.edu.zjut.action.TeacherAction" method="getAllTeachers">
+            <result name="getAllTeachersSuccess">/searchTeacher.jsp</result>
             <result name="getAllTeachersFail">/error.jsp</result>
         </action>
         <!--查询教师信息-->
-        <action name="teacherSearch" class="cn.edu.zjut.action.TeacherAction" method="teacherSearch">
-            <result name="searchTeacherSuccess">/manageTeacherMessage.jsp</result>
+        <action name="teaSearch" class="cn.edu.zjut.action.TeacherAction" method="teacherSearch">
+            <result name="searchTeacherSuccess">/searchTeacher.jsp</result>
             <result name="searchTeacherFail">/error.jsp</result>
         </action>
         <!--显示教师信息-->

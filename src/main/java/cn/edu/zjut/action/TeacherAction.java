@@ -12,6 +12,8 @@ import java.util.Map;
 @Scope("prototype")
 @Controller
 public class TeacherAction {
+    private String searchMess;
+    private int searchType;
     private Teacher teacher;
     @Autowired
     private ITeacherService teacherService = null;
@@ -22,6 +24,22 @@ public class TeacherAction {
 
     public Teacher getTeacher() {
         return teacher;
+    }
+
+    public String getSearchMess() {
+        return searchMess;
+    }
+
+    public void setSearchMess(String searchMess) {
+        this.searchMess = searchMess;
+    }
+
+    public int getSearchType() {
+        return searchType;
+    }
+
+    public void setSearchType(int searchType) {
+        this.searchType = searchType;
     }
 
     public String login() {
@@ -49,7 +67,7 @@ public class TeacherAction {
     }
 
     public String teacherSearch(){
-        if(teacherService.searchTeacherByTeacher(teacher))
+        if(teacherService.searchTeacher(searchMess,searchType))
             return "searchTeacherSuccess";
         else
             return "searchTeacherFail";

@@ -57,10 +57,11 @@ public interface ITeacherService {
     public Teacher getTeacherByID(int teaID);
 
     /**
-     * 教师查找
+     * 通过不同的方式查找教师
      *
-     * @param teacher
+     * @param teaMess
+     * @param type
      * @return
      */
-    public boolean searchTeacherByTeacher(Teacher teacher);
+    public boolean searchTeacher(String teaMess, int type);
 }

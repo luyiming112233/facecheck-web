@@ -74,29 +74,32 @@ public class TeacherService implements ITeacherService {
     @Override
     public boolean deleteTeacher(int teaID){
         ActionContext ctx = ActionContext.getContext();
-        request = (Map)ctx.get("request");
+        session =ctx.getSession();
         try {
-            if(teacherMapper.deleteTeacher(teaID)!=0) {
-                request.put("tip","教师信息删除成功！");
-                return true;
-            }
-
-        }catch (Exception e){
-            request.put("tip","教师信息删除失败！");
+            teacherMapper.deleteTeacher(teaID);
+        } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
-        request.put("tip","教师信息删除失败！");
-        return false;
+        List<Teacher> teacherList = (List<Teacher>)session.get("teacherList");
+        for(Teacher teacher:teacherList){
+            if(teacher.getTeaID()==teaID){
+                teacherList.remove(teacher);
+                break;
+            }
+        }
+        session.put("teacherList",teacherList);
+        return true;
     }
 
     @Override
     public boolean listAllTeacher(){
         ActionContext ctx = ActionContext.getContext();
-        request = (Map)ctx.get("request");
+        session = ctx.getSession();
         List<Teacher> teacherList = null;
         try{
             teacherList = teacherMapper.listAllTeacher();
-            request.put("teacherList",teacherList);
+            session.put("teacherList",teacherList);
             return true;
         }catch (Exception e){
             return false;
@@ -116,35 +119,29 @@ public class TeacherService implements ITeacherService {
     }
 
     @Override
-    public boolean searchTeacherByTeacher(Teacher teacher){
+    public boolean searchTeacher(String teaMess, int type){
         ActionContext ctx = ActionContext.getContext();
-        request = (Map) ctx.get("request");
-        request.remove("teacher");
+        session = ctx.getSession();
         List<Teacher> teacherList = null;
-        try{
-            if(teacher.getTeaID()!=null){
-                System.out.println("teaID:" + teacher.getTeaID());
-                Teacher newTeacher = teacherMapper.getTeacherById(teacher.getTeaID());
-                if(newTeacher !=null){
+        // 0:按学号查询；1：按姓名查询；
+        try {
+            switch (type) {
+                case 0:
+                    Teacher teacher = teacherMapper.getTeacherById(Integer.parseInt(teaMess));
                     teacherList = new ArrayList<Teacher>();
-                    teacherList.add(newTeacher);
-                }
-            }else if(teacher.getName()!=null){
-                teacherList = teacherMapper.listTeacherByName(teacher.getName());
+                    teacherList.add(teacher);
+                    break;
+                case 1:
+                    teacherList = teacherMapper.listTeacherByName(teaMess);
+                    break;
             }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        if(teacherList!=null){
-            request.put("teacherList",teacherList);
-            for(Teacher teacher1:teacherList){
-                System.out.println(teacher1.getTeaID()+","+teacher1.getName());
-            }
-            return true;
-        }else {
-            request.put("tip", "查找失败！");
-            System.out.println("fail");
+        } catch (Exception e) {
             return false;
         }
+        if (teacherList != null) {
+            session.put("teacherList", teacherList);
+            return true;
+        }
+        return false;
     }
 }
