@@ -2,6 +2,7 @@ package cn.edu.zjut.dao;
 
 import cn.edu.zjut.po.Student;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface StudentMapper {
@@ -75,6 +76,7 @@ public interface StudentMapper {
      * @throws Exception
      */
     public List<Student> listStudentByDepart(String departName) throws Exception;
+    public void insertStudentExcel(ArrayList<Student> stuField) throws  Exception;
 
 
 }

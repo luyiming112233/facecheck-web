@@ -54,5 +54,11 @@
     <select id="listStudentByDepart" resultMap="studentMap">
         SELECT * FROM student WHERE student_departname = #{departName}
     </select>
-
+    <insert id="insertStudentExcel" parameterType="java.util.List">
+        insert into student(student_id,student_name,student_password,student_classname,student_departname,student_email) values
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            (#{item.stuID},#{item.name},#{item.password},#{item.clazz},#{item.depart},#{item.email})
+        </foreach>
+    </insert>
 </mapper>

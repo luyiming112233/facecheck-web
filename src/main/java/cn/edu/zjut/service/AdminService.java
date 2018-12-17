@@ -7,6 +7,7 @@ package cn.edu.zjut.service;
 
 import cn.edu.zjut.dao.AdminMapper;
 import cn.edu.zjut.po.Admin;
+import com.opensymphony.xwork2.ActionContext;
 
 import java.util.Map;
 
@@ -24,20 +25,33 @@ public class AdminService implements IAdminService {
     }
 
     public boolean login(Admin admin) {
+        ActionContext ctx = ActionContext.getContext();
+        request = (Map)ctx.get("request");
+        session = (Map) ctx.getSession();
         Admin instance = new Admin();
 
         try {
             instance = adminMapper.findById(admin.getAdminID());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
         if (instance == null) {
             System.out.println("null");
             return false;
         }
-        else {
+        if(admin.getPassword().equals(instance.getPassword())){
+            admin=instance;
+            session.put("admin",admin);
             return true;
         }
+        else{
+            System.out.println(instance.getPassword());
+            System.out.println(instance.getAdminID());
+            System.out.println("密码不对！");
+            return false;
+        }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     public boolean register(Admin admin) {

@@ -14,22 +14,33 @@ import java.util.Map;
 @Service
 public class TeacherService implements ITeacherService {
     private Map<String, Object> request, session;
-    @Autowired
     private TeacherMapper teacherMapper = null;
-
+    public void setTeacherMapper(TeacherMapper teacherMapper){
+        this.teacherMapper=teacherMapper;
+    }
+    public TeacherMapper teacherMapper(){
+        return teacherMapper;
+    }
     @Override
     public boolean login(Teacher teacher) {
+        ActionContext ctx = ActionContext.getContext();
+        request = (Map)ctx.get("request");
+        session = (Map) ctx.getSession();
         System.out.println(teacher.getTeaID());
         Teacher instance = new Teacher();
         try {
             instance = teacherMapper.findById(teacher.getTeaID());
             if (instance == null) {
+                System.out.println(11111);
                 return false;
-            } else {
+            }
+            if (instance.getPassword().equals(teacher.getPassword())) {
                 teacher = instance;
+                session.put("teacher",teacher);
                 return true;
             }
         } catch (Exception e) {
+            System.out.println(2222);
             System.out.println(e);
         }
         return false;

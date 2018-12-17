@@ -6,8 +6,6 @@ package cn.edu.zjut.service;
 
 import cn.edu.zjut.po.Teacher;
 
-import java.util.List;
-
 public interface ITeacherService {
     /**
      * Jww:验证登录信息
