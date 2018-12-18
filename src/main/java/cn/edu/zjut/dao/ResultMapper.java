@@ -1,15 +1,17 @@
 package cn.edu.zjut.dao;
 
-import cn.edu.zjut.po.Result;
+import cn.edu.zjut.po.Sign;
+import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.List;
 
+@Repository
 public interface ResultMapper {
-	public List<Result> selectRByPId(int PId) throws Exception;
-	public List<Result> selectRById(int Id) throws Exception;
-	public List<Result> selectRByName(String name, int PId) throws Exception;
-	public List<Result> selectRByTime(Date time, int PId) throws Exception;
-	
+	 List<Sign> selectByTeacher_id(int teacher_id) throws Exception;
+	Sign selectBySign_id(int sign_id) throws Exception;
+	List<Sign> selectBySign_name(String sign_name,int teacher_id) throws Exception;
+	List<Sign> selectByCreatetime(Date createtime,int teacher_id) throws Exception;
+
 
 }
