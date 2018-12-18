@@ -63,7 +63,7 @@ public class ResultService implements IResultService{
 		return list;
 	}
 	@Override
-	public Sign getBySign_id(int sign_id) {//查找某个具体的大打卡
+	public Sign getBySign_id(String sign_id) {//查找某个具体的大打卡
 		System.out.println("resultservice-getBySign_id");
 		Sign sign=null;
 		try{

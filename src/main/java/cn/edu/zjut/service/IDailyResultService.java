@@ -7,7 +7,7 @@ import cn.edu.zjut.po.SignInstance;
 
 public interface IDailyResultService {
 
-    List<SignInstance> getBySign_id(int signID);
+    List<SignInstance> getBySign_id(String signID);
     DailyResult getBySigninstance_id(int signInstID);
 
 }

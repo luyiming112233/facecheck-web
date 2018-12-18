@@ -8,7 +8,7 @@ import cn.edu.zjut.po.*;
 @Repository
 public interface DailyResultMapper {
 
-    List<SignInstance> selectBySign_id(int signID);
+    List<SignInstance> selectBySign_id(String signID);
 
     SignInstance selectBySigninstance_id(int signInstID);
     int selectNumberofAll(int signInstID);
