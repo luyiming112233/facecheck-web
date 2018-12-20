@@ -136,26 +136,31 @@
         <!--****************************黄丹部分结束*****************************-->
 
         <!--***************************李璐瑶部分开始****************************-->
-        <action name="lookAll" class="com.action.ResultAction" method="lookAll">
+        <action name="lookAll" class="cn.edu.zjut.action.ResultAction" method="lookAll">
             <result name="success-lookAll">allResults.jsp</result>
             <result name="fail">fail.jsp</result>
         </action>
-        <action name="ByName" class="com.action.ResultAction" method="Byname">
+        <action name="ByName" class="cn.edu.zjut.action.ResultAction" method="Byname">
             <result name="success-Byname">allResults.jsp</result>
             <result name="fail">fail.jsp</result>
         </action>
-        <action name="ByTime" class="com.action.ResultAction" method="Bytime">
+        <action name="ByTime" class="cn.edu.zjut.action.ResultAction" method="Bytime" >
             <result name="success-Bytime">allResults.jsp</result>
             <result name="fail">fail.jsp</result>
         </action>
-        <action name="signDetails" class="com.action.ResultDetailsAction" method="SignDetails">
+        <action name="dailyResult" class="cn.edu.zjut.action.DailyResultAction" method="getDailyResult" >
+            <result name="success-Daily">dailyResult.jsp</result>
+            <result name="fail">fail.jsp</result>
+        </action>
+        <action name="getDetail" class="cn.edu.zjut.action.ResultDetailAction" method="getDetail" >
+            <result name="success-getDetail">resultDetails.jsp</result>
+            <result name="fail">fail.jsp</result>
+        </action>
+        <action name="changeResult" class="cn.edu.zjut.action.ResultDetailAction" method="changeDetails" >
             <result name="success-Details">resultDetails.jsp</result>
             <result name="fail">fail.jsp</result>
         </action>
-        <action name="changeResult" class="com.action.ResultDetailsAction" method="changeDetails">
-            <result name="success-Details">resultDetails.jsp</result>
-            <result name="fail">fail.jsp</result>
-        </action>
+
         <!--***************************李璐瑶部分结束****************************-->
     </package>
 </struts>

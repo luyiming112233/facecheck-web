@@ -1,68 +1,74 @@
 package cn.edu.zjut.action;
-
-
-import cn.edu.zjut.po.Publisher;
-import cn.edu.zjut.po.Result;
-import cn.edu.zjut.service.ResultService;
-import cn.edu.zjut.service.SignService;
-import com.opensymphony.xwork2.ActionSupport;
-
-
 import java.util.List;
 
+import javax.annotation.Resource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.opensymphony.xwork2.ActionSupport;
+import cn.edu.zjut.po.*;
+import cn.edu.zjut.service.*;
+//大打卡有关
+@Controller
 public class ResultAction extends ActionSupport {
-    private Result result;
-    private List<Result> results;
-    private Publisher publisher;
-    private SignService resultService = null;
-
-    public void setResult(Result result) {
-        this.result = result;
+    private Sign result; //大打卡信息
+    private List<Sign> results;//大打卡信息列表
+    private Teacher teacher;
+    @Autowired
+    //@Resource(name="resultService")
+    private IResultService resultService;
+    public void setResult(Sign result)
+    {
+        this.result=result;
     }
-
-    public Result getResult() {
+    public Sign getResult()
+    {
         return result;
     }
-
-    public void setResults(List<Result> results) {
-        this.results = results;
+    public void setResults(List<Sign> results)
+    {
+        this.results=results;
     }
-
-    public List<Result> getResults() {
+    public List<Sign> getResults()
+    {
         return results;
     }
-
-    public void setPublisher(Publisher publisher) {
-        this.publisher = publisher;
+    public void setTeacher(Teacher teacher)
+    {
+        this.teacher=teacher;
     }
-
-    public Publisher getPublisher() {
-        return publisher;
+    public Teacher getTeacher()
+    {
+        return teacher;
     }
-
-    public SignService getResultService() {
+    public IResultService getResultService() {
         return resultService;
     }
+    @Resource
 
     public void setResultService(ResultService resultService) {
         this.resultService = resultService;
     }
-
-    public String lookAll() {
-        System.out.println(publisher.getId() + "***********");
-        results = (List<Result>) resultService.getRByPId(publisher.getId());
+    //查看所有签到
+    public String lookAll()//根据teacher_id查看该老师发布的所有签到信息
+    {
+        System.out.println(teacher.getTeaID()+"***********");
+        results=(List<Sign>)resultService.getByTeacher_id(teacher.getTeaID());
         return "success-lookAll";
     }
-
-    public String Byname() {
-        System.out.println("now the ResultAction-ByName" + result.getName());
-        results = (List<Result>) resultService.getRByName(result.getName(), publisher.getId());
+    //按签到名查找
+    public String Byname()//根据签到名称查找       teacher_id和sign_name查看该老师发布的信息
+    {
+        System.out.println("now the ResultAction-ByName"+result.getName());
+        results=(List<Sign>)resultService.getBySign_name(result.getName(), teacher.getTeaID());
         return "success-Byname";
     }
-
-    public String Bytime() {
-        System.out.println("now the ResultAction-ByTime" + result.getTime());
-        results = (List<Result>) resultService.getRByTime(result.getTime(), publisher.getId());
+    //按创建时间查找
+    public String Bytime()//根据签到发布时间       teacher_id和createtime查看该老师发布的所有签到信息
+    {
+        System.out.println("now the ResultAction-ByTime"+result.getCreateTime());
+        results=(List<Sign>)resultService.getByCreatetime(result.getCreateTime(),teacher.getTeaID());
         return "success-Bytime";
     }
 }

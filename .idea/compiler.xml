@@ -11,5 +11,8 @@
         <module name="facecheck-web" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="facecheck-web" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>

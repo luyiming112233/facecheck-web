@@ -97,24 +97,4 @@
     </bean>
     <!--***************************金炜炜部分结束****************************-->
 
-    <!--***************************李璐瑶部分开始****************************-->
-    <!--Service 配置 -->
-    <bean id="resultService" class="cn.edu.zjut.service.ResultService">
-        <property name="resultmapper" ref="resultMapper"/>
-    </bean>
-    <bean id="publisherService" class="cn.edu.zjut.service.PublisherService">
-        <property name="publishermapper" ref="publisherMapper"/>
-    </bean>
-    <bean id="resultDetailsService" class="cn.edu.zjut.service.ResultDService">
-        <property name="resultDmapper" ref="resultDMapper"/>
-    </bean>
-    <!--Struts2 action配置-->
-    <bean id="resultAction" class="cn.edu.zjut.action.ResultAction" scope="prototype">
-        <property name="resultService" ref="resultService"/>
-    </bean>
-    <bean id="resultDetailsAction" class="cn.edu.zjut.action.ResultDetailsAction" scope="prototype">
-        <property name="resultDetailsService" ref="resultDetailsService"/>
-        <property name="resultService" ref="resultService"/>
-    </bean>
-    <!--***************************李璐瑶部分结束****************************-->
 </beans>
