@@ -66,7 +66,7 @@
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn" lay-submit lay-filter="formDemo">添加</button>
+                <button class="layui-btn" lay-submit data-type="auto" lay-filter="formDemo" onclick="showMessage()">添加</button>
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>
@@ -83,6 +83,12 @@
                 return false;
             });
         });
+        function showMessage() {
+            layui.use('layer', function () {
+                var layer = layui.layer;
+                layer.msg('添加学生');
+            });
+        }
     </script>
 
 
