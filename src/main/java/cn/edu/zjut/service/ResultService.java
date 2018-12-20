@@ -25,7 +25,6 @@ public class ResultService implements IResultService{
 	}
 
 	@Override
-
 	public List<Sign> getByTeacher_id(int teacher_id) {//根据老师的id查找它的所有打卡任务
 		System.out.println("resultservice-getByTeacher_id");
 		List<Sign> list=new ArrayList();

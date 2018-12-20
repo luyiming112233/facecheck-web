@@ -1,11 +1,10 @@
 package cn.edu.zjut.dao;
 
 import cn.edu.zjut.po.Student;
-import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
-@Repository
+
 public interface StudentMapper {
     /**
      * 新增学生
@@ -78,6 +77,6 @@ public interface StudentMapper {
      */
     public List<Student> listStudentByDepart(String departName) throws Exception;
     public void insertStudentExcel(ArrayList<Student> stuField) throws  Exception;
-    public void insertStudentFace(ArrayList<Student>stuField) throws  Exception;
+
 
 }
