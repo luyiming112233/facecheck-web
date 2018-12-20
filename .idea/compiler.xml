@@ -8,7 +8,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="facecheack-web" />
         <module name="facecheack-web-2" />
-        <module name="facecheck-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
