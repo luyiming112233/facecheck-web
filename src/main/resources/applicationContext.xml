@@ -57,44 +57,10 @@
 
     <aop:config>
         <aop:aspect id="checkT" ref="CheckTeacher">
-            <aop:pointcut id="modify" expression="execution(* cn.edu.zjut.service.TeacherService.*Teacher(..))" />
+            <aop:pointcut id="modify" expression="execution(* cn.edu.zjut.service.TeacherService.*Teacher(..)) || execution(* cn.edu.zjut.service.StudentService.*(..)) "  />
             <aop:before method="checkTeacher" pointcut-ref="modify"></aop:before>
         </aop:aspect>
-
     </aop:config>
 
-    <!--Service 配置 -->
-    <!--
-    <bean id="teacherService"  class="cn.edu.zjut.service.TeacherService">
-        <property name="teacherMapper" ref="teacherMapper"/>
-    </bean>
-    -->
-
-    <!-- DAO-->
-    <bean id="excelFileGernerrator" class="cn.edu.zjut.dao.ExcelFileGenerator">
-    </bean>
-    <!--Service 配置 -->
-
-    <bean id="teacherService"  class="cn.edu.zjut.service.TeacherService">
-        <property name="teacherMapper" ref="teacherMapper"/>
-    </bean>
-
-
-    <bean id="adminService"  class="cn.edu.zjut.service.AdminService">
-        <property name="adminMapper" ref="adminMapper"/>
-    </bean>
-    <bean id="userService" class="cn.edu.zjut.service.UserService">
-        <property name="excelFileGenerator" ref="excelFileGernerrator"></property>
-        <property name="studentMapper" ref="studentMapper"/>
-    </bean>
-    <!--Struts2 action配置-->
-
-    <bean id="adminAction" class="cn.edu.zjut.action.AdminAction" scope="prototype"/>
-    <bean id="teacherAction" class="cn.edu.zjut.action.TeacherAction" scope="prototype">
-    </bean>
-    <bean id="listAction" class="cn.edu.zjut.action.ListAction" scope="prototype">
-        <property name="userService" ref="userService"/>
-    </bean>
-    <!--***************************金炜炜部分结束****************************-->
 
 </beans>

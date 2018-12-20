@@ -30,29 +30,38 @@ public class TeacherMessageAction {
         this.teacher = teacher;
     }
 
-    public String getTeaMess(){
-        teacher = (Teacher) teacherService.getTeacherByID(Integer.valueOf(teaID) );
-        if(teacher!=null)
-            return "getTeaMessSuccess";
-        else
-            return "getTeaMessFail";
+    public String getTeaMess() {
+        try {
+            teacher = (Teacher) teacherService.getTeacherByID(Integer.valueOf(teaID));
+            if (teacher != null)
+                return "getTeaMessSuccess";
+            else
+                return "getTeaMessFail";
+        } catch (Exception e) {
+            return"login";
+        }
     }
 
-    public String updateTeaMess(){
+    public String updateTeaMess() {
         try {
             if (teacherService.updateTeacher(teacher))
                 return "updateTeaMessSuccess";
             else
                 return "updateTeaMessFail";
-        }catch (Exception e){
-            return "updateTeaMessFail";
+        } catch (Exception e) {
+            return "login";
         }
     }
 
-    public String deleteTeaMess(){
-        if(teacherService.deleteTeacher(Integer.valueOf(teaID)))
-            return "deleteTeaMessSuccess";
-        else
-            return "deleteTeaMessFail";
+    public String deleteTeaMess() {
+        try {
+            if (teacherService.deleteTeacher(Integer.valueOf(teaID)))
+                return "deleteTeaMessSuccess";
+            else
+                return "deleteTeaMessFail";
+        } catch (Exception e) {
+            return "login";
+        }
     }
+
 }

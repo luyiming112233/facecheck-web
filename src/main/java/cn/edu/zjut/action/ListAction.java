@@ -1,16 +1,19 @@
 package cn.edu.zjut.action;
 
 import cn.edu.zjut.service.IUserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-
+@Controller
 public class ListAction {
 
 	private InputStream excelFile;
+	@Autowired
 	private IUserService userService;
 	private ArrayList fieldName=null ; //excel标题数据集
 	private ArrayList fieldData=null ; //excel数据内容

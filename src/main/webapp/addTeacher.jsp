@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
-<%@ include file="UITeaOpeHead.jsp" %>
+<%@ include file="UIAdminHead.jsp" %>
 <div class="layui-body">
     <div class="layui-text" style="font-size: 25px; color: #393D49;width: 400px;height: 30px;padding: 35px">
         添加教师信息
@@ -52,7 +52,7 @@
 
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn" lay-submit lay-filter="formDemo">添加</button>
+                <button class="layui-btn" lay-submit lay-filter="formDemo" onclick="showMessage()">添加</button>
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>
@@ -69,6 +69,13 @@
                 return false;
             });
         });
+
+        function showMessage() {
+            layui.use('layer', function () {
+                var layer = layui.layer;
+                layer.msg('添加教师');
+            });
+        }
     </script>
 </div>
 

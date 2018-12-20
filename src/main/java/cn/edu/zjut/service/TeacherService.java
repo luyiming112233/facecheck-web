@@ -14,13 +14,17 @@ import java.util.Map;
 @Service
 public class TeacherService implements ITeacherService {
     private Map<String, Object> request, session;
+    @Autowired
     private TeacherMapper teacherMapper = null;
-    public void setTeacherMapper(TeacherMapper teacherMapper){
-        this.teacherMapper=teacherMapper;
-    }
-    public TeacherMapper teacherMapper(){
+
+    public TeacherMapper getTeacherMapper() {
         return teacherMapper;
     }
+
+    public void setTeacherMapper(TeacherMapper teacherMapper) {
+        this.teacherMapper = teacherMapper;
+    }
+
     @Override
     public boolean login(Teacher teacher) {
         ActionContext ctx = ActionContext.getContext();

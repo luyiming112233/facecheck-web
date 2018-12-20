@@ -13,7 +13,7 @@
 
 <html>
 <body>
-<%@ include file="UITeaOpeHead.jsp" %>
+<%@ include file="UIAdminHead.jsp" %>
 <div class="layui-body">
     <div class="layui-text" style="font-size: 25px; color: #393D49;width: 400px;height: 30px;padding: 35px">
         查询教师信息
@@ -44,16 +44,9 @@
         </div>
     </form>
 
-    <div class="layui-btn-group demoTable">
-        <button class="layui-btn" data-type="getCheckData" name="getCheajDate">获取选中行数据</button>
-        <button class="layui-btn" data-type="getCheckLength">获取选中数目</button>
-        <button class="layui-btn" data-type="isAll">验证是否全选</button>
-    </div>
-
     <table class="layui-table" lay-data="{height:500, page:true, id:'teaTable'}" lay-filter="test" >
         <thead>
         <tr>
-            <th lay-data="{type:'checkbox'}"></th>
             <th lay-data="{field:'teaID', width:100}">工号</th>
             <th lay-data="{field:'name', width:100, sort:true}">姓名</th>
             <th lay-data="{field:'sex', width:100, sort:true}">性别</th>
@@ -64,7 +57,6 @@
         <tbody>
         <s:iterator value="#session['teacherList']">
             <tr>
-                <td lay-data="{type:'checkbox'}">#stuID</td>
                 <td><s:property value="teaID"/></td>
                 <td><s:property value="name"/></td>
                 <s:if test="%{sex==1}">
@@ -82,41 +74,7 @@
     </table>
 
 
-
 </div>
-
-<script src="../layui/layui.js" charset="utf-8"></script>
-<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
-<script>
-    layui.use('table', function(){
-        var table = layui.table;
-        //监听表格复选框选择
-        table.on('checkbox(demo)', function(obj){
-            console.log(obj)
-        });
-        var $ = layui.$, active = {
-            getCheckData: function(){ //获取选中数据
-                var checkStatus = table.checkStatus('stuTable')
-                    ,data = checkStatus.data;
-                layer.alert(JSON.stringify(data));
-            }
-            ,getCheckLength: function(){ //获取选中数目
-                var checkStatus = table.checkStatus('stuTable')
-                    ,data = checkStatus.data;
-                layer.msg('选中了：'+ data.length + ' 个');
-            }
-            ,isAll: function(){ //验证是否全选
-                var checkStatus = table.checkStatus('stuTable');
-                layer.msg(checkStatus.isAll ? '全选': '未全选')
-            }
-        };
-
-        $('.demoTable .layui-btn').on('click', function(){
-            var type = $(this).data('type');
-            active[type] ? active[type].call(this) : '';
-        });
-    });
-</script>
 
 <script>
     //Demo
