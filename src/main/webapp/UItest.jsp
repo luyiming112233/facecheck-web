@@ -12,7 +12,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <body>
-<%@ include file="UITeaOpeHead.jsp" %>
+<%@ include file="UIAdminHead.jsp" %>
 <div class="layui-body">
     <div class="layui-text" style="font-size: 25px; color: #393D49;width: 400px;height: 30px;padding: 35px">
         更新教师信息
