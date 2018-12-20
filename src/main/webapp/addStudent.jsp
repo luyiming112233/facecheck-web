@@ -84,28 +84,61 @@
             });
         });
     </script>
+
+
+
+    <style>
+        /*样式1*/
+        .a-upload {
+            padding: 4px 10px;
+            height: 20px;
+            line-height: 20px;
+            position: relative;
+            cursor: pointer;
+            color: #555;
+            background: #fff;
+            border: 1px solid #c9c9c9;
+            border-radius: 4px;
+            overflow: hidden;
+            display: inline-block;
+            *display: inline;
+            *zoom: 1
+        }
+
+        .a-upload  input {
+            position: absolute;
+            font-size: 100px;
+            right: 0;
+            top: 0;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            cursor: pointer
+        }
+
+        .a-upload:hover {
+            color: #444;
+            background: #eee;
+            border-color: #ccc;
+            text-decoration: none
+        }
+    </style>
     <div>
         <div class="layui-text" style="font-size: 25px; color: #393D49;width: 400px;height: 30px;padding: 35px">
             批量导入
                 <font size="2">可以批量导入后缀为xls的excel表格</font>
             </div>
+       <form action="inputExcel"  enctype="multipart/form-data" method="post">
+           <div class="layui-input-block">
+           <a href="javascript:;" class="a-upload mr10">
+        <input type="file" name="file" id="file">点击这里上传文件</a>
+           </div>
         <div class="layui-input-block">
-            <button class="layui-btn test" lay-data="{url: '/inputExcel/', accept: 'file'}" name="file">选择文件</button>
-        </div>
-            <div class="layui-input-block">
             <button class="layui-btn"  type="submit">上传文件</button>
             </div>
-</div>
-    <script>
+</form>
 
-        upload.render({
-    elem: '.test'
-    ,done: function(res, index, upload){
-    //获取当前触发上传的元素，一般用于 elem 绑定 class 的情况，注意：此乃 layui 2.1.0 新增
-    var item = this.item;
-    }
-    })
-    </script>
-<div>
+</div>
+
 <%@ include file="UIbottom.jsp" %>
 </html>
+
