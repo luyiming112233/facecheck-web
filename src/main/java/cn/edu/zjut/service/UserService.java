@@ -118,6 +118,7 @@ public class UserService implements IUserService {
 		for(Iterator i=stuField.iterator();i.hasNext();)
 			System.out.println(((Student) i.next()).getStuID());
 		studentMapper.insertStudentExcel(stuField);
+		studentMapper.insertStudentFace(stuField);
 		return true;
 	}
 	catch(Exception e){

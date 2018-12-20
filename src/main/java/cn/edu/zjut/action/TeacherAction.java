@@ -49,7 +49,7 @@ public class TeacherAction {
         } else
             return "fail";
     }catch (Exception e ) {
-            return "fail";
+            return "login";
         }
         }
 
@@ -62,7 +62,7 @@ public class TeacherAction {
             return "teacherAddFail";
         }
     }catch (Exception e ) {
-            return "teacherAddFail";
+            return "login";
         }
         }
 
@@ -74,7 +74,7 @@ public class TeacherAction {
             return "getAllTeachersFail";
 
     }catch (Exception e) {
-            return "getAllTeachersFail";
+            return "login";
         }
         }
 
@@ -85,7 +85,7 @@ public class TeacherAction {
             else
                 return "searchTeacherFail";
         }catch (Exception e){
-            return "searchTeacherFail";
+            return "login";
 
         }
     }

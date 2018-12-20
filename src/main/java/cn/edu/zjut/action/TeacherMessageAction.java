@@ -38,7 +38,7 @@ public class TeacherMessageAction {
             else
                 return "getTeaMessFail";
         } catch (Exception e) {
-            return "getTeaMessFail";
+            return"login";
         }
     }
 
@@ -49,7 +49,7 @@ public class TeacherMessageAction {
             else
                 return "updateTeaMessFail";
         } catch (Exception e) {
-            return "updateTeaMessFail";
+            return "login";
         }
     }
 
@@ -60,7 +60,7 @@ public class TeacherMessageAction {
             else
                 return "deleteTeaMessFail";
         } catch (Exception e) {
-            return "deleteTeaMessFail";
+            return "login";
         }
     }
 
