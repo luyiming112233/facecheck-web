@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
-<%@ include file="UITeaOpeHead.jsp" %>
+<%@ include file="UIAdminHead.jsp" %>
 <div class="layui-body">
     <div class="layui-text" style="font-size: 25px; color: #393D49;width: 400px;height: 30px;padding: 35px">
         添加教师信息
