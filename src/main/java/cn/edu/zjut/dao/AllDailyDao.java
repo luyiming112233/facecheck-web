@@ -1,11 +1,12 @@
 package cn.edu.zjut.dao;
 
 import cn.edu.zjut.po.AllDaily;
+import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.List;
 
-
+@Repository
 public interface AllDailyDao {
     List<AllDaily> getAllDaily() throws Exception;//查询所有打卡记录
 

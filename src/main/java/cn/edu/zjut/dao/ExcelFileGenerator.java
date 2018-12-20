@@ -8,12 +8,13 @@ package cn.edu.zjut.dao;
 import cn.edu.zjut.po.Student;
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.hssf.usermodel.*;
+import org.springframework.stereotype.Repository;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-
+@Repository
 public class ExcelFileGenerator {
  
 	private final int SPLIT_COUNT = 1500; //Excelÿ��������������

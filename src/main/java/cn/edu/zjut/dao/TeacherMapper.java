@@ -1,9 +1,10 @@
 package cn.edu.zjut.dao;
 
 import cn.edu.zjut.po.Teacher;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface TeacherMapper {
     /*Jww函数换名*/
     public Teacher findById(int id);

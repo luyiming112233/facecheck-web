@@ -14,6 +14,7 @@ import java.util.Map;
 @Service
 public class TeacherService implements ITeacherService {
     private Map<String, Object> request, session;
+    @Autowired
     private TeacherMapper teacherMapper = null;
     public void setTeacherMapper(TeacherMapper teacherMapper){
         this.teacherMapper=teacherMapper;
