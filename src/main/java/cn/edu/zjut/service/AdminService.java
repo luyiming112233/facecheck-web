@@ -8,12 +8,15 @@ package cn.edu.zjut.service;
 import cn.edu.zjut.dao.AdminMapper;
 import cn.edu.zjut.po.Admin;
 import com.opensymphony.xwork2.ActionContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
-
+@Service
 public class AdminService implements IAdminService {
     private Map<String, Object> request, session;
+    @Autowired
     private AdminMapper adminMapper = null;
 
     public void setAdminMapper(AdminMapper adminMapper) {

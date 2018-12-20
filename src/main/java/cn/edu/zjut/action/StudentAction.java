@@ -59,7 +59,7 @@ public class StudentAction implements RequestAware {
                 return "studentAddFail";
             }
         }catch (Exception e){
-            return "studentAddFail";
+            return "login";
 
         }
     }
@@ -74,7 +74,7 @@ public class StudentAction implements RequestAware {
                 return "stuSearchFail";
             }
         }catch ( Exception e){
-            return "stuSearchFail";
+            return "login";
 
         }
     }
@@ -87,7 +87,7 @@ public class StudentAction implements RequestAware {
                 return "allStudentsFail";
             }
         }catch (Exception e){
-            return "allStudentsFail";
+            return "login";
 
         }
     }

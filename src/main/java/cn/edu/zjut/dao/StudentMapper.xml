@@ -61,4 +61,12 @@
             (#{item.stuID},#{item.name},#{item.password},#{item.clazz},#{item.depart},#{item.email})
         </foreach>
     </insert>
+
+    <insert id="insertStudentFace" parameterType="java.util.List">
+        insert into student_face(student_id) values
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            (#{item.stuID})
+        </foreach>
+    </insert>
 </mapper>

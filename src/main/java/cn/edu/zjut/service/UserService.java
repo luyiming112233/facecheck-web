@@ -5,16 +5,20 @@ import cn.edu.zjut.dao.ExcelFileGenerator;
 import cn.edu.zjut.dao.StudentMapper;
 import cn.edu.zjut.po.Student;
 import com.opensymphony.xwork2.ActionContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-
+@Service
 public class UserService implements IUserService {
-    private ExcelFileGenerator excelFileGenerator;
-    private StudentMapper studentMapper;
+	@Autowired
+	private ExcelFileGenerator excelFileGenerator;
+	@Autowired
+	private StudentMapper studentMapper;
 	public ByteArrayOutputStream exportExcel(ArrayList fieldName,ArrayList fieldData) {
 		System.out.println("Service Start");
 		ActionContext ctx = ActionContext.getContext();
@@ -114,6 +118,7 @@ public class UserService implements IUserService {
 		for(Iterator i=stuField.iterator();i.hasNext();)
 			System.out.println(((Student) i.next()).getStuID());
 		studentMapper.insertStudentExcel(stuField);
+		studentMapper.insertStudentFace(stuField);
 		return true;
 	}
 	catch(Exception e){

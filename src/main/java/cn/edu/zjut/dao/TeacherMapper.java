@@ -4,7 +4,6 @@ import cn.edu.zjut.po.Teacher;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
 @Repository
 public interface TeacherMapper {
     /*Jww函数换名*/

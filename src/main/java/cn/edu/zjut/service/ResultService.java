@@ -4,15 +4,22 @@ package cn.edu.zjut.service;
 
 import cn.edu.zjut.dao.ResultMapper;
 import cn.edu.zjut.po.Sign;
+import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
+
 @Service
 public class ResultService implements IResultService{
 	@Autowired
+	private Map<String, Object> request, session;
 	private ResultMapper resultmapper;
 	public ResultService()
 	{
@@ -61,9 +68,34 @@ public class ResultService implements IResultService{
 		}
 		return list;
 	}
+	public List<Sign> find(String message, int type,int teaID) {//按创建时间查找
+		System.out.println("resultservice-find");
+		ActionContext ctx = ActionContext.getContext();
+		session = ctx.getSession();
+		List<Sign> list=new ArrayList();
+		try{
+			if(type==1)
+			{
+				System.out.println(message +"***********");
+				DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+				Date createtime = df.parse(message);
+				//Date createtime=new Date(message);
+				System.out.println(createtime+"*");
+				return this.getByCreatetime(createtime,teaID);
+			}
+			else
+			{
+				return this.getBySign_name(message,teaID);
+			}
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return list;
+	}
 	@Override
 	public Sign getBySign_id(String sign_id) {//查找某个具体的大打卡
-		System.out.println("resultservice-getBySign_id");
+		System.out.println("resultservice-getBySign_id"+sign_id);
 		Sign sign=null;
 		try{
 			sign=resultmapper.selectBySign_id(sign_id);

@@ -37,7 +37,7 @@ public class StudentMessageAction {
             else
                 return "getStuMessFail";
         } catch (Exception e) {
-            return "getStuMessFail";
+            return "login";
         }
     }
 
@@ -48,7 +48,7 @@ public class StudentMessageAction {
             else
                 return "updateStuMessFail";
         } catch (Exception e) {
-            return "updateStuMessFail";
+            return "login";
         }
     }
 
@@ -59,7 +59,7 @@ public class StudentMessageAction {
             else
                 return "deleteStuMessFail";
         } catch (Exception e) {
-            return "deleteStuMessFail";
+            return "login";
 
         }
     }
