@@ -15,9 +15,24 @@ public class ResultAction extends ActionSupport {
     private Sign result; //大打卡信息
     private List<Sign> results;//大打卡信息列表
     private Teacher teacher;
+    private String message;
+    private int searchType;
     @Autowired
     //@Resource(name="resultService")
     private IResultService resultService;
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+    public int getSearchType(){
+        return searchType;
+    }
+    public void setSearchType(int searchType){
+        this.searchType=searchType;
+    }
     public void setResult(Sign result)
     {
         this.result=result;
@@ -55,6 +70,8 @@ public class ResultAction extends ActionSupport {
     {
         System.out.println(teacher.getTeaID()+"***********");
         results=(List<Sign>)resultService.getByTeacher_id(teacher.getTeaID());
+        System.out.println("*************"+results.get(0).getSignID()+results.get(0).getTeaID());
+        System.out.println("the time is"+results.get(0).getCreateTime());
         return "success-lookAll";
     }
     //按签到名查找
@@ -70,5 +87,10 @@ public class ResultAction extends ActionSupport {
         System.out.println("now the ResultAction-ByTime"+result.getCreateTime());
         results=(List<Sign>)resultService.getByCreatetime(result.getCreateTime(),teacher.getTeaID());
         return "success-Bytime";
+    }
+    public String find(){
+        System.out.println("now the find message:"+message+"searchType"+searchType+"teaID"+teacher.getTeaID());
+        results=(List<Sign>)resultService.find(message,searchType,teacher.getTeaID());
+        return "success-find";
     }
 }

@@ -64,7 +64,6 @@ public class DailyResultAction {
         signinstances=(List<SignInstance>)dailyresultService.getBySign_id(signinstance.getSignID());
         //得到大打卡的名称
         result=resultService.getBySign_id(signinstance.getSignID());
-        System.out.println(result.getName()+"***"+signinstances.get(0).getPlaceName()+"***"+signinstances.get(1).getPlaceName());
         return "success-Daily";
     }
 

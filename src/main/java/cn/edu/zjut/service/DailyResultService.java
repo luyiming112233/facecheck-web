@@ -24,7 +24,7 @@ public class DailyResultService implements IDailyResultService {
 
     @Override
     public List<SignInstance> getBySign_id(String signID) {//根据大打卡的id得到小打卡列表
-        System.out.println("dailyresultservice-getBySign_id");
+        System.out.println("dailyresultservice-getBySign_id"+signID);
         List<SignInstance> list=new ArrayList();
         try{
             list=(List<SignInstance>)dailyresultmapper.selectBySign_id(signID);

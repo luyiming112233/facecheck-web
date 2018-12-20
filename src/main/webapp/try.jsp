@@ -11,7 +11,7 @@ lly
 </head>
 <body>
 <form action="lookAll" method="post">
-<input type="hidden" value="2" name="publisher.id">
+<input type="hidden" value="2014003" name="teacher.teaID">
 <input type="submit" value="查看签到结果">
 </form>
 </body>

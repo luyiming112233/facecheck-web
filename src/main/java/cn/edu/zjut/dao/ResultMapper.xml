@@ -5,7 +5,7 @@
 <mapper namespace="cn.edu.zjut.dao.ResultMapper">
     <!-- 自定义返回结果集 -->
     <resultMap id="resultMap" type="Sign">
-        <id property="signID" column="sign_id" javaType="java.lang.Integer"></id>
+        <result property="signID" column="sign_id" javaType="java.lang.Integer"/>
         <result property="name" column="sign_name" javaType="java.lang.String"/>
         <result property="description" column="sign_description" javaType="java.lang.String"/>
         <result property="createTime" column="createtime" javaType="java.sql.Date"/>

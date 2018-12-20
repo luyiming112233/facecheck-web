@@ -1,10 +1,11 @@
 package cn.edu.zjut.dao;
 
 import cn.edu.zjut.po.Student;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Repository
 public interface StudentMapper {
     /**
      * 新增学生

@@ -26,11 +26,11 @@ public class ResultDetailService implements IResultDetailService{
 
     @Override
     public List<ResultDetail> getBySignInstance_id(int signInstID) {//根据小打卡id获得该打卡的学生打卡情况
-        System.out.println("resultdetailservice-getBySigninstance_id");
+        System.out.println("resultdetailservice-getBySigninstance_id    "+signInstID);
         List<ResultDetail> list=new ArrayList();
         try{
             list=(List<ResultDetail>)resultdetailmapper.selectBySigninstance_id(signInstID);
-            System.out.println(list.get(0).getStudent_name()+"***"+list.get(0).getStudentsign().getStatus());
+            System.out.println("service list.size()"+list.size());
         }catch(Exception e)
         {
             e.printStackTrace();

@@ -140,6 +140,10 @@
             <result name="success-lookAll">allResults.jsp</result>
             <result name="fail">fail.jsp</result>
         </action>
+        <action name="find" class="cn.edu.zjut.action.ResultAction" method="find" >
+            <result name="success-find">allResults.jsp</result>
+            <result name="fail">fail.jsp</result>
+        </action>
         <action name="ByName" class="cn.edu.zjut.action.ResultAction" method="Byname">
             <result name="success-Byname">allResults.jsp</result>
             <result name="fail">fail.jsp</result>

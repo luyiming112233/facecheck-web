@@ -6,7 +6,7 @@
     <!-- 自定义返回结果集 -->
     <resultMap id="dailyresultMap" type="SignInstance">
         <id property="signInstID" column="signinstance_id" javaType="java.lang.Integer"></id>
-        <result property="signID" column="sign_id" javaType="java.lang.Integer"/>
+        <result property="signID" column="sign_id" javaType="java.lang.String"/>
         <result property="startTime" column="starttime" javaType="java.sql.Time"/>
         <result property="endTime" column="endtime" javaType="java.sql.Time"/>
         <result property="longitude" column="longitude" javaType="java.lang.String"/>
