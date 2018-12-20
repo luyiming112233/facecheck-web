@@ -44,6 +44,8 @@ public interface IStudentService {
      */
     public boolean listAllStudent();
 
+    public List<Student>  listAllStudents();
+
     /**
      * 查找一个班级学生的信息
      *

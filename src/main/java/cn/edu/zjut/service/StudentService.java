@@ -144,6 +144,16 @@ public class StudentService implements IStudentService {
         }
     }
 
+    public List<Student> listAllStudents() {
+        try {
+            List<Student> studentList = studentMapper.listAllStudent();
+            return studentList;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     @Override
     public boolean showStudent(int stuID){
         ActionContext ctx = ActionContext.getContext();

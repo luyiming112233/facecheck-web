@@ -189,5 +189,33 @@
         </action>
 
         <!--***************************李璐瑶部分结束****************************-->
+
+        <action name="ReleaseAction" class="cn.edu.zjut.action.ReleaseAction"  method="sendmsg"/>
+
+        <action name="TaskOutCenterAction" class="cn.edu.zjut.action.TaskOutCenterAction" method="buildTask">
+            <result type= "chain" name="success">inToPlatformAction</result>
+        </action>
+
+        <action name="templateAction" class="cn.edu.zjut.action.TaskOutCenterAction" method=" buildTemplate">
+            <result type= "chain" name="success">inToPlatformAction</result>
+        </action>
+        <action name="inToPlatformAction" class="cn.edu.zjut.action.TaskOutCenterAction" method=" inToPlatform">
+            <result name="success">TaskPlatformUI.jsp</result>
+
+        </action>
+
+        <action name="CreateInsAction" class="cn.edu.zjut.action.TaskOutCenterAction" method="gotoinstance">
+            <result name="success">signinfoUI.jsp</result>
+        </action>
+
+        <action name="DeleteInsAction" class="cn.edu.zjut.action.TaskOutCenterAction" method="deleteInstance">
+            <result name="success">signinfo.jsp</result>
+        </action>
+
+        <action name="newInsAction" class="cn.edu.zjut.action.TaskOutCenterAction" method="newIns">
+            <result type= "chain" name="success">inToPlatformAction</result>
+        </action>
+
+
     </package>
 </struts>

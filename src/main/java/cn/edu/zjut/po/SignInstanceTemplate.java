@@ -1,5 +1,6 @@
 package cn.edu.zjut.po;
 
+import java.sql.Time;
 import java.util.Date;
 
 /**
@@ -8,18 +9,18 @@ import java.util.Date;
 public class SignInstanceTemplate {
     private Integer tempID;//签到实例模板ID
     private Integer teaID;//教师ID（模板的拥有者）
-    private Date startTime;//签到开始时间
-    private Date endTime;//签到截止时间
+    private Time startTime;//签到开始时间
+    private int radius;
+    private Time endTime;//签到截止时间
     private String longitude;//签到地点经度
     private String latitude;//签到地点纬度
     private String placeName;//签到地点名称
 
-    public SignInstanceTemplate(){ }
-
-    public SignInstanceTemplate(Integer tempID, Integer teaID, Date startTime, Date endTime, String longitude, String latitude, String placeName) {
+    public SignInstanceTemplate(Integer tempID, Integer teaID, Time startTime, int radius, Time endTime, String longitude, String latitude, String placeName) {
         this.tempID = tempID;
         this.teaID = teaID;
         this.startTime = startTime;
+        this.radius = radius;
         this.endTime = endTime;
         this.longitude = longitude;
         this.latitude = latitude;
@@ -42,19 +43,27 @@ public class SignInstanceTemplate {
         this.teaID = teaID;
     }
 
-    public Date getStartTime() {
+    public Time getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(Time startTime) {
         this.startTime = startTime;
     }
 
-    public Date getEndTime() {
+    public int getRadius() {
+        return radius;
+    }
+
+    public void setRadius(int radius) {
+        this.radius = radius;
+    }
+
+    public Time getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Date endTime) {
+    public void setEndTime(Time endTime) {
         this.endTime = endTime;
     }
 
@@ -81,4 +90,8 @@ public class SignInstanceTemplate {
     public void setPlaceName(String placeName) {
         this.placeName = placeName;
     }
+
+    public SignInstanceTemplate() {
+    }
+
 }
