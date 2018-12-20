@@ -39,10 +39,14 @@ public class TeacherMessageAction {
     }
 
     public String updateTeaMess(){
-        if(teacherService.updateTeacher(teacher))
-            return "updateTeaMessSuccess";
-        else
+        try {
+            if (teacherService.updateTeacher(teacher))
+                return "updateTeaMessSuccess";
+            else
+                return "updateTeaMessFail";
+        }catch (Exception e){
             return "updateTeaMessFail";
+        }
     }
 
     public String deleteTeaMess(){

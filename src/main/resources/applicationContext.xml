@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!--***************************卢益铭部分开始****************************-->
@@ -50,6 +51,17 @@
     <!--***************************卢益铭部分结束****************************-->
 
     <!--***************************金炜炜部分开始****************************-->
+<!--aspect-->
+    <bean id="CheckTeacher" class="cn.edu.zjut.aspect.CheckTeacher" />
+    <!-- 配置文件的方式 -->
+
+    <aop:config>
+        <aop:aspect id="checkT" ref="CheckTeacher">
+            <aop:pointcut id="modify" expression="execution(* cn.edu.zjut.service.TeacherService.*Teacher(..))" />
+            <aop:before method="checkTeacher" pointcut-ref="modify"></aop:before>
+        </aop:aspect>
+
+    </aop:config>
 
     <!--Service 配置 -->
     <!--
