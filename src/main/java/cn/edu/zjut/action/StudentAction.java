@@ -49,31 +49,46 @@ public class StudentAction implements RequestAware {
     }
 
     public String studentAdd() {
-        if (student != null) {
-            studentService.insertStudent(student);
-            request.put("tip", student.getName() + "信息添加成功！");
-            return "studentAddSuccess";
-        } else {
-            request.put("tip", "添加失败！");
+        try {
+            if (student != null) {
+                studentService.insertStudent(student);
+                request.put("tip", student.getName() + "信息添加成功！");
+                return "studentAddSuccess";
+            } else {
+                request.put("tip", "添加失败！");
+                return "studentAddFail";
+            }
+        }catch (Exception e){
             return "studentAddFail";
+
         }
     }
 
     public String stuSearch() {
-        boolean srarch = studentService.searchStudent(searchMess,searchType);
-        if (srarch) {
-            return "stuSearchSuccess";
-        } else {
-            student = null;
+        try {
+            boolean srarch = studentService.searchStudent(searchMess, searchType);
+            if (srarch) {
+                return "stuSearchSuccess";
+            } else {
+                student = null;
+                return "stuSearchFail";
+            }
+        }catch ( Exception e){
             return "stuSearchFail";
+
         }
     }
 
     public String allStudents() {
-        if (studentService.listAllStudent()) {
-            return "allStudentsSuccess";
-        } else {
+        try {
+            if (studentService.listAllStudent()) {
+                return "allStudentsSuccess";
+            } else {
+                return "allStudentsFail";
+            }
+        }catch (Exception e){
             return "allStudentsFail";
+
         }
     }
 }

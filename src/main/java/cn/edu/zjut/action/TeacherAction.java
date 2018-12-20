@@ -43,33 +43,50 @@ public class TeacherAction {
     }
 
     public String login() {
+        try{
         if (teacherService.login(teacher)) {
             return "success";
         } else
             return "fail";
-    }
+    }catch (Exception e ) {
+            return "fail";
+        }
+        }
 
     public String teacherAdd() {
+        try{
         System.out.println(teacher.getName());
         if (teacher != null && teacherService.insertTeacher(teacher)) {
             return "teacherAddSuccess";
         } else {
             return "teacherAddFail";
         }
-    }
+    }catch (Exception e ) {
+            return "teacherAddFail";
+        }
+        }
 
     public String getAllTeachers() {
+        try{
         if (teacherService.listAllTeacher())
             return "getAllTeachersSuccess";
         else
             return "getAllTeachersFail";
 
-    }
+    }catch (Exception e) {
+            return "getAllTeachersFail";
+        }
+        }
 
-    public String teacherSearch(){
-        if(teacherService.searchTeacher(searchMess,searchType))
-            return "searchTeacherSuccess";
-        else
+    public String teacherSearch() {
+        try {
+            if (teacherService.searchTeacher(searchMess, searchType))
+                return "searchTeacherSuccess";
+            else
+                return "searchTeacherFail";
+        }catch (Exception e){
             return "searchTeacherFail";
+
+        }
     }
 }

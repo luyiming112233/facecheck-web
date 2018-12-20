@@ -30,24 +30,37 @@ public class StudentMessageAction {
         this.stuID = stuID;
     }
 
-    public String getStuMess(){
-        if(studentService.showStudent(Integer.parseInt(stuID)))
-            return "getStuMessSuccess";
-        else
+    public String getStuMess() {
+        try {
+            if (studentService.showStudent(Integer.parseInt(stuID)))
+                return "getStuMessSuccess";
+            else
+                return "getStuMessFail";
+        } catch (Exception e) {
             return "getStuMessFail";
+        }
     }
 
-    public String updateStuMess(){
-        if(studentService.updateStudent(student))
-            return "updateStuMessSuccess";
-        else
+    public String updateStuMess() {
+        try {
+            if (studentService.updateStudent(student))
+                return "updateStuMessSuccess";
+            else
+                return "updateStuMessFail";
+        } catch (Exception e) {
             return "updateStuMessFail";
+        }
     }
 
-    public String deleteStuMess(){
-        if(studentService.deleteStudent(Integer.valueOf(stuID)))
-            return "deleteStuMessSuccess";
-        else
+    public String deleteStuMess() {
+        try {
+            if (studentService.deleteStudent(Integer.valueOf(stuID)))
+                return "deleteStuMessSuccess";
+            else
+                return "deleteStuMessFail";
+        } catch (Exception e) {
             return "deleteStuMessFail";
+
+        }
     }
 }

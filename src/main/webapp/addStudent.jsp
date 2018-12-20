@@ -91,7 +91,7 @@
         /*样式1*/
         .a-upload {
             padding: 4px 10px;
-            height: 20px;
+            height: 30px;
             line-height: 20px;
             position: relative;
             cursor: pointer;
@@ -132,13 +132,44 @@
            <a href="javascript:;" class="a-upload mr10">
         <input type="file" name="file" id="file">点击这里上传文件</a>
            </div>
+           <br>
+           <br>
+
+           <div class="showFileName"></div>
         <div class="layui-input-block">
             <button class="layui-btn"  type="submit">上传文件</button>
             </div>
 </form>
 
 </div>
-
 <%@ include file="UIbottom.jsp" %>
 </html>
+
+<<script >
+$(function() {
+　　//显示隐藏的文件名并上传状态切换
+　　$('.showFileName').hide();
+　　$('#uploadBtn').hide();
+　　$("#upload").on("change", "input[type='file']", function() {
+　　var filePath = $(this).val();
+　　//如果仅上传图片  if(filePath.indexOf("jpg") != -1 || filePath.indexOf("png") != -1) {
+　　if(filePath) {
+　　　　$(".fileerrorTip").html("").hide();
+　　　　var arr = filePath.split('\\');
+　　　　var fileName = arr[arr.length - 1];
+　　　　$('.showFileName').show();
+　　　　$('#uploadBtn').show();
+　　　　$(".showFileName").html("已选择文件名：" + fileName);
+　　　　$('#upload').hide();
+　　} else {
+　　　　$(".showFileName").html("");
+　　　　$(".fileerrorTip").html("您未上传文件，或者您上传文件类型有误！").show();
+　　　　return false
+　　}
+});
+
+});
+
+
+</script>>
 

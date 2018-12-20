@@ -74,7 +74,7 @@
             <result name="fail">/error.jsp</result>
         </action>
         <action name="Adminlogin" class="cn.edu.zjut.action.AdminAction" method="login">
-            <result name="success">/loginSuccess.jsp</result>
+            <result name="success">/addTeacher.jsp</result>
             <result name="fail">/error.jsp</result>
         </action>
         <action name="AdminRegister" class="cn.edu.zjut.action.AdminAction" method="register">
