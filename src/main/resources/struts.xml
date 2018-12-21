@@ -120,41 +120,22 @@
         <!--***************************金炜炜部分结束****************************-->
 
         <!--****************************黄丹部分开始*****************************-->
-        <action name="GetallDaily" class="cn.edu.zjut.action.Dailyaction" method="GetallDaily">
-            <result name="getallDailysuccess">/displayallDaily.jsp</result>
-            <result name="getallDailyfail">/Fail.jsp</result>
+        <action name="getAllSign" class="cn.edu.zjut.action.QuerySignaction" method="getAllSign">
+            <result name="getAllSignsuccess">/QS.jsp</result>
+            <result name="getAllSignfail">/Fail.jsp</result>
         </action>
-        <action name="GetsingleDaily" class="cn.edu.zjut.action.Dailyaction" method="GetsingleDaily">
-            <result name="getsingleDailysuccess">/displaysingleDaily.jsp</result>
-            <result name="getsingleDailyfail">/Fail.jsp</result>
+
+        <action name="querySign" class="cn.edu.zjut.action.QuerySignaction" method="querySign">
+            <result name="querySignsuccess">/QS.jsp</result>
+            <result name="querySignfail">/Fail.jsp</result>
         </action>
-        <action name="GetAllDailyByArrp" class="cn.edu.zjut.action.Dailyaction" method="GetAllDailyByArrp">
-            <result name="getAllDailyByArrpsuccess">/displayallDaily.jsp</result>
-            <result name="getAllDailyByArrpfail">/Fail.jsp</result>
+        <action name="getAllSignByCreatetime" class="cn.edu.zjut.action.QuerySignaction" method="getAllSignByCreatetime">
+            <result name="getAllSignByCreatetimesuccess">/QS.jsp</result>
+            <result name="getAllSignByCreatetimefail">/Fail.jsp</result>
         </action>
-        <action name="GetAllDailyByCal" class="cn.edu.zjut.action.Dailyaction" method="GetAllDailyByCal">
-            <result name="getAllDailyByCalsuccess">/displayallDaily.jsp</result>
-            <result name="getAllDailyByCalfail">/Fail.jsp</result>
-        </action>
-        <action name="GetallDailyByDName" class="cn.edu.zjut.action.Dailyaction" method="GetallDailyByDName">
-            <result name="getallDailyByDNamesuccess">/displayallDaily.jsp</result>
-            <result name="getallDailyByDNamefail">/Fail.jsp</result>
-        </action>
-        <action name="GetallDailyByDID" class="cn.edu.zjut.action.Dailyaction" method="GetallDailyByDID">
-            <result name="getallDailyByDIDsuccess">/displayallDaily.jsp</result>
-            <result name="getallDailyByDIDfail">/Fail.jsp</result>
-        </action>
-        <action name="GetallDailyByVal" class="cn.edu.zjut.action.Dailyaction" method="GetallDailyByVal">
-            <result name="getallDailyByValsuccess">/displayallDaily.jsp</result>
-            <result name="getallDailyByValfail">/Fail.jsp</result>
-        </action>
-        <action name="GetallDailyByfuzzyArrp" class="cn.edu.zjut.action.Dailyaction" method="GetallDailyByfuzzyArrp">
-            <result name="getallDailyByfuzzyArrpsuccess">/displayallDaily.jsp</result>
-            <result name="getallDailyByfuzzyArrpfail">/Fail.jsp</result>
-        </action>
-        <action name="GetallDailyByfuzzyCal" class="cn.edu.zjut.action.Dailyaction" method="GetallDailyByfuzzyCal">
-            <result name="getallDailyByfuzzyCalsuccess">/displayallDaily.jsp</result>
-            <result name="getallDailyByfuzzyCalfail">/Fail.jsp</result>
+        <action name="getSignInstance" class="cn.edu.zjut.action.QuerySignInstanceaction" method="getSignInstance">
+            <result name="getSignInstancesuccess">/displaySignInstance.jsp</result>
+            <result name="getSignInstancefail">/Fail.jsp</result>
         </action>
         <!--****************************黄丹部分结束*****************************-->
 
