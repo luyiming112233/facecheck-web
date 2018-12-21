@@ -7,11 +7,12 @@
 
     <resultMap id="InstanceMapper" type="cn.edu.zjut.po.SignInstance">
         <id property="signInstID" column="signinstance_id" javaType="java.lang.Integer" />
-        <result property="signName" column="sign_name" javaType="java.lang.String" />
+        <result property="signID" column="sign_id" javaType="java.lang.Integer" />
         <result property="startTime" column="starttime" javaType="java.sql.Time" />
         <result property="endTime" column="endtime" javaType="java.sql.Time" />
         <result property="longitude" column="longitude" javaType="java.lang.String" />
         <result property="latitude" column="latitude" javaType="java.lang.String" />
+        <result property="radius" column="radius" javaType="java.lang.Integer" />
         <result property="placeName" column="placename" javaType="java.lang.String" />
         <result property="date" column="date" javaType="java.util.Date" />
     </resultMap>
@@ -19,22 +20,23 @@
 
     <insert id="insertSignInstance" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="signInstID" keyColumn="signinstance_id">
 
-<!--        <selectKey keyProperty="signInstID" resultType="java.lang.Integer" order="AFTER">
-/*            select if(max(signinstance_id) is null, 1, max(signinstance_id) + 1) as signInstID from signinstance
-*/      	 		SELECT LAST_INSERT_ID()
-        </selectKey>-->
-	insert into signinstance (sign_name,starttime,endtime,longitude,latitude,placename,date)values
+        <!--        <selectKey keyProperty="signInstID" resultType="java.lang.Integer" order="AFTER">
+        /*            select if(max(signinstance_id) is null, 1, max(signinstance_id) + 1) as signInstID from signinstance
+        */      	 		SELECT LAST_INSERT_ID()
+                </selectKey>-->
+        insert into signinstance (sign_id,starttime,endtime,longitude,latitude,radius,placename,date)values
         <foreach collection="list" item="item" index="index" separator=",">
             (
-            #{item.signName},
+            #{item.signID},
             #{item.startTime},
             #{item.endTime},
             #{item.longitude},
             #{item.latitude},
+            #{item.radius},
             #{item.placeName},
             #{item.date}
             )
         </foreach>
-	</insert>
+    </insert>
 </mapper>
 

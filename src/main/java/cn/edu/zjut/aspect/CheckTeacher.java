@@ -14,7 +14,7 @@ public class CheckTeacher {
             System.out.println("111111111111");
             String tip="请先登录";
             request.put("tip",tip);
-            throw new Exception();
+            /*throw new Exception();*/
         }
         }
 

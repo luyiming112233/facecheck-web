@@ -174,17 +174,21 @@ return "success";
         return "success";
     }
 
-    public void newIns()
+    public String newIns()
     {
         HttpServletRequest request= ServletActionContext.getRequest();
         System.out.println("学号是"+stulist);
 
-       String choosename=request.getParameter("choosename");
+       int chooseid=Integer.parseInt(request.getParameter("chooseid"));
         String[] date_list =datelist.split(",");
         String[] stu_list=stulist.split(",");
         System.out.println("模板是"+templateid);
+        System.out.println(date_list[0]);
+        System.out.println(date_list[1]);
         System.out.println("学号是"+stu_list[0]);
-        signInstanceService.insertSignInstance(stu_list,date_list,templateid,choosename);
+        System.out.println("chooseid:"+chooseid);
+        signInstanceService.insertSignInstance(stu_list,date_list,templateid,chooseid);
+        return "success";
 
     }
 

@@ -27,13 +27,14 @@ public class SignInstanceService implements ISignInstanceService {
     private InstanceMapper instanceMapper;
     @Autowired
     private StudentSignMapper studentSignMapper;
+
     private SignInstanceTemplate temp;
 
     private List<Student> studentlist=new ArrayList<Student>();
 
     private List<SignInstance> signInstances=new ArrayList<SignInstance>();
 
-    public  int  insertSignInstance(String[] stu,String[] dates,int templateid,String choosename)
+    public  int  insertSignInstance(String[] stu,String[] dates,int templateid,int chooseid)
     {
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -59,7 +60,7 @@ public class SignInstanceService implements ISignInstanceService {
 
                  for(int j=0;j<dates.length;j++)
                  {
-                     signInstances.add(new SignInstance(choosename,temp.getStartTime(),temp.getEndTime(),temp.getLongitude(),temp.getLatitude(),temp.getPlaceName(),sdf.parse(dates[j])));
+                     signInstances.add(new SignInstance(chooseid,temp.getStartTime(),temp.getEndTime(),temp.getLongitude(),temp.getLatitude(),temp.getRadius(),temp.getPlaceName(),sdf.parse(dates[j])));
                  }
 
              instanceMapper.insertSignInstance(signInstances);

@@ -7,6 +7,18 @@ import java.util.Date;
  * 签到实例
  */
 public class SignInstance {
+
+
+    private Integer signInstID;//签到实例id
+    private Integer signID;//对应签到信息表id
+    private Time startTime;//开始时间
+    private Time endTime;//截止时间
+    private String longitude;//签到地点经度
+    private String latitude;//签到地点纬度
+    private Integer radius;
+    private String placeName;//签到地点名称
+    private Date date;//签到日期
+
     public Integer getSignInstID() {
         return signInstID;
     }
@@ -15,12 +27,12 @@ public class SignInstance {
         this.signInstID = signInstID;
     }
 
-    public String getSignName() {
-        return signName;
+    public Integer getSignID() {
+        return signID;
     }
 
-    public void setSignName(String signName) {
-        this.signName = signName;
+    public void setSignID(Integer signID) {
+        this.signID = signID;
     }
 
     public Time getStartTime() {
@@ -55,6 +67,14 @@ public class SignInstance {
         this.latitude = latitude;
     }
 
+    public Integer getRadius() {
+        return radius;
+    }
+
+    public void setRadius(Integer radius) {
+        this.radius = radius;
+    }
+
     public String getPlaceName() {
         return placeName;
     }
@@ -71,37 +91,31 @@ public class SignInstance {
         this.date = date;
     }
 
-    public SignInstance(Integer signInstID, String signName, Time startTime, Time endTime, String longitude, String latitude, String placeName, Date date) {
+    public SignInstance(Integer signID, Time startTime, Time endTime, String longitude, String latitude, Integer radius, String placeName, Date date) {
+        this.signID = signID;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.radius = radius;
+        this.placeName = placeName;
+        this.date = date;
+    }
+
+    public SignInstance(Integer signInstID, Integer signID, Time startTime, Time endTime, String longitude, String latitude, Integer radius, String placeName, Date date) {
         this.signInstID = signInstID;
-        this.signName = signName;
+        this.signID = signID;
         this.startTime = startTime;
         this.endTime = endTime;
         this.longitude = longitude;
         this.latitude = latitude;
+        this.radius = radius;
         this.placeName = placeName;
         this.date = date;
     }
 
-    private Integer signInstID;//签到实例id
-    private String signName;//对应签到信息表id
-    private Time startTime;//开始时间
-    private Time endTime;//截止时间
-    private String longitude;//签到地点经度
-    private String latitude;//签到地点纬度
-    private String placeName;//签到地点名称
-    private Date date;//签到日期
+    public SignInstance()
+    {}
 
-    public SignInstance() {
-    }
 
-    public SignInstance(String signName, Time startTime, Time endTime, String longitude, String latitude, String placeName, Date date) {
-
-        this.signName = signName;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.longitude = longitude;
-        this.latitude = latitude;
-        this.placeName = placeName;
-        this.date = date;
-    }
 }

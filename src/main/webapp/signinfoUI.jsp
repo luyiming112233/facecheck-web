@@ -1,6 +1,4 @@
-1.jsp
-cssfile
-jsfile<%--
+<%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 2018/12/17
@@ -55,7 +53,7 @@ jsfile<%--
         <div class="layui-form-item">
             <label class="layui-form-label">时间选择</label>
             <div class="layui-input-block" style="width: 200px;">
-                <s:textfield  class="auto-kal" data-kal="mode:'multiple'"  readonly="true" format="YYYY-MM-DD" name="datelist" />
+                <s:textfield  class="auto-kal" data-kal="mode:'multiple'" style="width: 100%;height:200%;" readonly="true" format="YYYY-MM-DD" name="datelist" />
             </div>
         </div>
         <s:textfield name="stulist" id="stulist" hidden="true"/>
@@ -78,10 +76,10 @@ jsfile<%--
             </tr>
             </thead>
 
-<tbody>
+            <tbody>
             <s:iterator id="list" value="#request.students" status="check">
-            <td><s:property value="#list.stuID" ></s:property></td>
-            <td><s:property value="#list.name"></s:property></td>
+                <td><s:property value="#list.stuID" ></s:property></td>
+                <td><s:property value="#list.name"></s:property></td>
                 <s:url var="urlName" action="CreateInsAction">
                     <s:param name="templateid" value="#list.stuID"/>
                 </s:url>
@@ -91,7 +89,7 @@ jsfile<%--
                 </tr>
 
             </s:iterator>
-</tbody>
+            </tbody>
         </table>
 
 
@@ -112,7 +110,18 @@ jsfile<%--
 
 <script src="../layui/layui.js" charset="utf-8"></script>
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+    //Demo
+    layui.use('form', function () {
+        var form = layui.form;
 
+        //监听提交
+        form.on('submit(formDemo)', function (data) {
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+    });
+</script>
 </div>
 <%@ include file="UIbottom.jsp" %>
 </body>
