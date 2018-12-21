@@ -69,4 +69,8 @@
             (#{item.stuID})
         </foreach>
     </insert>
+
+    <insert id="insertOneStudentFace" parameterType="cn.edu.zjut.po.Student">
+        insert into student_face(student_id) values (#{stuID})
+    </insert>
 </mapper>
