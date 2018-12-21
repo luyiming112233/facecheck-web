@@ -44,14 +44,12 @@ lly
     }
 </script>
 <div class="layui-body">
+    <div class="layui-text" style="font-size: 25px; color: #393D49;width: 400px;height: 30px;padding: 35px">
+        <s:property value="dailyresult.sign_name"/>
+        应到:<s:property value="dailyresult.all"/>人
+        实到:<s:property value="dailyresult.fact"/>人
+    </div>
 <div id="resultdetails">
-    <table align="center">
-        <tr><td>签到项目</td><td><s:property value="dailyresult.sign_name"/></td>
-            <td>应到人数</td><td><s:property value="dailyresult.all"/></td>
-            <td>实到人数</td><td><s:property value="dailyresult.fact"/></td>
-            <td>签到情况如下</td>
-        </tr>
-    </table>
     <table class="layui-table">
         <thead>
         <tr>
@@ -91,7 +89,7 @@ lly
         </s:iterator>
         </tbody>
     </table>
-    <form action="expotExcel" >
+    <form action="exportExcel" >
         <button class="layui-btn" type="submit">下载到本地</button>
 
     </form>
