@@ -79,6 +79,7 @@ public class ResultDetailAction {
 
 
     public String getDetail(){//根据小打卡的id查找这个小打卡下的学生打卡情况
+        try{
         System.out.println("now the getDetail    "+dailyresult.getSigninstance().getSignInstID());
         resultdetails=resultdetailService.getBySignInstance_id(dailyresult.getSigninstance().getSignInstID());//获取签到结果情况
        // System.out.println(resultdetails.get(0).getStudent_name());
@@ -91,7 +92,10 @@ public class ResultDetailAction {
 		//System.out.println(result.getSign_name());
 		System.out.println(signinstance.getPlaceName());*/
 
-        return "success-getDetail";
+        return "success-getDetail";}
+        catch (Exception e){
+            return "fail";
+        }
     }
     public String changeDetails(){//修改学生签到情况
         System.out.println("now the changeDetails*******");

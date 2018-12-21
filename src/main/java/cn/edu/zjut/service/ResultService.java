@@ -33,6 +33,9 @@ public class ResultService implements IResultService{
 
 	@Override
 	public List<Sign> getByTeacher_id(int teacher_id) {//根据老师的id查找它的所有打卡任务
+		ActionContext ctx = ActionContext.getContext();
+		request = (Map)ctx.get("request");
+		session = (Map) ctx.getSession();
 		System.out.println("resultservice-getByTeacher_id");
 		List<Sign> list=new ArrayList();
 		try{
@@ -41,6 +44,7 @@ public class ResultService implements IResultService{
 		{
 			e.printStackTrace();
 		}
+		request.put("list",list);
 		return list;
 	}
 

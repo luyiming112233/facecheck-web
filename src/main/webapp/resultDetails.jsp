@@ -91,6 +91,10 @@ lly
         </s:iterator>
         </tbody>
     </table>
+    <form action="expotExcel" >
+        <button class="layui-btn" type="submit">下载到本地</button>
+
+    </form>
 </div>
 <div id="AutoPlayDetail" style="display:none">
     <table>
@@ -102,6 +106,7 @@ lly
 <button id="AutoPlayButton" onclick="AutoPlay('AutoPlayButton','resultdetails','AutoPlayDetail');">逐条查看</button>
 -->
 <script src="../layui/layui.js" charset="utf-8"></script>
+
 <%@ include file="UIbottom.jsp" %>
 </body>
 </html>
