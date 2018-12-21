@@ -38,5 +38,10 @@ public class QuerySignService implements IQuerySignService {
         return querySignMapper.getAllSignByID(signID);
     }
 
+    @Override
+    public List<Sign> getAllSignValid(String endtime) throws Exception {
+        return querySignMapper.getAllSignValid(endtime);
+    }
+
 
 }

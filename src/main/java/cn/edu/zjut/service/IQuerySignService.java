@@ -11,5 +11,6 @@ public interface IQuerySignService {
     List<Sign>getAllSignByCreatetime(String createtime)throws Exception;//根据打卡创建时间查询打卡
     List<Sign>getAllSignByTeaid(int teaID)throws Exception;//根据教师id查询打卡
     List<Sign>getAllSignByID(int signID)throws Exception;//根据打卡id查询打卡
+    List<Sign>getAllSignValid(String endtime)throws Exception;;//查询有效的打卡
 
 }

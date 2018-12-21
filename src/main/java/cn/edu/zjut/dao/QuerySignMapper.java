@@ -13,5 +13,7 @@ public interface QuerySignMapper {
     List<Sign>getAllSignByName(String name)throws Exception;//根据打卡名查询打卡
     List<Sign>getAllSignByCreatetime(String createtime)throws Exception;//根据打卡创建时间查询打卡
     List<Sign>getAllSignByTeaid(int teaID)throws Exception;//根据教师id查询打卡
+    List<Sign>getAllSignValid(String endtime)throws Exception;;//查询有效的打卡
+
 
 }

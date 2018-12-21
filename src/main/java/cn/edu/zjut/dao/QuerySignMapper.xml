@@ -26,7 +26,11 @@
 	 SELECT * FROM sign
 	 where teacher_id=#{teaID}
      </select>
-
+    <select id="getAllSignValid" resultType="cn.edu.zjut.po.Sign" parameterType="cn.edu.zjut.po.Sign" resultMap="SignMap">
+	 SELECT distinct mytest.sign.sign_id sign_id,mytest.sign.sign_name sign_name,mytest.sign.sign_description sign_description,mytest.sign.createtime createtime,mytest.sign.teacher_id teacher_id
+	 FROM mytest.signinstance,mytest.sign
+     where mytest.sign.sign_id=mytest.signinstance.sign_id and mytest.signinstance.date> #{endtime}
+     </select>
 
 
     <resultMap type="cn.edu.zjut.po.Sign" id="SignMap">

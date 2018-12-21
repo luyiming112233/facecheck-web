@@ -16,6 +16,7 @@ public class QuerySignaction {
     List<Sign> signs;//使得页面获取到signs变量
     String query;//页面传来的单选框信息
     String input;//页面传来的输入框信息
+    String val;//页面传来的有效性
     public String getQuery() {
         return query;
     }
@@ -33,6 +34,12 @@ public class QuerySignaction {
     }
     public void setInput(String input) {
         this.input = input;
+    }
+    public String getVal() {
+        return val;
+    }
+    public void setVal(String val) {
+        this.val = val;
     }
 
     //得到所有的打卡信息

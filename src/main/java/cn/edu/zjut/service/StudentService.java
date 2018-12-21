@@ -21,6 +21,7 @@ public class StudentService implements IStudentService {
     public boolean insertStudent(Student student) {
         try {
             studentMapper.insertStudent(student);
+            studentMapper.insertOneStudentFace(student);
         } catch (Exception e) {
             e.printStackTrace();
             return false;
