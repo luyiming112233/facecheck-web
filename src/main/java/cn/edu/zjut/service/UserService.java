@@ -61,7 +61,7 @@ public class UserService implements IUserService {
 	}
 
 	public ArrayList getFieldName() {
-		String str[] = { "学生学号","姓名","班级名称","系名","签到时间","相似度","签到情况","操作"};
+		String str[] = { "学生学号","姓名","班级名称","系名","签到时间","相似度","签到情况"};
 		ArrayList list = new ArrayList();
 		for (int i = 0; i < str.length; i++) {
 			list.add(str[i]);
@@ -70,12 +70,12 @@ public class UserService implements IUserService {
 	}
 
 	// 模拟提供excel中的标题数据内容
-	public ArrayList<Student> getFieldData() {
+	public ArrayList<ResultDetail> getFieldData() {
 		ActionContext ctx = ActionContext.getContext();
 		request = (Map)ctx.get("request");
 		session = (Map) ctx.getSession();
-		ArrayList list1 = (ArrayList) request.get("list");
-
+		ArrayList list1 = (ArrayList) session.get("list");
+System.out.println(list1.size());
 		Iterator i=list1.iterator();
 		while(i.hasNext()){
 			System.out.println(i.next().getClass());

@@ -32,10 +32,13 @@ public class ResultDetailService implements IResultDetailService{
         System.out.println("resultdetailservice-getBySigninstance_id    "+signInstID);
         ActionContext ctx = ActionContext.getContext();
         request = (Map)ctx.get("request");
+        session = (Map)ctx.get("session");
+
         List<ResultDetail> list=new ArrayList();
         try{
             list=(List<ResultDetail>)resultdetailmapper.selectBySigninstance_id(signInstID);
             request.put("list",list);
+            session.put("list",list);
             System.out.println("service list.size()"+list.size());
         }catch(Exception e)
         {

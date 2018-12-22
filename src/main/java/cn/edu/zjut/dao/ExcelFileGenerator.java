@@ -69,7 +69,7 @@ public class ExcelFileGenerator {
 				cellStyle.setFont(font);
 				if(fieldName.get(j) != null){
 					cell.setCellStyle(cellStyle);
-					cell.setCellValue((String) fieldName.get(j));
+					cell.setCellValue(fieldName.get(j).toString());
 				}else{
 					cell.setCellStyle(cellStyle);
 					cell.setCellValue("-");
@@ -95,9 +95,18 @@ public class ExcelFileGenerator {
 					cell4.setCellValue(resultDetail.getStudentsign().getSignTime());
 					HSSFCell cell5=row.createCell(5);
 					cell5.setCellValue(resultDetail.getStudentsign().getSimilar());
-					HSSFCell cell6=row.createCell(6);
-					cell6.setCellValue(resultDetail.getStudentsign().getStatus());
-
+					if(resultDetail.getStudentsign().getStatus()==0) {
+                        HSSFCell cell6 = row.createCell(6);
+                        cell6.setCellValue("未到");
+                    }
+                    else if(resultDetail.getStudentsign().getStatus()==1) {
+                        HSSFCell cell6 = row.createCell(6);
+                        cell6.setCellValue("请假");
+                    }
+                    else {
+                        HSSFCell cell6 = row.createCell(6);
+                        cell6.setCellValue("已到");
+                    }
 			}
 		}
 		return workBook;
