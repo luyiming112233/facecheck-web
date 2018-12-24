@@ -52,14 +52,14 @@
 
     <!--***************************金炜炜部分开始****************************-->
     <!--aspect-->
-    <bean id="CheckTeacher" class="cn.edu.zjut.aspect.CheckTeacher"/>
+    <bean id="CheckAdmin" class="cn.edu.zjut.aspect.CheckAdmin"/>
     <!-- 配置文件的方式 -->
 
     <aop:config>
-        <aop:aspect id="checkT" ref="CheckTeacher">
+        <aop:aspect id="checkAdmin" ref="CheckAdmin">
             <aop:pointcut id="modify"
                           expression="execution(* cn.edu.zjut.service.TeacherService.*Teacher(..)) || execution(* cn.edu.zjut.service.StudentService.*(..)) "/>
-            <aop:before method="checkTeacher" pointcut-ref="modify"></aop:before>
+            <aop:before method="checkAdmin" pointcut-ref="modify"></aop:before>
         </aop:aspect>
     </aop:config>
     <!--
