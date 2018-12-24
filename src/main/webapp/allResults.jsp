@@ -14,7 +14,7 @@
 
 <html>
 <body>
-<%@ include file="UITeaOpeHead.jsp" %>
+<%@ include file="UITeaHead.jsp" %>
 <script language="javascript">
     function ActionByName(form,input){
         var formid=document.getElementById(form);

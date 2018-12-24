@@ -13,7 +13,7 @@
 
 <html>
 <body>
-<%@ include file="UITeaOpeHead.jsp" %>
+<%@ include file="UITeaHead.jsp" %>
 <link rel="stylesheet" href="./cssfile/kalendae.css" type="text/css">
 <script type='text/javascript' src='./jsfile/kalendae.standalone.js'></script>
 <script type="text/javascript">
