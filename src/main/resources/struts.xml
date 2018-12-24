@@ -8,7 +8,7 @@
         <!--***************************卢益铭部分开始****************************-->
         <!--添加学生-->
         <action name="studentAdd" class="cn.edu.zjut.action.StudentAction" method="studentAdd">
-            <result name="studentAddSuccess">/dailyResults.jsp</result>
+            <result name="studentAddSuccess">/searchStudent.jsp</result>
             <result name="studentAddFail">/error.jsp</result>
             <result name="login">/admin.jsp</result>
         </action>
@@ -84,7 +84,7 @@
         </action>
         <!--删除教师信息-->
         <action name="teaMessageDelete" class="cn.edu.zjut.action.TeacherMessageAction" method="deleteTeaMess">
-            <result name="deleteTeaMessSuccess">/teacherMessage.jsp</result>
+            <result name="deleteTeaMessSuccess">/searchTeacher.jsp</result>
             <result name="deleteTeaMessFail">/error.jsp</result>
             <result name="login">/admin.jsp</result>
 
