@@ -27,6 +27,7 @@ public class DailyResultService implements IDailyResultService {
         System.out.println("dailyresultservice-getBySign_id"+signID);
         List<SignInstance> list=new ArrayList();
         try{
+            System.out.println("*****************************");
             list=(List<SignInstance>)dailyresultmapper.selectBySign_id(signID);
         }catch(Exception e)
         {

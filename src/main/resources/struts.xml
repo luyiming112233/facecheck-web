@@ -8,7 +8,7 @@
         <!--***************************卢益铭部分开始****************************-->
         <!--添加学生-->
         <action name="studentAdd" class="cn.edu.zjut.action.StudentAction" method="studentAdd">
-            <result name="studentAddSuccess">/addStudent.jsp</result>
+            <result name="studentAddSuccess">/dailyResults.jsp</result>
             <result name="studentAddFail">/error.jsp</result>
             <result name="login">/admin.jsp</result>
         </action>
@@ -93,8 +93,8 @@
 
         <!--***************************金炜炜部分开始****************************-->
         <action name="Teacherlogin" class="cn.edu.zjut.action.TeacherAction" method="login">
-            <result name="success">/addTeacher.jsp</result>
-            <result name="fail">/error.jsp</result>
+            <result name="success">/allResults.jsp</result>
+            <result name="fail">/login.jsp</result>
         </action>
         <action name="Adminlogin" class="cn.edu.zjut.action.AdminAction" method="login">
             <result name="success">/addTeacher.jsp</result>
@@ -142,7 +142,7 @@
         <!--***************************李璐瑶部分开始****************************-->
         <action name="lookAll" class="cn.edu.zjut.action.ResultAction" method="lookAll">
             <result name="success-lookAll">allResults.jsp</result>
-            <result name="fail">fail.jsp</result>
+            <result name="fail">login.jsp</result>
         </action>
         <action name="find" class="cn.edu.zjut.action.ResultAction" method="find" >
             <result name="success-find">allResults.jsp</result>

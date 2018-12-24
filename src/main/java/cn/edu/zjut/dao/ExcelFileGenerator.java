@@ -5,6 +5,7 @@ package cn.edu.zjut.dao;
  */
 
 
+import cn.edu.zjut.po.ResultDetail;
 import cn.edu.zjut.po.Student;
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.hssf.usermodel.*;
@@ -68,7 +69,7 @@ public class ExcelFileGenerator {
 				cellStyle.setFont(font);
 				if(fieldName.get(j) != null){
 					cell.setCellStyle(cellStyle);
-					cell.setCellValue((String) fieldName.get(j));
+					cell.setCellValue(fieldName.get(j).toString());
 				}else{
 					cell.setCellStyle(cellStyle);
 					cell.setCellValue("-");
@@ -81,22 +82,31 @@ public class ExcelFileGenerator {
 			Iterator it=itf;
 				for(int k=0;k <(rows < SPLIT_COUNT ? rows : SPLIT_COUNT); k++){
 					HSSFRow row = sheet.createRow((short) (k + 1));
-					Student student=(Student) it.next();
+					ResultDetail resultDetail =(ResultDetail) it.next();
 					HSSFCell cell0=row.createCell(0);
-					cell0.setCellValue(student.getStuID());
+					cell0.setCellValue(resultDetail.getStudentsign().getStuID());
 					HSSFCell cell1=row.createCell(1);
-					cell1.setCellValue(student.getName());
+					cell1.setCellValue(resultDetail.getStudent_name());
 					HSSFCell cell2=row.createCell(2);
-					cell2.setCellValue(student.getPassword());
+					cell2.setCellValue(resultDetail.getStudent_class());
 					HSSFCell cell3=row.createCell(3);
-					cell3.setCellValue(student.getClazz());
+					cell3.setCellValue(resultDetail.getStudent_department());
 					HSSFCell cell4=row.createCell(4);
-					cell4.setCellValue(student.getDepart());
+					cell4.setCellValue(resultDetail.getStudentsign().getSignTime());
 					HSSFCell cell5=row.createCell(5);
-					cell5.setCellValue(student.getEmail());
-
-
-
+					cell5.setCellValue(resultDetail.getStudentsign().getSimilar());
+					if(resultDetail.getStudentsign().getStatus()==0) {
+                        HSSFCell cell6 = row.createCell(6);
+                        cell6.setCellValue("未到");
+                    }
+                    else if(resultDetail.getStudentsign().getStatus()==1) {
+                        HSSFCell cell6 = row.createCell(6);
+                        cell6.setCellValue("请假");
+                    }
+                    else {
+                        HSSFCell cell6 = row.createCell(6);
+                        cell6.setCellValue("已到");
+                    }
 			}
 		}
 		return workBook;

@@ -11,7 +11,7 @@ public interface ResultMapper {
 	 List<Sign> selectByTeacher_id(int teacher_id) throws Exception;
 	Sign selectBySign_id(String sign_id) throws Exception;
 	List<Sign> selectBySign_name(String sign_name,int teacher_id) throws Exception;
-	List<Sign> selectByCreatetime(Date createtime,int teacher_id) throws Exception;
+	List<Sign> selectByCreatetime(String createtime,int teacher_id) throws Exception;
 
 
 }

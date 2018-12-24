@@ -7,14 +7,17 @@ import cn.edu.zjut.po.Student;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import  cn.edu.zjut.po.ResultDetail;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Map;
 
 @Service
 public class UserService implements IUserService {
+	private Map<String, Object> request, session;
+
 	@Autowired
 	private ExcelFileGenerator excelFileGenerator;
 	@Autowired
@@ -58,7 +61,7 @@ public class UserService implements IUserService {
 	}
 
 	public ArrayList getFieldName() {
-		String str[] = { "学生学号","姓名","密码","班级名称","系名","email地址"};
+		String str[] = { "学生学号","姓名","班级名称","系名","签到时间","相似度","签到情况"};
 		ArrayList list = new ArrayList();
 		for (int i = 0; i < str.length; i++) {
 			list.add(str[i]);
@@ -67,30 +70,15 @@ public class UserService implements IUserService {
 	}
 
 	// 模拟提供excel中的标题数据内容
-	public ArrayList<Student> getFieldData() {
-		ArrayList list1 = new ArrayList();
-		Student student=new Student();
-		student.setStuID(1111);
-		student.setName("111");
-		student.setClazz("1111");
-		student.setPassword("1111");
-		student.setDepart("1111");
-		student.setEmail("11111");
-		list1.add(student);
-		Student student1=new Student();
-
-		student1.setStuID(2222);
-		student1.setName("2222");
-		student1.setClazz("2222");
-		student1.setPassword("2222");
-		student1.setDepart("2222");
-		student1.setEmail("2222");
-		list1.add(student1);
+	public ArrayList<ResultDetail> getFieldData() {
+		ActionContext ctx = ActionContext.getContext();
+		request = (Map)ctx.get("request");
+		session = (Map) ctx.getSession();
+		ArrayList list1 = (ArrayList) session.get("list");
+System.out.println(list1.size());
 		Iterator i=list1.iterator();
 		while(i.hasNext()){
 			System.out.println(i.next().getClass());
-
-
 		}
 		return list1;
 	}

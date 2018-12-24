@@ -33,6 +33,9 @@ public class ResultService implements IResultService{
 
 	@Override
 	public List<Sign> getByTeacher_id(int teacher_id) {//根据老师的id查找它的所有打卡任务
+		ActionContext ctx = ActionContext.getContext();
+		request = (Map)ctx.get("request");
+		session = (Map) ctx.getSession();
 		System.out.println("resultservice-getByTeacher_id");
 		List<Sign> list=new ArrayList();
 		try{
@@ -41,6 +44,7 @@ public class ResultService implements IResultService{
 		{
 			e.printStackTrace();
 		}
+		request.put("list",list);
 		return list;
 	}
 
@@ -57,11 +61,12 @@ public class ResultService implements IResultService{
 		return list;
 	}
 	@Override
-	public List<Sign> getByCreatetime(java.util.Date createtime, int teacher_id) {//按创建时间查找
-		System.out.println("resultservice-getByCreatetime");
+	public List<Sign> getByCreatetime(String createtime, int teacher_id) {//按创建时间查找
+		System.out.println("resultservice-getByCreatetime"+createtime);
 		List<Sign> list=new ArrayList();
 		try{
 			list=resultmapper.selectByCreatetime(createtime,teacher_id);
+			System.out.println("find by name"+list.size());
 		}catch(Exception e)
 		{
 			e.printStackTrace();
@@ -69,7 +74,7 @@ public class ResultService implements IResultService{
 		return list;
 	}
 	public List<Sign> find(String message, int type,int teaID) {//按创建时间查找
-		System.out.println("resultservice-find");
+		System.out.println("resultservice-find"+teaID);
 		ActionContext ctx = ActionContext.getContext();
 		session = ctx.getSession();
 		List<Sign> list=new ArrayList();
@@ -78,10 +83,10 @@ public class ResultService implements IResultService{
 			{
 				System.out.println(message +"***********");
 				DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-				Date createtime = df.parse(message);
+				//Date createtime = df.parse(message);
 				//Date createtime=new Date(message);
-				System.out.println(createtime+"*");
-				return this.getByCreatetime(createtime,teaID);
+				System.out.println(message+"*");
+				return this.getByCreatetime(message,teaID);
 			}
 			else
 			{

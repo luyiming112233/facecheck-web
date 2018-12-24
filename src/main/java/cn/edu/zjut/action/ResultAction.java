@@ -85,7 +85,7 @@ public class ResultAction extends ActionSupport {
     public String Bytime()//根据签到发布时间       teacher_id和createtime查看该老师发布的所有签到信息
     {
         System.out.println("now the ResultAction-ByTime"+result.getCreateTime());
-        results=(List<Sign>)resultService.getByCreatetime(result.getCreateTime(),teacher.getTeaID());
+        results=(List<Sign>)resultService.getByCreatetime(String.valueOf(result.getCreateTime()),teacher.getTeaID());
         return "success-Bytime";
     }
     public String find(){
