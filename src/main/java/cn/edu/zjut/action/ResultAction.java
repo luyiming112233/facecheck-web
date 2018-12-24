@@ -1,8 +1,10 @@
 package cn.edu.zjut.action;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
+import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -17,6 +19,8 @@ public class ResultAction extends ActionSupport {
     private Teacher teacher;
     private String message;
     private int searchType;
+    private Map<String, Object> request, session;
+
     @Autowired
     //@Resource(name="resultService")
     private IResultService resultService;
@@ -68,6 +72,9 @@ public class ResultAction extends ActionSupport {
     //查看所有签到
     public String lookAll()//根据teacher_id查看该老师发布的所有签到信息
     {
+        ActionContext ctx = ActionContext.getContext();
+        session = (Map) ctx.getSession();
+        teacher=((Teacher)(session.get("teacher")));
         System.out.println(teacher.getTeaID()+"***********");
         results=(List<Sign>)resultService.getByTeacher_id(teacher.getTeaID());
         System.out.println("*************"+results.get(0).getSignID()+results.get(0).getTeaID());

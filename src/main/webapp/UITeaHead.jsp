@@ -48,7 +48,7 @@
                 <li class="layui-nav-item layui-nav-itemed">
                     <a class="" href="javascript:;">签到查询</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="allResults.jsp">签到查询</a></dd>
+                        <dd><a href="lookAll">签到查询</a></dd>
                     </dl>
                 </li>
             </ul>
