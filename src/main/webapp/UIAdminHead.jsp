@@ -55,7 +55,9 @@
                 <li class="layui-nav-item layui-nav-itemed">
                     <a class="" href="javascript:;">签到信息管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="QS.jsp">签到信息查询</a></dd>
+                        <dd><a href="searchSign.jsp">签到信息基础查询</a></dd>
+                        <dd><a href="searchSignbyDate.jsp">签到信息日期查询</a></dd>
+                        <dd><a href="searchSignfuzzily.jsp">签到信息模糊查询</a></dd>
                     </dl>
                 </li>
             </ul>

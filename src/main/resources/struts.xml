@@ -121,18 +121,23 @@
 
         <!--****************************黄丹部分开始*****************************-->
         <action name="getAllSign" class="cn.edu.zjut.action.QuerySignaction" method="getAllSign">
-            <result name="getAllSignsuccess">/QS.jsp</result>
+            <result name="getAllSignsuccess">/searchSign.jsp</result>
             <result name="getAllSignfail">/Fail.jsp</result>
         </action>
 
         <action name="querySign" class="cn.edu.zjut.action.QuerySignaction" method="querySign">
-            <result name="querySignsuccess">/QS.jsp</result>
+            <result name="querySignsuccess">/searchSign.jsp</result>
             <result name="querySignfail">/Fail.jsp</result>
         </action>
-        <action name="getAllSignByCreatetime" class="cn.edu.zjut.action.QuerySignaction"
-                method="getAllSignByCreatetime">
-            <result name="getAllSignByCreatetimesuccess">/QS.jsp</result>
-            <result name="getAllSignByCreatetimefail">/Fail.jsp</result>
+        <action name="querySignbyDate" class="cn.edu.zjut.action.QuerySignaction"
+                method="querySignbyDate">
+            <result name="querySignbyDatesuccess">/searchSignbyDate.jsp</result>
+            <result name="querySignbyDatefail">/Fail.jsp</result>
+        </action>
+        <action name="querySignfuzzily" class="cn.edu.zjut.action.QuerySignaction"
+                method="querySignfuzzily">
+            <result name="querySignfuzzilysuccess">/searchSignfuzzily.jsp</result>
+            <result name="querySignfuzzilyfail">/Fail.jsp</result>
         </action>
         <action name="getSignInstance" class="cn.edu.zjut.action.QuerySignInstanceaction" method="getSignInstance">
             <result name="getSignInstancesuccess">/displaySignInstance.jsp</result>
