@@ -1,4 +1,5 @@
 package cn.edu.zjut.action;
+
 import cn.edu.zjut.service.SendCodeService;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,23 +14,22 @@ import javax.servlet.http.HttpServletResponse;
 public class ReleaseAction {
 
     @Autowired
-private SendCodeService sendcode;
+    private SendCodeService sendcode;
 
-    public void sendmsg() throws Exception{
+    public void sendmsg() throws Exception {
 
         HttpServletResponse response = ServletActionContext.getResponse();
         HttpServletRequest request = ServletActionContext.getRequest();
         response.setContentType("text/html");
         response.setCharacterEncoding("utf-8");
-        String phone=request.getParameter("phone");
+        String phone = request.getParameter("phone");
         System.out.println(phone);
-        String msg=sendcode.sendmsg(phone);
-       System.out.println(msg);
+        String msg = sendcode.sendmsg(phone);
+        System.out.println(msg);
 
-;
+        ;
         response.setCharacterEncoding("UTF-8");
         response.getWriter().write(msg);
-
 
 
     }

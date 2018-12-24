@@ -21,7 +21,7 @@
         student (student_id,student_name,student_sex,student_password,student_classname,student_departname,student_email,student_img)
         VALUES (#{stuID},#{name},#{sex},#{password},#{clazz},#{depart},#{email},#{img})
     </insert>
-    
+
     <update id="updateStudent" parameterType="cn.edu.zjut.po.Student">
         UPDATE student SET
         student_name=#{name},student_sex=#{sex},student_password=#{password},student_classname=#{clazz},student_departname=#{depart},student_email=#{email},student_img=#{img}
@@ -32,7 +32,7 @@
         DELETE FROM student
         WHERE student_id=#{id}
     </delete>
-    
+
     <select id="getStudentById" parameterType="int" resultMap="studentMap">
         SELECT * FROM student
         WHERE student_id=#{id}
@@ -55,7 +55,8 @@
         SELECT * FROM student WHERE student_departname = #{departName}
     </select>
     <insert id="insertStudentExcel" parameterType="java.util.List">
-        insert into student(student_id,student_name,student_password,student_classname,student_departname,student_email) values
+        insert into student(student_id,student_name,student_password,student_classname,student_departname,student_email)
+        values
         <foreach collection="list" item="item" index="index"
                  separator=",">
             (#{item.stuID},#{item.name},#{item.password},#{item.clazz},#{item.depart},#{item.email})

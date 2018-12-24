@@ -58,7 +58,7 @@ public class StudentAction implements RequestAware {
                 request.put("tip", "添加失败！");
                 return "studentAddFail";
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             return "login";
 
         }
@@ -73,7 +73,7 @@ public class StudentAction implements RequestAware {
                 student = null;
                 return "stuSearchFail";
             }
-        }catch ( Exception e){
+        } catch (Exception e) {
             return "login";
 
         }
@@ -86,7 +86,7 @@ public class StudentAction implements RequestAware {
             } else {
                 return "allStudentsFail";
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             return "login";
 
         }

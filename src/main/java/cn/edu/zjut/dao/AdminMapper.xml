@@ -11,7 +11,6 @@
     </resultMap>
 
 
-
     <select id="findById" resultMap="adminMapper" parameterType="int">
    select * from admin where admin_id = #{id}
 	</select>

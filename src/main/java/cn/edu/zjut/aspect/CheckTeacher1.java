@@ -4,6 +4,7 @@ import com.opensymphony.xwork2.ActionContext;
 
 import java.util.Map;
 
+/*lym：请修改命名*/
 public class CheckTeacher1 {
     private Map<String, Object> request, session;
 
@@ -15,7 +16,7 @@ public class CheckTeacher1 {
             System.out.println("111111111111");
             String tip = "请先登录";
             request.put("tip", tip);
-         /*   throw new Exception();*/
+            /*   throw new Exception();*/
         }
     }
 }

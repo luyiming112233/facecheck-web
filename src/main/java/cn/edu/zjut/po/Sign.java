@@ -11,7 +11,9 @@ public class Sign {
     private String description;//签到描述
     private Date createTime;//创建时间
     private Integer teaID;//教师ID（签到的创建者）
-    public Sign(){}
+
+    public Sign() {
+    }
 
     public Sign(Integer signID, String name, String description, Date createTime, Integer teaID) {
         this.signID = signID;

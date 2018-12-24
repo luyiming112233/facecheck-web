@@ -38,7 +38,7 @@ public class TeacherMessageAction {
             else
                 return "getTeaMessFail";
         } catch (Exception e) {
-            return"login";
+            return "login";
         }
     }
 

@@ -41,11 +41,11 @@ public class Student {
         this.name = name;
     }
 
-    public Integer getSex(){
+    public Integer getSex() {
         return sex;
     }
 
-    public void setSex(Integer sex){
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
 

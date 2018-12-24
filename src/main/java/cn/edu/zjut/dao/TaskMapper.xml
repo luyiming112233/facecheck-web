@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.edu.zjut.dao.TaskMapper">
 
-<resultMap id="signMap" type="cn.edu.zjut.po.Sign">
-<id property="signID" column="sign_id" javaType="java.lang.Integer"></id>
-<result property="name" column="sign_name" javaType="java.lang.String"></result>
-<result property="description" column="sign_description" javaType="java.lang.String"></result>
-<result property="createTime" column="createtime" javaType="java.util.Date"></result>
-<result property="teaID" column="teacher_id" javaType="java.lang.Integer"></result>
-</resultMap>
+    <resultMap id="signMap" type="cn.edu.zjut.po.Sign">
+        <id property="signID" column="sign_id" javaType="java.lang.Integer"></id>
+        <result property="name" column="sign_name" javaType="java.lang.String"></result>
+        <result property="description" column="sign_description" javaType="java.lang.String"></result>
+        <result property="createTime" column="createtime" javaType="java.util.Date"></result>
+        <result property="teaID" column="teacher_id" javaType="java.lang.Integer"></result>
+    </resultMap>
 
     <insert id="insertSignProject" parameterType="cn.edu.zjut.po.Sign" useGeneratedKeys="true" keyProperty="signID">
         <selectKey keyProperty="signID" resultType="java.lang.Integer" order="BEFORE">

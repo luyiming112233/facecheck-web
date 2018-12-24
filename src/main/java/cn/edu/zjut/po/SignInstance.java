@@ -114,8 +114,8 @@ public class SignInstance {
         this.date = date;
     }
 
-    public SignInstance()
-    {}
+    public SignInstance() {
+    }
 
 
 }

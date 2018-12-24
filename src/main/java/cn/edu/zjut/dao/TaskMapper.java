@@ -9,5 +9,6 @@ import java.util.List;
 public interface TaskMapper {
 
     public void insertSignProject(Sign sign) throws Exception;
-    public List<Sign> getSignProjectById(int teaID)throws Exception;
+
+    public List<Sign> getSignProjectById(int teaID) throws Exception;
 }

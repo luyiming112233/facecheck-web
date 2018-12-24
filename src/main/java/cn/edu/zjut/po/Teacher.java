@@ -7,7 +7,8 @@ public class Teacher {
     private Integer sex;
     private String phone;
 
-    public Teacher(){ }
+    public Teacher() {
+    }
 
     public Teacher(Integer teaID, String name, String password, Integer sex, String phone) {
         this.teaID = teaID;

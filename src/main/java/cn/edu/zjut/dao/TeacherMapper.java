@@ -4,6 +4,7 @@ import cn.edu.zjut.po.Teacher;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
 @Repository
 public interface TeacherMapper {
     /*Jww函数换名*/
@@ -55,6 +56,7 @@ public interface TeacherMapper {
 
     /**
      * 通过姓名查找教师
+     *
      * @param name
      * @return
      * @throws Exception

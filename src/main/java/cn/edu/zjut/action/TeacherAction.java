@@ -26,6 +26,7 @@ public class TeacherAction {
     private ITeacherService teacherService = null;
     @Autowired
     private IResultService resultService;
+
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
@@ -33,12 +34,12 @@ public class TeacherAction {
     public Teacher getTeacher() {
         return teacher;
     }
-    public void setResults(List<Sign> results)
-    {
-        this.results=results;
+
+    public void setResults(List<Sign> results) {
+        this.results = results;
     }
-    public List<Sign> getResults()
-    {
+
+    public List<Sign> getResults() {
         return results;
     }
 
@@ -57,48 +58,50 @@ public class TeacherAction {
     public void setSearchType(int searchType) {
         this.searchType = searchType;
     }
+
     public void setResultService(ResultService resultService) {
         this.resultService = resultService;
     }
+
     public String login() {
-        try{
-        if (teacherService.login(teacher)) {
-            ActionContext ctx = ActionContext.getContext();
-            session = (Map) ctx.getSession();
-            String id=((Teacher)(session.get("teacher"))).getName();
-            results=(List<Sign>)resultService.getByTeacher_id(teacher.getTeaID());
-            return "success";
-        } else
-            return "fail";
-    }catch (Exception e ) {
+        try {
+            if (teacherService.login(teacher)) {
+                ActionContext ctx = ActionContext.getContext();
+                session = (Map) ctx.getSession();
+                String id = ((Teacher) (session.get("teacher"))).getName();
+                results = (List<Sign>) resultService.getByTeacher_id(teacher.getTeaID());
+                return "success";
+            } else
+                return "fail";
+        } catch (Exception e) {
             return "login";
         }
-        }
+    }
 
     public String teacherAdd() {
-        try{
-        System.out.println(teacher.getName());
-        if (teacher != null && teacherService.insertTeacher(teacher)) {
-            return "teacherAddSuccess";
-        } else {
-            return "teacherAddFail";
-        }
-    }catch (Exception e ) {
+        try {
+            System.out.println(teacher.getName());
+            if (teacher != null && teacherService.insertTeacher(teacher)) {
+                return "teacherAddSuccess";
+            } else {
+                return "teacherAddFail";
+            }
+        } catch (Exception e) {
             return "login";
         }
-        }
+    }
 
     public String getAllTeachers() {
-        try{
-        if (teacherService.listAllTeacher())
-            return "getAllTeachersSuccess";
-        else
-            return "getAllTeachersFail";
+        try {
+            if (teacherService.listAllTeacher())
+                return "getAllTeachersSuccess";
+            else
+                return "getAllTeachersFail";
 
-    }catch (Exception e) {
+        } catch (Exception e) {
             return "login";
         }
-        }
+    }
 
     public String teacherSearch() {
         try {
@@ -106,7 +109,7 @@ public class TeacherAction {
                 return "searchTeacherSuccess";
             else
                 return "searchTeacherFail";
-        }catch (Exception e){
+        } catch (Exception e) {
             return "login";
 
         }
