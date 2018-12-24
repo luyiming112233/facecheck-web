@@ -146,31 +146,31 @@
         <!--****************************黄丹部分结束*****************************-->
 
         <!--***************************李璐瑶部分开始****************************-->
-        <action name="lookAll" class="cn.edu.zjut.action.ResultAction" method="lookAll">
+        <action name="lookAllSign" class="cn.edu.zjut.action.ResultAction" method="lookAllSign">
             <result name="success-lookAll">allResults.jsp</result>
             <result name="fail">login.jsp</result>
         </action>
-        <action name="find" class="cn.edu.zjut.action.ResultAction" method="find">
+        <action name="findSign" class="cn.edu.zjut.action.ResultAction" method="findSign">
             <result name="success-find">allResults.jsp</result>
             <result name="fail">fail.jsp</result>
         </action>
-        <action name="ByName" class="cn.edu.zjut.action.ResultAction" method="Byname">
+        <action name="getByName" class="cn.edu.zjut.action.ResultAction" method="getByName">
             <result name="success-Byname">allResults.jsp</result>
             <result name="fail">fail.jsp</result>
         </action>
-        <action name="ByTime" class="cn.edu.zjut.action.ResultAction" method="Bytime">
+        <action name="getByTime" class="cn.edu.zjut.action.ResultAction" method="getByTime">
             <result name="success-Bytime">allResults.jsp</result>
             <result name="fail">fail.jsp</result>
         </action>
-        <action name="dailyResult" class="cn.edu.zjut.action.DailyResultAction" method="getDailyResult">
+        <action name="getDailyResult" class="cn.edu.zjut.action.DailyResultAction" method="getDailyResult">
             <result name="success-Daily">dailyResult.jsp</result>
             <result name="fail">fail.jsp</result>
         </action>
-        <action name="getDetail" class="cn.edu.zjut.action.ResultDetailAction" method="getDetail">
+        <action name="getResultDetail" class="cn.edu.zjut.action.ResultDetailAction" method="getResultDetail">
             <result name="success-getDetail">resultDetails.jsp</result>
             <result name="fail">fail.jsp</result>
         </action>
-        <action name="changeResult" class="cn.edu.zjut.action.ResultDetailAction" method="changeDetails">
+        <action name="changeResult" class="cn.edu.zjut.action.ResultDetailAction" method="changeResult">
             <result name="success-Details">resultDetails.jsp</result>
             <result name="fail">fail.jsp</result>
         </action>
