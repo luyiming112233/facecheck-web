@@ -1,7 +1,7 @@
-<%@ page contentType="text/html;charset=GBK" language="java"%>
+<%@ page contentType="text/html;charset=GBK" language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
-<html >
+<html>
 <head>
     <meta charset="UTF-8">
     <title>可自由切换的注册登录表单模板</title>
@@ -27,55 +27,57 @@
 
                 <div class="field-wrap">
                     <label>
-                       请输入账号<span class="req">*</span>
+                        请输入账号<span class="req">*</span>
                     </label>
-                    <input type="text" name="teacher.teaID"required autocomplete="off"/>
+                    <input type="text" name="teacher.teaID" required autocomplete="off"/>
                 </div>
 
                 <div class="field-wrap">
                     <label>
-                       请输入密码<span class="req">*</span>
+                        请输入密码<span class="req">*</span>
                     </label>
                     <input type="password" name="teacher.password" required autocomplete="off"/>
                 </div>
 
-                <button type="submit" class="button button-block"/>登陆</button>
+                <button type="submit" class="button button-block"/>
+                登陆</button>
 
             </form>
 
         </div>
 
 
-    <div id="admin">
-        <h1>管理员登陆</h1>
+        <div id="admin">
+            <h1>管理员登陆</h1>
 
-        <form action="/" method="post">
+            <form action="/" method="post">
 
-            <div class="field-wrap">
-                <label>
-                    请输入账号<span class="req">*</span>
-                </label>
-                <input type="text" name="teacher.teaID"required autocomplete="off"/>
-            </div>
+                <div class="field-wrap">
+                    <label>
+                        请输入账号<span class="req">*</span>
+                    </label>
+                    <input type="text" name="teacher.teaID" required autocomplete="off"/>
+                </div>
 
-            <div class="field-wrap">
-                <label>
-                    请输入密码<span class="req">*</span>
-                </label>
-                <input type="password" name="teacher.password" required autocomplete="off"/>
-            </div>
+                <div class="field-wrap">
+                    <label>
+                        请输入密码<span class="req">*</span>
+                    </label>
+                    <input type="password" name="teacher.password" required autocomplete="off"/>
+                </div>
 
-            <button type="submit" class="button button-block"/>登陆</button>
+                <button type="submit" class="button button-block"/>
+                登陆</button>
 
-        </form>
+            </form>
 
+        </div>
     </div>
-</div>
 </div>
 
 
 <script src='js/jquery.min.js'></script>
 
-<script  src="js/index.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>

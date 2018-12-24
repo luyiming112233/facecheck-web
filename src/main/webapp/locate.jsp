@@ -32,7 +32,7 @@
             height: 100%;
             position: absolute;
             bottom: 0;
-            left:   0;
+            left: 0;
         }
 
         #start,
@@ -97,11 +97,12 @@
         <div id='nearestPOI'></div>
     </div>
 </div>
-<script type="text/javascript" src='//webapi.amap.com/maps?v=1.4.11&key=dfc7143e090aa248641a491478a76d04&plugin=AMap.ToolBar'></script>
+<script type="text/javascript"
+        src='//webapi.amap.com/maps?v=1.4.11&key=dfc7143e090aa248641a491478a76d04&plugin=AMap.ToolBar'></script>
 <!-- UI组件库 1.0 -->
 <script src="//webapi.amap.com/ui/1.0/main.js?v=1.0.11"></script>
 <script type="text/javascript">
-    AMapUI.loadUI(['misc/PositionPicker'], function(PositionPicker) {
+    AMapUI.loadUI(['misc/PositionPicker'], function (PositionPicker) {
         var map = new AMap.Map('container', {
             zoom: 16,
             scrollWheel: true
@@ -123,48 +124,52 @@
                 showMarker: true,        //定位成功后在定位到的位置显示点标记，默认：true
                 showCircle: true,        //定位成功后用圆圈表示定位精度范围，默认：true
                 panToLocation: true,     //定位成功后将定位到的位置作为地图中心点，默认：true
-                zoomToAccuracy:true      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+                zoomToAccuracy: true      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
             });
             map.addControl(geolocation);
             geolocation.getCurrentPosition();
-            AMap.event.addListener(geolocation,'complete',function(){alert("success get location")});//返回定位信息
-            AMap.event.addListener(geolocation,'error', function(){alert("fail to get location")});      //返回定位出错信息
+            AMap.event.addListener(geolocation, 'complete', function () {
+                alert("success get location")
+            });//返回定位信息
+            AMap.event.addListener(geolocation, 'error', function () {
+                alert("fail to get location")
+            });      //返回定位出错信息
         });
 
-        positionPicker.on('success', function(positionResult) {
+        positionPicker.on('success', function (positionResult) {
             document.getElementById('lnglat').innerHTML = positionResult.position;
             document.getElementById('address').innerHTML = positionResult.address;
             document.getElementById('nearestJunction').innerHTML = positionResult.nearestJunction;
             document.getElementById('nearestRoad').innerHTML = positionResult.nearestRoad;
             document.getElementById('nearestPOI').innerHTML = positionResult.nearestPOI;
         });
-        positionPicker.on('fail', function(positionResult) {
+        positionPicker.on('fail', function (positionResult) {
             document.getElementById('lnglat').innerHTML = ' ';
             document.getElementById('address').innerHTML = ' ';
             document.getElementById('nearestJunction').innerHTML = ' ';
             document.getElementById('nearestRoad').innerHTML = ' ';
             document.getElementById('nearestPOI').innerHTML = ' ';
         });
-        var onModeChange = function(e) {
+        var onModeChange = function (e) {
             positionPicker.setMode(e.target.value)
         }
         var startButton = document.getElementById('start');
         var stopButton = document.getElementById('stop');
         var dragMapMode = document.getElementsByName('mode')[0];
         var dragMarkerMode = document.getElementsByName('mode')[1];
-        AMap.event.addDomListener(startButton, 'click', function() {
+        AMap.event.addDomListener(startButton, 'click', function () {
 
-           var message=new Object();
-           message.position=document.getElementById('lnglat').innerHTML;
-           message.address=document.getElementById('address').innerHTML;
-           message.nearestJunction=document.getElementById('nearestJunction').innerHTML;
-           message.nearestRoad=document.getElementById('nearestRoad').innerHTML;
-           message.nearestPOI=document.getElementById('nearestPOI').innerHTML;
-           var json =JSON.stringify(message);
-           sessionStorage.setItem('message', json);
-           window.open ("/templateUI.jsp",'newindow');
+            var message = new Object();
+            message.position = document.getElementById('lnglat').innerHTML;
+            message.address = document.getElementById('address').innerHTML;
+            message.nearestJunction = document.getElementById('nearestJunction').innerHTML;
+            message.nearestRoad = document.getElementById('nearestRoad').innerHTML;
+            message.nearestPOI = document.getElementById('nearestPOI').innerHTML;
+            var json = JSON.stringify(message);
+            sessionStorage.setItem('message', json);
+            window.open("/templateUI.jsp", 'newindow');
         })
-        AMap.event.addDomListener(stopButton, 'click', function() {
+        AMap.event.addDomListener(stopButton, 'click', function () {
             geolocation.getCurrentPosition();
 
         })

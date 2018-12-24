@@ -18,7 +18,7 @@
     <div class="layui-text" style="font-size: 25px; color: #393D49;width: 400px;height: 30px;padding: 35px">
         签到详细信息
     </div>
-    <table class="layui-table" lay-data="{height:500, page:true}" lay-filter="test" >
+    <table class="layui-table" lay-data="{height:500, page:true}" lay-filter="test">
         <thead>
         <tr>
             <th lay-data="{field:'name'}">签到项目</th>
@@ -45,36 +45,35 @@
     </table>
 
 
-
 </div>
 
 <script src="../layui/layui.js" charset="utf-8"></script>
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 <script>
-    layui.use('table', function(){
+    layui.use('table', function () {
         var table = layui.table;
         //监听表格复选框选择
-        table.on('checkbox(demo)', function(obj){
+        table.on('checkbox(demo)', function (obj) {
             console.log(obj)
         });
         var $ = layui.$, active = {
-            getCheckData: function(){ //获取选中数据
+            getCheckData: function () { //获取选中数据
                 var checkStatus = table.checkStatus('stuTable')
-                    ,data = checkStatus.data;
+                    , data = checkStatus.data;
                 layer.alert(JSON.stringify(data));
             }
-            ,getCheckLength: function(){ //获取选中数目
+            , getCheckLength: function () { //获取选中数目
                 var checkStatus = table.checkStatus('stuTable')
-                    ,data = checkStatus.data;
-                layer.msg('选中了：'+ data.length + ' 个');
+                    , data = checkStatus.data;
+                layer.msg('选中了：' + data.length + ' 个');
             }
-            ,isAll: function(){ //验证是否全选
+            , isAll: function () { //验证是否全选
                 var checkStatus = table.checkStatus('stuTable');
-                layer.msg(checkStatus.isAll ? '全选': '未全选')
+                layer.msg(checkStatus.isAll ? '全选' : '未全选')
             }
         };
 
-        $('.demoTable .layui-btn').on('click', function(){
+        $('.demoTable .layui-btn').on('click', function () {
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';
         });
@@ -93,8 +92,6 @@
         });
     });
 </script>
-
-
 
 
 </div>

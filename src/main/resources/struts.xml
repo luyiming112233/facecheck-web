@@ -4,7 +4,7 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-    <package name="strutsBean" extends="struts-default" >
+    <package name="strutsBean" extends="struts-default">
         <!--***************************卢益铭部分开始****************************-->
         <!--添加学生-->
         <action name="studentAdd" class="cn.edu.zjut.action.StudentAction" method="studentAdd">
@@ -129,7 +129,8 @@
             <result name="querySignsuccess">/QS.jsp</result>
             <result name="querySignfail">/Fail.jsp</result>
         </action>
-        <action name="getAllSignByCreatetime" class="cn.edu.zjut.action.QuerySignaction" method="getAllSignByCreatetime">
+        <action name="getAllSignByCreatetime" class="cn.edu.zjut.action.QuerySignaction"
+                method="getAllSignByCreatetime">
             <result name="getAllSignByCreatetimesuccess">/QS.jsp</result>
             <result name="getAllSignByCreatetimefail">/Fail.jsp</result>
         </action>
@@ -144,7 +145,7 @@
             <result name="success-lookAll">allResults.jsp</result>
             <result name="fail">login.jsp</result>
         </action>
-        <action name="find" class="cn.edu.zjut.action.ResultAction" method="find" >
+        <action name="find" class="cn.edu.zjut.action.ResultAction" method="find">
             <result name="success-find">allResults.jsp</result>
             <result name="fail">fail.jsp</result>
         </action>
@@ -152,33 +153,33 @@
             <result name="success-Byname">allResults.jsp</result>
             <result name="fail">fail.jsp</result>
         </action>
-        <action name="ByTime" class="cn.edu.zjut.action.ResultAction" method="Bytime" >
+        <action name="ByTime" class="cn.edu.zjut.action.ResultAction" method="Bytime">
             <result name="success-Bytime">allResults.jsp</result>
             <result name="fail">fail.jsp</result>
         </action>
-        <action name="dailyResult" class="cn.edu.zjut.action.DailyResultAction" method="getDailyResult" >
+        <action name="dailyResult" class="cn.edu.zjut.action.DailyResultAction" method="getDailyResult">
             <result name="success-Daily">dailyResult.jsp</result>
             <result name="fail">fail.jsp</result>
         </action>
-        <action name="getDetail" class="cn.edu.zjut.action.ResultDetailAction" method="getDetail" >
+        <action name="getDetail" class="cn.edu.zjut.action.ResultDetailAction" method="getDetail">
             <result name="success-getDetail">resultDetails.jsp</result>
             <result name="fail">fail.jsp</result>
         </action>
-        <action name="changeResult" class="cn.edu.zjut.action.ResultDetailAction" method="changeDetails" >
+        <action name="changeResult" class="cn.edu.zjut.action.ResultDetailAction" method="changeDetails">
             <result name="success-Details">resultDetails.jsp</result>
             <result name="fail">fail.jsp</result>
         </action>
 
         <!--***************************李璐瑶部分结束****************************-->
 
-        <action name="ReleaseAction" class="cn.edu.zjut.action.ReleaseAction"  method="sendmsg"/>
+        <action name="ReleaseAction" class="cn.edu.zjut.action.ReleaseAction" method="sendmsg"/>
 
         <action name="TaskOutCenterAction" class="cn.edu.zjut.action.TaskOutCenterAction" method="buildTask">
-            <result type= "chain" name="success">inToPlatformAction</result>
+            <result type="chain" name="success">inToPlatformAction</result>
         </action>
 
         <action name="templateAction" class="cn.edu.zjut.action.TaskOutCenterAction" method=" buildTemplate">
-            <result type= "chain" name="success">inToPlatformAction</result>
+            <result type="chain" name="success">inToPlatformAction</result>
         </action>
         <action name="inToPlatformAction" class="cn.edu.zjut.action.TaskOutCenterAction" method=" inToPlatform">
             <result name="success">TaskPlatformUI.jsp</result>
@@ -194,7 +195,7 @@
         </action>
 
         <action name="newInsAction" class="cn.edu.zjut.action.TaskOutCenterAction" method="newIns">
-            <result type= "chain" name="success">inToPlatformAction</result>
+            <result type="chain" name="success">inToPlatformAction</result>
         </action>
 
 

@@ -80,6 +80,6 @@
 </div>
 
 
-    <%@ include file="UIbottom.jsp" %>
-    </body>
+<%@ include file="UIbottom.jsp" %>
+</body>
 </html>

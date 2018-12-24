@@ -11,8 +11,16 @@
 <!DOCTYPE html>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <style>
-    body{font-family:"微软雅黑";font-size:14px;}
-    .wrapper{width:800px;margin-right:auto;margin-left:auto;}
+    body {
+        font-family: "微软雅黑";
+        font-size: 14px;
+    }
+
+    .wrapper {
+        width: 800px;
+        margin-right: auto;
+        margin-left: auto;
+    }
 </style>
 <html>
 <%@ include file="UIAdminHead.jsp" %>
@@ -66,7 +74,8 @@
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn" lay-submit data-type="auto" lay-filter="formDemo" onclick="showMessage()">添加</button>
+                <button class="layui-btn" lay-submit data-type="auto" lay-filter="formDemo" onclick="showMessage()">添加
+                </button>
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>
@@ -83,6 +92,7 @@
                 return false;
             });
         });
+
         function showMessage() {
             layui.use('layer', function () {
                 var layer = layui.layer;
@@ -90,7 +100,6 @@
             });
         }
     </script>
-
 
 
     <style>
@@ -111,7 +120,7 @@
             *zoom: 1
         }
 
-        .a-upload  input {
+        .a-upload input {
             position: absolute;
             font-size: 100px;
             right: 0;
@@ -131,24 +140,24 @@
     <div>
         <div class="layui-text" style="font-size: 25px; color: #393D49;width: 400px;height: 30px;padding: 35px">
             批量导入
-                <font size="2">可以批量导入后缀为xls的excel表格</font>
+            <font size="2">可以批量导入后缀为xls的excel表格</font>
+        </div>
+        <form action="inputExcel" enctype="multipart/form-data" method="post">
+            <div class="layui-input-block">
+                <a href="javascript:;" class="a-upload mr10">
+                    <input type="file" name="file" id="file">点击这里上传文件</a>
             </div>
-       <form action="inputExcel"  enctype="multipart/form-data" method="post">
-           <div class="layui-input-block">
-           <a href="javascript:;" class="a-upload mr10">
-        <input type="file" name="file" id="file">点击这里上传文件</a>
-           </div>
-           <br>
-           <br>
+            <br>
+            <br>
 
-           <div class="showFileName"></div>
-        <div class="layui-input-block">
-            <button class="layui-btn"  type="submit">上传文件</button>
+            <div class="showFileName"></div>
+            <div class="layui-input-block">
+                <button class="layui-btn" type="submit">上传文件</button>
             </div>
-</form>
+        </form>
 
-</div>
-<%@ include file="UIbottom.jsp" %>
+    </div>
+    <%@ include file="UIbottom.jsp" %>
 </html>
 
 <<script >
@@ -158,7 +167,7 @@ $(function() {
 　　$('#uploadBtn').hide();
 　　$("#upload").on("change", "input[type='file']", function() {
 　　var filePath = $(this).val();
-　　//如果仅上传图片  if(filePath.indexOf("jpg") != -1 || filePath.indexOf("png") != -1) {
+　　//如果仅上传图片 if(filePath.indexOf("jpg") != -1 || filePath.indexOf("png") != -1) {
 　　if(filePath) {
 　　　　$(".fileerrorTip").html("").hide();
 　　　　var arr = filePath.split('\\');

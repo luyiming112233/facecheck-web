@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page isELIgnored="false" %>
 <html>
 <head>
@@ -13,7 +13,7 @@
     <title>打卡列表</title>
 </head>
 <body>
-<table class="layui-table" >
+<table class="layui-table">
     <colgroup>
         <col width="150">
         <col width="200">
@@ -33,11 +33,11 @@
     <tbody>
     <s:iterator value="signs">
         <tr>
-            <td><s:property value="signID" /></td>
-            <td><s:property value="name" /></td>
-            <td><s:property value="description" /></td>
-            <td><s:date format="YYYY-MM-dd"  name="createTime" /> </td>
-            <td><s:property value="teaID" /> </td>
+            <td><s:property value="signID"/></td>
+            <td><s:property value="name"/></td>
+            <td><s:property value="description"/></td>
+            <td><s:date format="YYYY-MM-dd" name="createTime"/></td>
+            <td><s:property value="teaID"/></td>
             <td>
                 <a href="./getSignInstance?signID=${signID}" style="color: #4476A7">查看</a></td>
         </tr>
@@ -45,11 +45,11 @@
     </tbody>
 </table>
 <script src="../layui/layui.js" charset="utf-8"></script>
-<script >
-    layui.use('form', function(){
+<script>
+    layui.use('form', function () {
         var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
 
-        form.on('submit(formDemo)', function(data){
+        form.on('submit(formDemo)', function (data) {
 
         });
 
