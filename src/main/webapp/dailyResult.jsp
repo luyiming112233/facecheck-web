@@ -37,7 +37,7 @@
                 <td><s:property value="startTime"/></td>
                 <td><s:property value="endTime"/></td>
                 <td><s:property value="placeName"/></td>
-                <td><a href="getDetail?dailyresult.signinstance.signInstID=<s:property value="signInstID"/>">查看</a>
+                <td><a href="getResultDetail?dailyresult.signinstance.signInstID=<s:property value="signInstID"/>">查看</a>
                 </td>
             </tr>
         </s:iterator>

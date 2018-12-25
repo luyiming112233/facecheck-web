@@ -29,7 +29,7 @@
                     <dd><a href="">安全设置</a></dd>
                 </dl>
             </li>
-            <li class="layui-nav-item"><a href="login.jsp">退出</a></li>
+            <li class="layui-nav-item"><a href="">退出</a></li>
         </ul>
     </div>
 
@@ -52,14 +52,16 @@
                         <dd><a href="allStudents">学生信息查询</a></dd>
                     </dl>
                 </li>
+
                 <li class="layui-nav-item layui-nav-itemed">
-                    <a class="" href="javascript:;">签到信息管理</a>
+                    <a class="" href="javascript:;">签到信息</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="QS.jsp">签到信息查询</a></dd>
+                        <dd><a href="inToPlatformAction">计划管理</a></dd>
+                        <dd><a href="templistUI.jsp">模板管理</a></dd>
                     </dl>
                 </li>
+
             </ul>
         </div>
     </div>
 
-</div>

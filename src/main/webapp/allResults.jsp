@@ -78,7 +78,7 @@
     <div class="layui-text" style="font-size: 25px; color: #393D49;width: 400px;height: 30px;padding: 35px">
         查看签到
     </div>
-    <form id="form" class="layui-form" action="find">
+    <form id="form" class="layui-form" action="findSign">
         <div class="layui-form-item">
             <label class="layui-form-label">查询框</label>
             <div class="layui-input-block" style="width: 200px;">
@@ -116,7 +116,7 @@
                 <td><s:property value="name"/></td>
                 <td><s:property value="createTime"/></td>
                 <td><s:property value="description"/></td>
-                <td><a href="dailyResult?signinstance.signID=<s:property value="signID"/>">查看</a>
+                <td><a href="getDailyResult?signinstance.signID=<s:property value="signID"/>">查看</a>
                 </td>
             </tr>
         </s:iterator>

@@ -84,7 +84,7 @@ public class ResultDetailAction {
     }
 
 
-    public String getDetail() {//根据小打卡的id查找这个小打卡下的学生打卡情况
+    public String getResultDetail() {//根据小打卡的id查找这个小打卡下的学生打卡情况
         try {
             System.out.println("now the getDetail    " + dailyresult.getSigninstance().getSignInstID());
             resultdetails = resultdetailService.getBySignInstance_id(dailyresult.getSigninstance().getSignInstID());//获取签到结果情况
@@ -104,7 +104,7 @@ public class ResultDetailAction {
         }
     }
 
-    public String changeDetails() {//修改学生签到情况
+    public String changeResult() {//修改学生签到情况
         System.out.println("now the changeDetails*******");
         System.out.println(resultdetail.getStudentsign().getStatus());
         System.out.println(resultdetail.getStudentsign().getSignInstID());

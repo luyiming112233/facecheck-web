@@ -19,35 +19,35 @@ import java.util.List;
 
 /**
  * 发送验证码
- *
  * @author liuxuanlin
+ *
  */
 @Service
 @Scope("prototype")
 public class SendCodeService {
     //发送验证码的请求路径URL
     private static final String
-            SERVER_URL = "https://api.netease.im/sms/sendcode.action";
+            SERVER_URL="https://api.netease.im/sms/sendcode.action";
     //网易云信分配的账号，请替换你在管理后台应用下申请的Appkey
     private static final String
-            APP_KEY = "e94b1edc27f8bf96360ccdc42e2d43fb";
+            APP_KEY="c01fe585a1e3603dab7cd495e003af7c";
     //网易云信分配的密钥，请替换你在管理后台应用下申请的appSecret
-    private static final String APP_SECRET = "6116a73932d2";
+    private static final String APP_SECRET="5278f2973165";
     //随机数
 
     //短信模板ID
-    private static final String TEMPLATEID = "9284585";
+    private static final String TEMPLATEID="9494598";
     //手机号
-    private static final String MOBILE = "15988829461";
+    private static final String MOBILE="15988829461";
     //验证码长度，范围4～10，默认为4
-    private static final String CODELEN = "4";
+    private static final String CODELEN="4";
 
     public String sendmsg(String phone) throws Exception {
 
         DefaultHttpClient httpClient = new DefaultHttpClient();
         HttpPost httpPost = new HttpPost(SERVER_URL);
         String curTime = String.valueOf((new Date()).getTime() / 1000L);
-        String NONCE = String.valueOf((Math.floor(Math.random() * (99999 - 10000 + 1) + 10000)));
+        String  NONCE=String.valueOf((Math.floor(Math.random() * (99999 - 10000 + 1) + 10000)));
         /*
          * 参考计算CheckSum的java代码，在上述文档的参数列表中，有CheckSum的计算文档示例
          */
@@ -81,6 +81,6 @@ public class SendCodeService {
          * 2.具体的code有问题的可以参考官网的Code状态表
          */
 
-        return EntityUtils.toString(response.getEntity(), "utf-8");
+        return EntityUtils.toString(response.getEntity(),"utf-8");
     }
 }

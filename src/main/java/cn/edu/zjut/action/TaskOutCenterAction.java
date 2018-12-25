@@ -1,9 +1,6 @@
 package cn.edu.zjut.action;
 
-import cn.edu.zjut.po.Sign;
-import cn.edu.zjut.po.SignInstanceTemplate;
-import cn.edu.zjut.po.Student;
-import cn.edu.zjut.po.TaskList;
+import cn.edu.zjut.po.*;
 import cn.edu.zjut.service.ISignInstanceService;
 import cn.edu.zjut.service.IStudentService;
 import cn.edu.zjut.service.ITaskService;
@@ -97,10 +94,11 @@ public class TaskOutCenterAction {
 
 
     public String buildTask() {
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-        sign.setCreateTime((new Date()));
-        taskService.insertSign(sign);
-
+        if(sign!=null) {
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+            sign.setCreateTime((new Date()));
+            taskService.insertSign(sign);
+        }
         return "success";
 
     }
@@ -136,13 +134,13 @@ public class TaskOutCenterAction {
         Map session = ActionContext.getContext().getSession();
         //session.get(teacher);
 
-        int teaID = 10001;
-        TaskList taskList = taskService.getTaskList(teaID);
+        Teacher teacher=(Teacher)session.get("teacher");
+        TaskList taskList = taskService.getTaskList(teacher.getTeaID());
 
 
         session.put("taskList", taskList);
 
-        session.put("teaID", teaID);
+        session.put("teaID", teacher.getTeaID());
 
 
         return "success";
@@ -176,11 +174,11 @@ public class TaskOutCenterAction {
         int chooseid = Integer.parseInt(request.getParameter("chooseid"));
         String[] date_list = datelist.split(",");
         String[] stu_list = stulist.split(",");
-        System.out.println("模板是" + templateid);
+  /*      System.out.println("模板是" + templateid);
         System.out.println(date_list[0]);
         System.out.println(date_list[1]);
         System.out.println("学号是" + stu_list[0]);
-        System.out.println("chooseid:" + chooseid);
+        System.out.println("chooseid:" + chooseid);*/
         signInstanceService.insertSignInstance(stu_list, date_list, templateid, chooseid);
         return "success";
 

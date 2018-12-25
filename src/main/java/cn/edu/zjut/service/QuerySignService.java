@@ -43,5 +43,15 @@ public class QuerySignService implements IQuerySignService {
         return querySignMapper.getAllSignValid(endtime);
     }
 
+    @Override
+    public List<Sign> getAllSignfuzzilybyName(String name) throws Exception {
+        return querySignMapper.getAllSignfuzzilybyName(name);
+    }
+
+    @Override
+    public List<Sign> getAllSignfuzzilybyCal(String cal) throws Exception {
+        return querySignMapper.getAllSignfuzzilybyCal(cal);
+    }
+
 
 }

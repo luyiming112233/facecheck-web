@@ -94,10 +94,10 @@ public class QuerySignaction {
             //String date=sDateFormat.format(input);
             querySignService = CtxUtil.getBean(QuerySignService.class);
             signs = querySignService.getAllSignByCreatetime(input);
-            return "getAllSignByCreatetimesuccess";
+            return "querySignbyDatesuccess";
         } catch (Exception e) {
             e.printStackTrace();
-            return "getAllSignByCreatetimefail";
+            return "querySignbyDatefail";
         }
     }
 
@@ -114,7 +114,45 @@ public class QuerySignaction {
             return "querySignfail";
         }
     }
+     //查询还有效的打卡
+    public String  getAllSignValid(){
+        try {
 
+            querySignService = CtxUtil.getBean(QuerySignService.class);
+            signs = querySignService.getAllSignValid(input);
+            return "querySignbyDatesuccess";
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "querySignbyDatefail";
+        }
+    }
+    //根据打卡名模糊查询
+    public String  getAllSignfuzzilybyName(){
+        try {
+
+            querySignService = CtxUtil.getBean(QuerySignService.class);
+            signs = querySignService.getAllSignfuzzilybyName(input);
+            return "querySignfuzzilysuccess";
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "querySignfuzzilyfail";
+        }
+    }
+    //根据日期来模糊查询
+    public String  getAllSignfuzzilybyCal(){
+        try {
+
+            querySignService = CtxUtil.getBean(QuerySignService.class);
+            signs = querySignService.getAllSignfuzzilybyCal(input);
+            return "querySignfuzzilysuccess";
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "querySignfuzzilyfail";
+        }
+    }
     public String querySign() {
         if (query.equals("0")) {
             return getAllSignByName();
@@ -126,4 +164,23 @@ public class QuerySignaction {
         }
         return "querySignfail";
     }
+    public String querySignbyDate(){
+        if (query.equals("0")) {
+            return getAllSignByCreatetime();
+        } else if (query.equals("1")) {
+
+            return getAllSignValid();
+        }
+        return "querySignbyDatefail";
+    }
+    public String querySignfuzzily(){
+        if (query.equals("0")) {
+            return getAllSignfuzzilybyName();
+        } else if (query.equals("1")) {
+
+            return getAllSignfuzzilybyCal();
+        }
+        return "querySignfuzzilyfail";
+    }
+
 }
