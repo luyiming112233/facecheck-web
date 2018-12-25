@@ -16,7 +16,7 @@ public class CheckAdmin {
             System.out.println("11111");
             String tip = "请先登录";
             request.put("tip", tip);
-            /*throw new Exception();*/
+            throw new Exception();
         }
     }
 }
