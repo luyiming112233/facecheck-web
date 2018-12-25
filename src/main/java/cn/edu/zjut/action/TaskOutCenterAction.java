@@ -94,16 +94,21 @@ public class TaskOutCenterAction {
 
 
     public String buildTask() {
-        if(sign!=null) {
-            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-            sign.setCreateTime((new Date()));
-            taskService.insertSign(sign);
-        }
-        return "success";
+        try {
+            if (sign != null) {
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+                sign.setCreateTime((new Date()));
+                taskService.insertSign(sign);
+            }
+            return "success";
 
+        } catch (Exception e) {
+            return "fail";
+        }
     }
 
-    public String buildTemplate() {
+    public String buildTemplate()
+    {
 
         Date date = null;
         DateFormat format = new SimpleDateFormat("HH:mm");
@@ -122,6 +127,7 @@ public class TaskOutCenterAction {
             template.setEndTime(new Time(date.getTime()));
         } catch (ParseException e) {
             e.printStackTrace();
+            return "fail";
         }
         taskService.insertTemplate(template);
 
@@ -130,69 +136,80 @@ public class TaskOutCenterAction {
     }
 
     public String inToPlatform() {
+        try {
+            Map session = ActionContext.getContext().getSession();
+            //session.get(teacher);
 
-        Map session = ActionContext.getContext().getSession();
-        //session.get(teacher);
-
-        Teacher teacher=(Teacher)session.get("teacher");
-        TaskList taskList = taskService.getTaskList(teacher.getTeaID());
-
-
-        session.put("taskList", taskList);
-
-        session.put("teaID", teacher.getTeaID());
+            Teacher teacher = (Teacher) session.get("teacher");
+            TaskList taskList = taskService.getTaskList(teacher.getTeaID());
 
 
-        return "success";
+            session.put("taskList", taskList);
+
+            session.put("teaID", teacher.getTeaID());
+
+
+            return "success";
+        } catch (Exception e) {
+            return "fail";
+        }
     }
 
     public String gotoinstance() {
-        actionRequest = (Map) ActionContext.getContext().get("request");
-        List<Student> students = studentService.listAllStudents();
-        System.out.println(students.get(0).getName());
-        HttpServletRequest request = ServletActionContext.getRequest();
-        String templateid = request.getParameter("templateid");
-        String chooseid = request.getParameter("chooseid");
-        String choosename = request.getParameter("choosename");
-        System.out.println(templateid);
-        request.setAttribute("templateid", templateid);
-        request.setAttribute("chooseid", chooseid);
-        request.setAttribute("choosename", choosename);
-        System.out.println(chooseid);
-        System.out.println(choosename);
-        System.out.println(templateid);
+        try {
+            actionRequest = (Map) ActionContext.getContext().get("request");
+            List<Student> students = studentService.listAllStudents();
+            System.out.println(students.get(0).getName());
+            HttpServletRequest request = ServletActionContext.getRequest();
+            String templateid = request.getParameter("templateid");
+            String chooseid = request.getParameter("chooseid");
+            String choosename = request.getParameter("choosename");
+            System.out.println(templateid);
+            request.setAttribute("templateid", templateid);
+            request.setAttribute("chooseid", chooseid);
+            request.setAttribute("choosename", choosename);
+            System.out.println(chooseid);
+            System.out.println(choosename);
+            System.out.println(templateid);
 
-        actionRequest.put("students", students);
+            actionRequest.put("students", students);
 
-        return "success";
+            return "success";
+        } catch (Exception e) {
+            return "fail";
+        }
     }
-
     public String newIns() {
-        HttpServletRequest request = ServletActionContext.getRequest();
-        System.out.println("学号是" + stulist);
+        try {
+            HttpServletRequest request = ServletActionContext.getRequest();
+            System.out.println("学号是" + stulist);
 
-        int chooseid = Integer.parseInt(request.getParameter("chooseid"));
-        String[] date_list = datelist.split(",");
-        String[] stu_list = stulist.split(",");
+            int chooseid = Integer.parseInt(request.getParameter("chooseid"));
+            String[] date_list = datelist.split(",");
+            String[] stu_list = stulist.split(",");
   /*      System.out.println("模板是" + templateid);
         System.out.println(date_list[0]);
         System.out.println(date_list[1]);
         System.out.println("学号是" + stu_list[0]);
         System.out.println("chooseid:" + chooseid);*/
-        signInstanceService.insertSignInstance(stu_list, date_list, templateid, chooseid);
-        return "success";
+            signInstanceService.insertSignInstance(stu_list, date_list, templateid, chooseid);
+            return "success";
 
+        } catch (Exception e) {
+            return "fail";
+        }
     }
-
 
     public String deleteInstance() {
-
-        HttpServletRequest request = ServletActionContext.getRequest();
-        String templateid = request.getParameter("templateid");
-        int templateId = Integer.parseInt(templateid);
-        taskService.deleteTemplate(templateId);
-        return "success";
+        try {
+            HttpServletRequest request = ServletActionContext.getRequest();
+            String templateid = request.getParameter("templateid");
+            int templateId = Integer.parseInt(templateid);
+            taskService.deleteTemplate(templateId);
+            return "success";
+        } catch (Exception e) {
+            return "fail";
+        }
     }
-
 
 }

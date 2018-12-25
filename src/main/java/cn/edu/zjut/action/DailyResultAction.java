@@ -61,6 +61,7 @@ public class DailyResultAction {
     @Resource
 
     public void setDailyresultService(IDailyResultService dailyresultService) {
+
         this.dailyresultService = dailyresultService;
     }
 

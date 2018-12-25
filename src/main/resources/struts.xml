@@ -152,27 +152,27 @@
         </action>
         <action name="findSign" class="cn.edu.zjut.action.ResultAction" method="findSign">
             <result name="success-find">allResults.jsp</result>
-            <result name="fail">fail.jsp</result>
+            <result name="fail">login.jsp</result>
         </action>
         <action name="getByName" class="cn.edu.zjut.action.ResultAction" method="getByName">
             <result name="success-Byname">allResults.jsp</result>
-            <result name="fail">fail.jsp</result>
+            <result name="fail">login.jsp</result>
         </action>
         <action name="getByTime" class="cn.edu.zjut.action.ResultAction" method="getByTime">
             <result name="success-Bytime">allResults.jsp</result>
-            <result name="fail">fail.jsp</result>
+            <result name="fail">login.jsp</result>
         </action>
         <action name="getDailyResult" class="cn.edu.zjut.action.DailyResultAction" method="getDailyResult">
             <result name="success-Daily">dailyResult.jsp</result>
-            <result name="fail">fail.jsp</result>
+            <result name="fail">login.jsp</result>
         </action>
         <action name="getResultDetail" class="cn.edu.zjut.action.ResultDetailAction" method="getResultDetail">
             <result name="success-getDetail">resultDetails.jsp</result>
-            <result name="fail">fail.jsp</result>
+            <result name="fail">login.jsp</result>
         </action>
         <action name="changeResult" class="cn.edu.zjut.action.ResultDetailAction" method="changeResult">
             <result name="success-Details">resultDetails.jsp</result>
-            <result name="fail">fail.jsp</result>
+            <result name="fail">login.jsp</result>
         </action>
 
         <!--***************************李璐瑶部分结束****************************-->
@@ -181,26 +181,37 @@
 
         <action name="TaskOutCenterAction" class="cn.edu.zjut.action.TaskOutCenterAction" method="buildTask">
             <result type="chain" name="success">inToPlatformAction</result>
+            <result name="fail">login.jsp</result>
+
         </action>
 
         <action name="templateAction" class="cn.edu.zjut.action.TaskOutCenterAction" method=" buildTemplate">
             <result type="chain" name="success">inToPlatformAction</result>
+            <result name="fail">login.jsp</result>
+
         </action>
         <action name="inToPlatformAction" class="cn.edu.zjut.action.TaskOutCenterAction" method=" inToPlatform">
             <result name="success">TaskPlatformUI.jsp</result>
+            <result name="fail">login.jsp</result>
 
         </action>
 
         <action name="CreateInsAction" class="cn.edu.zjut.action.TaskOutCenterAction" method="gotoinstance">
             <result name="success">signinfoUI.jsp</result>
+            <result name="fail">login.jsp</result>
+
         </action>
 
         <action name="DeleteInsAction" class="cn.edu.zjut.action.TaskOutCenterAction" method="deleteInstance">
             <result name="success">signinfoUI.jsp</result>
+            <result name="fail">login.jsp</result>
+
         </action>
 
         <action name="newInsAction" class="cn.edu.zjut.action.TaskOutCenterAction" method="newIns">
             <result type="chain" name="success">inToPlatformAction</result>
+            <result name="fail">login.jsp</result>
+
         </action>
 
 
