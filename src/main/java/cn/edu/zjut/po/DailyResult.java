@@ -5,36 +5,36 @@ public class DailyResult {
     String sign_name;
     int all;
     int fact;
-    public void setSigninstance(SignInstance signinstance)
-    {
-        this.signinstance=signinstance;
+
+    public void setSigninstance(SignInstance signinstance) {
+        this.signinstance = signinstance;
     }
-    public SignInstance getSigninstance()
-    {
+
+    public SignInstance getSigninstance() {
         return signinstance;
     }
-    public void setSign_name(String sign_name)
-    {
-        this.sign_name=sign_name;
+
+    public void setSign_name(String sign_name) {
+        this.sign_name = sign_name;
     }
-    public void setAll(int all)
-    {
-        this.all=all;
+
+    public void setAll(int all) {
+        this.all = all;
     }
-    public int getAll()
-    {
+
+    public int getAll() {
         return all;
     }
-    public void setFact(int fact)
-    {
-        this.fact=fact;
+
+    public void setFact(int fact) {
+        this.fact = fact;
     }
-    public int getFact()
-    {
+
+    public int getFact() {
         return fact;
     }
-    public String getSign_name()
-    {
+
+    public String getSign_name() {
         return sign_name;
     }
 

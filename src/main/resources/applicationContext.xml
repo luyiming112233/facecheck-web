@@ -9,7 +9,7 @@
     <!--***************************卢益铭部分开始****************************-->
 
     <!--1 引入属性文件，在配置中占位使用 -->
-    <context:property-placeholder location="classpath*:db.properties" />
+    <context:property-placeholder location="classpath*:db.properties"/>
     <!--数据源配置 测试时记得修改为自己的数据库信息-->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="${jdbc.driver}"/>
@@ -21,7 +21,7 @@
 
     <!--Spring的事务管理器 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource" />
+        <property name="dataSource" ref="dataSource"/>
     </bean>
     <!--支持注解驱动的事务管理，指定事务管理器 -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
@@ -43,7 +43,7 @@
     </bean>
 
     <!--6 容器自动扫描IOC组件  -->
-    <context:component-scan base-package="cn.edu.zjut.**.*" />
+    <context:component-scan base-package="cn.edu.zjut.**.*"/>
 
     <!--7 aspectj支持自动代理实现AOP功能 -->
     <aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy>
@@ -51,16 +51,18 @@
     <!--***************************卢益铭部分结束****************************-->
 
     <!--***************************金炜炜部分开始****************************-->
-<!--aspect-->
-    <bean id="CheckTeacher" class="cn.edu.zjut.aspect.CheckTeacher" />
+    <!--aspect-->
+    <bean id="CheckAdmin" class="cn.edu.zjut.aspect.CheckAdmin"/>
     <!-- 配置文件的方式 -->
 
     <aop:config>
-        <aop:aspect id="checkT" ref="CheckTeacher">
-            <aop:pointcut id="modify" expression="execution(* cn.edu.zjut.service.TeacherService.*Teacher(..)) || execution(* cn.edu.zjut.service.StudentService.*(..)) "  />
-            <aop:before method="checkTeacher" pointcut-ref="modify"></aop:before>
+        <aop:aspect id="checkAdmin" ref="CheckAdmin">
+            <aop:pointcut id="modify"
+                          expression="execution(* cn.edu.zjut.service.TeacherService.*Teacher(..)) || execution(* cn.edu.zjut.service.StudentService.*(..)) "/>
+            <aop:before method="checkAdmin" pointcut-ref="modify"></aop:before>
         </aop:aspect>
     </aop:config>
+    <!--
     <bean id="CheckTeacher1" class="cn.edu.zjut.aspect.CheckTeacher1"/>
     <aop:config>
         <aop:aspect id="checkT1" ref="CheckTeacher1">
@@ -68,5 +70,5 @@
             <aop:before method="checkTeacher" pointcut-ref="modify"></aop:before>
         </aop:aspect>
     </aop:config>
-
+-->
 </beans>

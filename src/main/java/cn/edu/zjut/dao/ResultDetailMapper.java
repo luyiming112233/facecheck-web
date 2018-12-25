@@ -8,6 +8,7 @@ import cn.edu.zjut.po.ResultDetail;
 
 @Repository
 public interface ResultDetailMapper {
-	List<ResultDetail> selectBySigninstance_id(int signInstID);
-	void update(Integer stuSignID, Integer status);
+    List<ResultDetail> selectBySigninstance_id(int signInstID);
+
+    void update(Integer stuSignID, Integer status);
 }

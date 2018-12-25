@@ -14,7 +14,8 @@
     </resultMap>
 
 
-    <insert id="insertTemplate" parameterType="cn.edu.zjut.po.SignInstanceTemplate" useGeneratedKeys="true" keyProperty="tempID">
+    <insert id="insertTemplate" parameterType="cn.edu.zjut.po.SignInstanceTemplate" useGeneratedKeys="true"
+            keyProperty="tempID">
         <selectKey keyProperty="tempID" resultType="java.lang.Integer" order="BEFORE">
             select if(max(template_id) is null, 1, max(template_id) + 1) as newtemplateId from template
         </selectKey>

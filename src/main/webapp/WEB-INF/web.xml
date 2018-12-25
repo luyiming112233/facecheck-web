@@ -22,4 +22,7 @@
             org.springframework.web.context.ContextLoaderListener
         </listener-class>
     </listener>
+    <welcome-file-list>
+        <welcome-file>admin.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>

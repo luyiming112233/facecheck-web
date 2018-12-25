@@ -6,9 +6,10 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+
 @Service
 public class QuerySignInstanceService implements IQuerySignInstanceService {
- @Resource
+    @Resource
     QuerySignInstanceMapper querySignInstanceMapper;
 
 

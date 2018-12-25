@@ -7,7 +7,8 @@ public class Admin {
     private Integer sex;
     private Integer phone;
 
-    public Admin(){ }
+    public Admin() {
+    }
 
     public Admin(int adminId, String name, String password, Integer sex, Integer phone) {
         this.adminID = adminId;

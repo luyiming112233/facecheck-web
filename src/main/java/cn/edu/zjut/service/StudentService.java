@@ -12,7 +12,7 @@ import java.util.Map;
 
 @Service
 public class StudentService implements IStudentService {
-    private Map<String, Object> request,session;
+    private Map<String, Object> request, session;
 
     @Autowired
     StudentMapper studentMapper = null;
@@ -33,7 +33,7 @@ public class StudentService implements IStudentService {
     public boolean updateStudent(Student student) {
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
-        request.put("student",student);
+        request.put("student", student);
         try {
             studentMapper.updateStudent(student);
         } catch (Exception e) {
@@ -54,13 +54,13 @@ public class StudentService implements IStudentService {
             return false;
         }
         List<Student> studentList = (List<Student>) session.get("studentList");
-        for(Student student:studentList){
-            if(student.getStuID()==stuID) {
+        for (Student student : studentList) {
+            if (student.getStuID() == stuID) {
                 studentList.remove(student);
                 break;
             }
         }
-        session.put("studentList",studentList);
+        session.put("studentList", studentList);
         return true;
     }
 
@@ -156,12 +156,12 @@ public class StudentService implements IStudentService {
     }
 
     @Override
-    public boolean showStudent(int stuID){
+    public boolean showStudent(int stuID) {
         ActionContext ctx = ActionContext.getContext();
-        request = (Map)ctx.get("request");
+        request = (Map) ctx.get("request");
         try {
             Student student = studentMapper.getStudentById(stuID);
-            request.put("student",student);
+            request.put("student", student);
             return true;
         } catch (Exception e) {
             e.printStackTrace();

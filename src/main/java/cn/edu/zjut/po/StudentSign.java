@@ -16,7 +16,8 @@ public class StudentSign {
     private double similar;//识别的相似度
     private Integer status;//签到状态(0:未签到,1:签到成功,2:请假)
 
-    public StudentSign() { }
+    public StudentSign() {
+    }
 
     public StudentSign(Integer stuSignID, Integer stuID, Integer signInstID, Date signTime, String signImgUrl, String stuEmail, String stuImgUrl, double similar, Integer status) {
         this.stuSignID = stuSignID;

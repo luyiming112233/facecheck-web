@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.edu.zjut.dao.QuerySignInstanceMapper">
-    <select id="getSignInstance" resultType="cn.edu.zjut.po.SignInstance" parameterType="cn.edu.zjut.po.SignInstance" resultMap="SignInstanceMap">
+    <select id="getSignInstance" resultType="cn.edu.zjut.po.SignInstance" parameterType="cn.edu.zjut.po.SignInstance"
+            resultMap="SignInstanceMap">
      select * from signinstance
      where sign_id=#{signID}
     group  by starttime
      </select>
     <resultMap type="cn.edu.zjut.po.SignInstance" id="SignInstanceMap">
-        <id column="signinstance_id" jdbcType="INTEGER" property="signInstID" />
+        <id column="signinstance_id" jdbcType="INTEGER" property="signInstID"/>
         <result column="sign_id" jdbcType="INTEGER" property="signID"/>
         <result column="starttime" jdbcType="TIME" property="startTime"/>
         <result column="endtime" jdbcType="TIME" property="endTime"/>

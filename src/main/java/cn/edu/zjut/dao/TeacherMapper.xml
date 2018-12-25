@@ -34,7 +34,7 @@
         VALUES (#{teaID},#{name},#{password},#{sex},#{phone})
     </insert>
 
-    <delete id="deleteTeacher" parameterType="int" >
+    <delete id="deleteTeacher" parameterType="int">
         DELETE FROM teacher
         WHERE teacher_id = #{id}
     </delete>

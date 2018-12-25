@@ -4,7 +4,7 @@ import java.util.List;
 
 public class TaskList {
 
-    private  Integer teaID;
+    private Integer teaID;
     private List<Sign> signs;
     private List<SignInstanceTemplate> templates;
 

@@ -21,11 +21,11 @@
     </select>
     <!-- 按发布时间 -->
     <select id="selectBySign_name" resultMap="resultMap" resultType="cn.edu.zjut.po.Sign">
-        select * from Sign where sign_name=#{arg0} and teacher_id=#{arg1}
+        select * from Sign where sign_name like CONCAT('%',#{arg0},'%') and teacher_id=#{arg1}
     </select>
     <!-- 按发布名称查找 -->
     <select id="selectByCreatetime" resultMap="resultMap" resultType="cn.edu.zjut.po.Sign">
-     select * from Sign where createtime=#{arg0} and teacher_id=#{arg1}
+     select * from Sign where createtime like CONCAT('%',#{arg0},'%')  and teacher_id=#{arg1}
     </select>
 
 </mapper>

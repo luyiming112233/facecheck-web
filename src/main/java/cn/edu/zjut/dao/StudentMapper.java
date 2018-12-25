@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Repository
 public interface StudentMapper {
     /**
@@ -79,25 +80,20 @@ public interface StudentMapper {
     public List<Student> listStudentByDepart(String departName) throws Exception;
 
     /**
-     *
-     *
      * @param stuField
      * @throws Exception
      */
-    public void insertStudentExcel(ArrayList<Student> stuField) throws  Exception;
+    public void insertStudentExcel(ArrayList<Student> stuField) throws Exception;
 
     /**
-     *
-     *
      * @param stuField
      * @throws Exception
      */
-    public void insertStudentFace(ArrayList<Student>stuField) throws  Exception;
+    public void insertStudentFace(ArrayList<Student> stuField) throws Exception;
 
     /**
-     *
      * @param student
      * @throws Exception
      */
-    public void insertOneStudentFace(Student student) throws  Exception;
+    public void insertOneStudentFace(Student student) throws Exception;
 }

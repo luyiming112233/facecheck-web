@@ -10,13 +10,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class TaskService implements ITaskService {
-@Autowired
-TaskMapper taskMapper = null;
     @Autowired
-    TemplateMapper templateMapper=null;
+    TaskMapper taskMapper = null;
+    @Autowired
+    TemplateMapper templateMapper = null;
 
 
-    public boolean insertSign(Sign sign)  {
+    public boolean insertSign(Sign sign) {
 
         try {
             taskMapper.insertSignProject(sign);
@@ -28,7 +28,7 @@ TaskMapper taskMapper = null;
     }
 
 
-    public boolean insertTemplate(SignInstanceTemplate template)  {
+    public boolean insertTemplate(SignInstanceTemplate template) {
 
         try {
             templateMapper.insertTemplate(template);
@@ -39,7 +39,7 @@ TaskMapper taskMapper = null;
         return true;
     }
 
-    public boolean deleteTemplate(int templateId)  {
+    public boolean deleteTemplate(int templateId) {
 
         try {
             templateMapper.DeleteTemplate(templateId);
@@ -51,13 +51,13 @@ TaskMapper taskMapper = null;
     }
 
 
-    public TaskList getTaskList(int teaID)  {
+    public TaskList getTaskList(int teaID) {
 
-        TaskList taskList=new TaskList();
+        TaskList taskList = new TaskList();
 
         try {
 
-            taskList.setTeaID(   new Integer(teaID));
+            taskList.setTeaID(new Integer(teaID));
 
             taskList.setSigns(taskMapper.getSignProjectById(new Integer(teaID)));
             System.out.println(taskMapper.getSignProjectById(new Integer(teaID)));
@@ -70,7 +70,7 @@ TaskMapper taskMapper = null;
             return null;
         }
 
-      return taskList;
+        return taskList;
     }
 
 
