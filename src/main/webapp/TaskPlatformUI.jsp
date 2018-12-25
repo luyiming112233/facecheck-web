@@ -13,7 +13,7 @@
 
 <html>
 <body>
-<%@ include file="UITeaOpeHead.jsp" %>
+<%@ include file="UIAdminHead.jsp" %>
 <div class="layui-body">
     <div class="layui-text" style="font-size: 25px; color: #393D49;width: 400px;height: 30px;padding: 35px">
    插入新计划
@@ -23,7 +23,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">教师ID</label>
             <div class="layui-input-block" style="width: 200px;">
-                <s:textfield name="sign.teaID" value="%{#session.teaID}" readonly="false" class="layui-input"/>
+                <s:textfield name="sign.teaID" value="%{#session.teacher.teaID}" readonly="true" class="layui-input"/>
 
             </div>
         </div>

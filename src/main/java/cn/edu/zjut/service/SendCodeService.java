@@ -30,13 +30,13 @@ public class SendCodeService {
             SERVER_URL="https://api.netease.im/sms/sendcode.action";
     //网易云信分配的账号，请替换你在管理后台应用下申请的Appkey
     private static final String
-            APP_KEY="e94b1edc27f8bf96360ccdc42e2d43fb";
+            APP_KEY="c01fe585a1e3603dab7cd495e003af7c";
     //网易云信分配的密钥，请替换你在管理后台应用下申请的appSecret
-    private static final String APP_SECRET="6116a73932d2";
+    private static final String APP_SECRET="5278f2973165";
     //随机数
 
     //短信模板ID
-    private static final String TEMPLATEID="9284585";
+    private static final String TEMPLATEID="9494598";
     //手机号
     private static final String MOBILE="15988829461";
     //验证码长度，范围4～10，默认为4

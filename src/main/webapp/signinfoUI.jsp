@@ -43,7 +43,7 @@
         创建新计划
     </div>
     <form class="layui-form" action="newInsAction" method="post">
-        <s:hidden name="sign.teaID" value="#session.teaID"/>
+        <s:hidden name="sign.teaID" value="#session.teacher.teaID"/>
         <input type="text" value="${param.templateid}" hidden name="templateid">
         <input type="text" value="${param.chooseid}" hidden name="chooseid">
         <input type="text" value="${param.choosename}" hidden name="choosename">

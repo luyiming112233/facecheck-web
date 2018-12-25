@@ -1,9 +1,6 @@
 package cn.edu.zjut.action;
 
-import cn.edu.zjut.po.Sign;
-import cn.edu.zjut.po.SignInstanceTemplate;
-import cn.edu.zjut.po.Student;
-import cn.edu.zjut.po.TaskList;
+import cn.edu.zjut.po.*;
 import cn.edu.zjut.service.ISignInstanceService;
 import cn.edu.zjut.service.IStudentService;
 import cn.edu.zjut.service.ITaskService;
@@ -27,7 +24,7 @@ import java.util.Map;
 public class TaskOutCenterAction {
 
     @Autowired
-private ITaskService taskService;
+    private ITaskService taskService;
 
     @Autowired
     private ISignInstanceService signInstanceService;
@@ -78,7 +75,6 @@ private ITaskService taskService;
     }
 
 
-
     public SignInstanceTemplate getTemplate() {
         return template;
     }
@@ -86,7 +82,6 @@ private ITaskService taskService;
     public void setTemplate(SignInstanceTemplate template) {
         this.template = template;
     }
-
 
 
     public int getTemplateid() {
@@ -98,26 +93,26 @@ private ITaskService taskService;
     }
 
 
-
-    public String buildTask(){
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-        sign.setCreateTime((new Date()));
-        taskService.insertSign(sign);
-
+    public String buildTask() {
+        if(sign!=null) {
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+            sign.setCreateTime((new Date()));
+            taskService.insertSign(sign);
+        }
         return "success";
 
     }
 
-    public String buildTemplate(){
+    public String buildTemplate() {
 
         Date date = null;
-            DateFormat format = new SimpleDateFormat("HH:mm");
-        HttpServletRequest request= ServletActionContext.getRequest();
-        String beginTime=request.getParameter("template.startTime");//字符串
-        beginTime=beginTime+":00";
+        DateFormat format = new SimpleDateFormat("HH:mm");
+        HttpServletRequest request = ServletActionContext.getRequest();
+        String beginTime = request.getParameter("template.startTime");//字符串
+        beginTime = beginTime + ":00";
         System.out.println(beginTime);
-        String endTime=request.getParameter("template.endTime");//字符串
-        endTime=endTime+":00";
+        String endTime = request.getParameter("template.endTime");//字符串
+        endTime = endTime + ":00";
 
         try {
             date = format.parse(beginTime);
@@ -128,80 +123,76 @@ private ITaskService taskService;
         } catch (ParseException e) {
             e.printStackTrace();
         }
-    taskService.insertTemplate(template);
+        taskService.insertTemplate(template);
 
 
-return "success";
+        return "success";
     }
 
-    public String inToPlatform()
-    {
+    public String inToPlatform() {
 
         Map session = ActionContext.getContext().getSession();
         //session.get(teacher);
 
-        int teaID=10001;
-      TaskList taskList=taskService.getTaskList(teaID);
+        Teacher teacher=(Teacher)session.get("teacher");
+        TaskList taskList = taskService.getTaskList(teacher.getTeaID());
 
 
-        session.put("taskList",taskList);
+        session.put("taskList", taskList);
 
-        session.put("teaID",teaID);
+        session.put("teaID", teacher.getTeaID());
 
 
-  return "success";
+        return "success";
     }
 
-    public String gotoinstance()
-    {
-        actionRequest =(Map) ActionContext.getContext().get("request");
-        List<Student> students=studentService.listAllStudents();
+    public String gotoinstance() {
+        actionRequest = (Map) ActionContext.getContext().get("request");
+        List<Student> students = studentService.listAllStudents();
         System.out.println(students.get(0).getName());
-        HttpServletRequest request= ServletActionContext.getRequest();
-     String templateid =request.getParameter("templateid");
-     String chooseid=request.getParameter("chooseid");
-     String choosename=request.getParameter("choosename");
-     System.out.println(templateid);
-     request.setAttribute("templateid",templateid);
-        request.setAttribute("chooseid",chooseid);
-        request.setAttribute("choosename",choosename);
+        HttpServletRequest request = ServletActionContext.getRequest();
+        String templateid = request.getParameter("templateid");
+        String chooseid = request.getParameter("chooseid");
+        String choosename = request.getParameter("choosename");
+        System.out.println(templateid);
+        request.setAttribute("templateid", templateid);
+        request.setAttribute("chooseid", chooseid);
+        request.setAttribute("choosename", choosename);
         System.out.println(chooseid);
         System.out.println(choosename);
         System.out.println(templateid);
 
-        actionRequest.put("students",students);
+        actionRequest.put("students", students);
 
         return "success";
     }
 
-    public String newIns()
-    {
-        HttpServletRequest request= ServletActionContext.getRequest();
-        System.out.println("学号是"+stulist);
+    public String newIns() {
+        HttpServletRequest request = ServletActionContext.getRequest();
+        System.out.println("学号是" + stulist);
 
-       int chooseid=Integer.parseInt(request.getParameter("chooseid"));
-        String[] date_list =datelist.split(",");
-        String[] stu_list=stulist.split(",");
-        System.out.println("模板是"+templateid);
+        int chooseid = Integer.parseInt(request.getParameter("chooseid"));
+        String[] date_list = datelist.split(",");
+        String[] stu_list = stulist.split(",");
+  /*      System.out.println("模板是" + templateid);
         System.out.println(date_list[0]);
         System.out.println(date_list[1]);
-        System.out.println("学号是"+stu_list[0]);
-        System.out.println("chooseid:"+chooseid);
-        signInstanceService.insertSignInstance(stu_list,date_list,templateid,chooseid);
+        System.out.println("学号是" + stu_list[0]);
+        System.out.println("chooseid:" + chooseid);*/
+        signInstanceService.insertSignInstance(stu_list, date_list, templateid, chooseid);
         return "success";
 
     }
 
 
-    public String deleteInstance(){
+    public String deleteInstance() {
 
-        HttpServletRequest request= ServletActionContext.getRequest();
-        String templateid =request.getParameter("templateid");
-        int templateId=Integer.parseInt(templateid);
+        HttpServletRequest request = ServletActionContext.getRequest();
+        String templateid = request.getParameter("templateid");
+        int templateId = Integer.parseInt(templateid);
         taskService.deleteTemplate(templateId);
         return "success";
     }
-
 
 
 }
