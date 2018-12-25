@@ -4,7 +4,8 @@
   User: 铿然
   Date: 2018/12/19
   Time: 21:21
-  To change this template use File | Settings | File Templates.
+  用于进行基础查询签到项的签到查询页面
+
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>

@@ -5,6 +5,10 @@ import cn.edu.zjut.po.Sign;
 
 import java.util.List;
 
+/*
+ * 用于与dao层的QuerySignMapper交互数据的service层
+ * 被QuerySignService所实现
+ * */
 public interface IQuerySignService {
     List<Sign> getAllSign() throws Exception;//查询所有打卡记录
 
@@ -18,6 +22,11 @@ public interface IQuerySignService {
 
     List<Sign> getAllSignValid(String endtime) throws Exception;//查询有效的打卡
 
-    List<Sign>getAllSignfuzzilybyName(String name)throws Exception;;//模糊查询根据打卡名
-    List<Sign>getAllSignfuzzilybyCal(String cal)throws Exception;;//模糊查询根据日期
+    List<Sign> getAllSignfuzzilybyName(String name) throws Exception;
+
+    ;//模糊查询根据打卡名
+
+    List<Sign> getAllSignfuzzilybyCal(String cal) throws Exception;
+
+    ;//模糊查询根据日期
 }

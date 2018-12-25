@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: 铿然
+  Date: 2018/12/19
+  Time: 21:21
+  用于按照日期进行签到查询的页面
+--%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <!DOCTYPE html>
