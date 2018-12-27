@@ -114,7 +114,7 @@
             <result name="fail">Fail.jsp</result>
         </action>
         <action name="inputExcel" class="cn.edu.zjut.action.ListAction" method="inputExcel">
-            <result name="success">index.jsp</result>
+            <result name="success">addStudent.jsp</result>
             <result name="fail">Fail.jsp</result>
         </action>
         <!--***************************金炜炜部分结束****************************-->

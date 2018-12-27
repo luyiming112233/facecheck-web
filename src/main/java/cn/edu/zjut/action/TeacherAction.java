@@ -60,6 +60,11 @@ public class TeacherAction {
     public void setResultService(ResultService resultService) {
         this.resultService = resultService;
     }
+
+    /**
+     * 教师登录
+     * @return
+     */
     public String login() {
         try{
             if (teacherService.login(teacher)) {

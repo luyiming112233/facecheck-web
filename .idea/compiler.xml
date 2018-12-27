@@ -9,6 +9,7 @@
         <module name="facecheack-web" />
         <module name="facecheack-web-2" />
         <module name="facecheck-web" />
+        <module name="facecheck-web2" />
       </profile>
     </annotationProcessing>
   </component>

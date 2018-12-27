@@ -24,6 +24,7 @@ public class UserService implements IUserService {
     @Autowired
     private StudentMapper studentMapper;
 
+
     public ByteArrayOutputStream exportExcel(ArrayList fieldName, ArrayList fieldData) {
         System.out.println("Service Start");
         ActionContext ctx = ActionContext.getContext();
@@ -111,6 +112,7 @@ public class UserService implements IUserService {
                 System.out.println(((Student) i.next()).getStuID());
             studentMapper.insertStudentExcel(stuField);
             studentMapper.insertStudentFace(stuField);
+            studentMapper.insertStudentScore(stuField);
             return true;
         } catch (Exception e) {
             System.out.println(e);
