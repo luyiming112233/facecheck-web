@@ -13,7 +13,7 @@
 
 <html>
 <body>
-<%@ include file="UIAdminHead.jsp" %>
+<%@ include file="UITeaHead.jsp" %>
 <div class="layui-body">
     <div class="layui-text" style="font-size: 25px; color: #393D49;width: 400px;height: 30px;padding: 35px">
    插入新计划

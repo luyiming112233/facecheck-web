@@ -25,8 +25,8 @@
              select if(max(autoid) is null, 1, max(autoid) + 1) as stuSignID from student_sign
          </selectKey>-->
         insert into
-        student_sign(student_id,signinstance_id)
-        values(#{stuID},#{signInstID})
+        student_sign(student_id,signinstance_id,status)
+        values(#{stuID},#{signInstID},0)
     </insert>
 </mapper>
 
