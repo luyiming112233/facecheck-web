@@ -74,4 +74,12 @@
     <insert id="insertOneStudentFace" parameterType="cn.edu.zjut.po.Student">
         insert into student_face(student_id) values (#{stuID})
     </insert>
+
+    <insert id="insertStudentScore" parameterType="java.util.List">
+        insert into student_score(student_id) values
+        <foreach collection="list" item="item" index="index"  separator=",">
+        (#{item.stuID})
+    </foreach>
+    </insert>
+
 </mapper>

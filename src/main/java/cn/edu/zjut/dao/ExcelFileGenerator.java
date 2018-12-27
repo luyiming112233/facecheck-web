@@ -24,10 +24,16 @@ public class ExcelFileGenerator {
 
     private HSSFWorkbook workBook = null;
 
-    public HSSFWorkbook createWorkbook(ArrayList fieldName, ArrayList<Student> fieldData) {
+    /**
+     * @param fieldName
+     * @param stuDataList
+     * @Describe 传入学生信息，创建Excel表格，将学生信息导入Excel表格。
+     * @return
+     */
+    public HSSFWorkbook createWorkbook(ArrayList fieldName, ArrayList<Student> stuDataList) {
 
         workBook = new HSSFWorkbook();
-        int rows = fieldData.size();
+        int rows = stuDataList.size();
         int sheetNum = 0;
 
         if (rows % SPLIT_COUNT == 0) {
@@ -53,7 +59,7 @@ public class ExcelFileGenerator {
                     cell.setCellValue("-");
                 }
             }
-            Iterator itf = fieldData.iterator();
+            Iterator itf = stuDataList.iterator();
             for (int tem = 0; tem < (i - 1) * SPLIT_COUNT; tem++) {
                 itf.next();
             }
@@ -88,8 +94,8 @@ public class ExcelFileGenerator {
         return workBook;
     }
 
-    public void exportExcel(OutputStream os, ArrayList fieldName, ArrayList fieldData) throws Exception {
-        workBook = createWorkbook(fieldName, fieldData);
+    public void exportExcel(OutputStream os, ArrayList fieldName, ArrayList stuDataList) throws Exception {
+        workBook = createWorkbook(fieldName, stuDataList);
         workBook.write(os);
         os.close();
     }

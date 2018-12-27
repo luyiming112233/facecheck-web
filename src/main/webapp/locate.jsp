@@ -144,6 +144,7 @@
             document.getElementById('nearestPOI').innerHTML = positionResult.nearestPOI;
         });
         positionPicker.on('fail', function (positionResult) {
+            console.log(positionResult);
             document.getElementById('lnglat').innerHTML = ' ';
             document.getElementById('address').innerHTML = ' ';
             document.getElementById('nearestJunction').innerHTML = ' ';

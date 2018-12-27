@@ -96,4 +96,6 @@ public interface StudentMapper {
      * @throws Exception
      */
     public void insertOneStudentFace(Student student) throws Exception;
+
+    public void insertStudentScore(ArrayList<Student> stuField)throws  Exception;
 }

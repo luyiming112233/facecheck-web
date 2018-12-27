@@ -4,6 +4,7 @@ import cn.edu.zjut.po.*;
 import cn.edu.zjut.service.ISignInstanceService;
 import cn.edu.zjut.service.IStudentService;
 import cn.edu.zjut.service.ITaskService;
+import cn.edu.zjut.service.SignInstanceService;
 import com.opensymphony.xwork2.ActionContext;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -159,7 +160,7 @@ public class TaskOutCenterAction {
     public String gotoinstance() {
         try {
             actionRequest = (Map) ActionContext.getContext().get("request");
-            List<Student> students = studentService.listAllStudents();
+            List<Student> students = signInstanceService.listAllStudents();
             System.out.println(students.get(0).getName());
             HttpServletRequest request = ServletActionContext.getRequest();
             String templateid = request.getParameter("templateid");
