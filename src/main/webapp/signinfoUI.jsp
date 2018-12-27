@@ -24,7 +24,7 @@
         var chk = document.getElementById('table').getElementsByTagName("input");
         var str = "";
         for (var i = 0; i < chk.length; i++) {
-            if (chk[i].type == "checkbox") {
+            if (    chk[i].type == "checkbox") {
                 if (chk[i].checked) {
                     var row = chk[i].parentElement.parentElement.rowIndex;
                     str += rows[row].cells[0].innerHTML + ","

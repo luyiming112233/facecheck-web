@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="../layui/css/layui.css">
 <script src="../layui/layui.js"></script>
 <head>
-    <%@ include file="UIAdminHead.jsp" %>
+    <%@ include file="UITeaHead.jsp" %>
 
     <title>模板创建</title>
     <link rel="stylesheet" type="text/css" href="/cssfile/Releasetask.css"/>

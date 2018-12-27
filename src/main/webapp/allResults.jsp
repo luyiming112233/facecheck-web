@@ -84,7 +84,7 @@
             <div class="layui-input-block" style="width: 200px;">
                 <input id="inputid" type="text" name="message" required lay-verify="required" placeholder="请输入查询内容"
                        autocomplete="off" class="layui-input">
-                <s:hidden name="teacher.teaID" value="2014003"></s:hidden>
+                <s:hidden name="teacher.teaID" value="%{#session.teacher.teaID}"></s:hidden>
             </div>
         </div>
         <div class="layui-form-item">

@@ -16,7 +16,7 @@
 <script type="text/javascript" src="/jsfile/DateTimePicker.js"></script>
 </head>
 <body>
-<%@ include file="UIAdminHead.jsp" %>
+<%@ include file="UITeaHead.jsp" %>
 <div class="layui-body">
 <form action="TaskOutCenterAction" method="post" align="center" class="layui-table">
 
