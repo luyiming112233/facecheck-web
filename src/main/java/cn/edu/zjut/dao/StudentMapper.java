@@ -97,5 +97,10 @@ public interface StudentMapper {
      */
     public void insertOneStudentFace(Student student) throws Exception;
 
+    /**
+     * 加入Score数据库科
+     * @param stuField
+     * @throws Exception
+     */
     public void insertStudentScore(ArrayList<Student> stuField)throws  Exception;
 }

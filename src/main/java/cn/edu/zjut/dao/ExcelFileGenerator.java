@@ -100,6 +100,12 @@ public class ExcelFileGenerator {
         os.close();
     }
 
+    /**
+     * 前端传来的file缓存并且传入List
+     * @param file
+     * @return
+     * @throws IOException
+     */
     public ArrayList<Student> inputExcel(File file) throws IOException {
         ArrayList<Student> stuField = new ArrayList();
         String tempDir = "D:\\a";
