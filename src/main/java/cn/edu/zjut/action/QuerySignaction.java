@@ -10,6 +10,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+/*
+ * 用于进行查询显示sign表信息的action层
+ * */
 @Controller
 public class QuerySignaction {
     IQuerySignService querySignService;
@@ -18,6 +21,9 @@ public class QuerySignaction {
     String input;//页面传来的输入框信息
     String val;//页面传来的有效性
 
+    /*
+     *set和get方法用于和jsp页面交互数据
+     */
     public String getQuery() {
         return query;
     }
@@ -50,7 +56,9 @@ public class QuerySignaction {
         this.val = val;
     }
 
-    //得到所有的打卡信息
+    /*
+    得到所有的打卡信息
+    */
     public String getAllSign() {
         try {
             querySignService = CtxUtil.getBean(QuerySignService.class);
@@ -62,7 +70,7 @@ public class QuerySignaction {
         }
     }
 
-    //根据id查询打卡
+    /*根据id查询sign表的信息*/
     public String getAllSignByID() {
         try {
             querySignService = CtxUtil.getBean(QuerySignService.class);
@@ -75,7 +83,7 @@ public class QuerySignaction {
         }
     }
 
-    //根据名字查询打卡
+    /*根据名字查询sign表的信息*/
     public String getAllSignByName() {
         try {
             querySignService = CtxUtil.getBean(QuerySignService.class);
@@ -87,7 +95,7 @@ public class QuerySignaction {
         }
     }
 
-    //根据打卡创建时间查询打卡
+    /*根据打卡创建时间查询sign表信息*/
     public String getAllSignByCreatetime() {
         try {
             //  SimpleDateFormat sDateFormat=new SimpleDateFormat("yyyy-MM-dd ");
@@ -101,7 +109,7 @@ public class QuerySignaction {
         }
     }
 
-    //根据教师id查询打卡
+    /*根据教师id查询sign表信息*/
     public String getAllSignByTeaid() {
         try {
 
@@ -115,7 +123,7 @@ public class QuerySignaction {
         }
     }
 
-    //查询还有效的打卡
+    /*查询某日期后还有效的打卡项*/
     public String getAllSignValid() {
         try {
 
@@ -129,7 +137,7 @@ public class QuerySignaction {
         }
     }
 
-    //根据打卡名模糊查询
+    /*根据打卡名模糊查询打卡信息*/
     public String getAllSignfuzzilybyName() {
         try {
 
@@ -143,7 +151,7 @@ public class QuerySignaction {
         }
     }
 
-    //根据日期来模糊查询
+    /*根据部分日期信息来模糊查询*/
     public String getAllSignfuzzilybyCal() {
         try {
 
@@ -157,6 +165,7 @@ public class QuerySignaction {
         }
     }
 
+    /*用于基础查询打卡页面的action响应*/
     public String querySign() {
         try {
             if (query.equals("0")) {
@@ -174,6 +183,9 @@ public class QuerySignaction {
         }
     }
 
+    /*用于根据日期查询打卡页面的action响应
+
+     */
     public String querySignbyDate() {
         try {
             if (query.equals("0")) {
@@ -188,6 +200,9 @@ public class QuerySignaction {
         }
     }
 
+    /*
+    用于模糊查询打卡页面的action响应
+     */
     public String querySignfuzzily() {
         try {
             if (query.equals("0")) {
