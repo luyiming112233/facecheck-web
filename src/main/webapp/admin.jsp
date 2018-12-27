@@ -15,15 +15,15 @@
 <div class="form">
 
     <ul class="tab-group">
-        <li class="tab"><a href="login.jsp">教师登陆</a></li>
-        <li class="tab active"><a href="admin.jsp">管理员登陆</a></li>
+        <li class="tab"><a href="login.jsp">教师登录</a></li>
+        <li class="tab active"><a href="admin.jsp">管理员登录</a></li>
     </ul>
 
     <div class="tab-content">
 
 
         <div id="admin">
-            <h1>管理员登陆</h1>
+            <h1>管理员登录</h1>
 
             <form action="Adminlogin" method="post">
 
@@ -67,7 +67,7 @@
                 </div>
 
                 <button type="submit" class="button button-block"/>
-                登陆</button>
+                登录</button>
 
             </form>
         </div>
