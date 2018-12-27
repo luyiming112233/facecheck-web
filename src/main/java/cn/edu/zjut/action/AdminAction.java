@@ -21,6 +21,10 @@ public class AdminAction {
         return admin;
     }
 
+    /**
+     * 管理员登录
+     * @return
+     */
     public String login() {
         System.out.println(admin.getAdminID());
         if (adminService.login(admin)) {

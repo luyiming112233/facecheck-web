@@ -30,10 +30,13 @@ public class ListAction {
         return file;
     }
 
+    /**
+     * 导出Excel表格
+     * @return
+     */
     public String exportExcel() {
         System.out.println(11111);
         try {
-
             System.out.println("4324324");
             byte[] ba = userService.exportExcel(fieldName, fieldData).toByteArray();
             excelFile = new ByteArrayInputStream(ba);
@@ -45,6 +48,10 @@ public class ListAction {
         return "fail";
     }
 
+    /**
+     * 导入Excel
+     * @return
+     */
     public String inputExcel() {
         System.out.println("Starting inport");
         if (userService.inputExcel(file)) {
