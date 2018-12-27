@@ -80,6 +80,11 @@ public class TeacherAction {
         }
     }
 
+    /**
+     * @Author 卢益铭
+     * @Describe 传入一个教师的信息，添加教师信息
+     * @return
+     */
     public String teacherAdd() {
         try{
             System.out.println(teacher.getName());
@@ -93,6 +98,11 @@ public class TeacherAction {
         }
     }
 
+    /**
+     * @Author 卢益铭
+     * @Describe 返回所有的教师信息
+     * @return
+     */
     public String getAllTeachers() {
         try{
             if (teacherService.listAllTeacher())
@@ -105,6 +115,11 @@ public class TeacherAction {
         }
     }
 
+    /**
+     * @Author 卢益铭
+     * @Describe 传入查询信息和查询类型，返回一个教师list
+     * @return
+     */
     public String teacherSearch() {
         try {
             if (teacherService.searchTeacher(searchMess, searchType))

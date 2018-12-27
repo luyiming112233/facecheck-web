@@ -9,8 +9,8 @@ import java.util.List;
 @Repository
 public interface StudentMapper {
     /**
-     * 新增学生
-     *
+     * @Author 卢益铭
+     * @Describe 新增学生
      * @param student
      * @return
      * @throws Exception
@@ -18,8 +18,8 @@ public interface StudentMapper {
     public int insertStudent(Student student) throws Exception;
 
     /**
-     * 修改学生
-     *
+     * @Author 卢益铭
+     * @Describe 修改学生
      * @param student
      * @return
      * @throws Exception
@@ -27,8 +27,8 @@ public interface StudentMapper {
     public int updateStudent(Student student) throws Exception;
 
     /**
-     * 刪除学生
-     *
+     * @Author 卢益铭
+     * @Describe 刪除学生
      * @param id
      * @return
      * @throws Exception
@@ -36,8 +36,8 @@ public interface StudentMapper {
     public int deleteStudent(int id) throws Exception;
 
     /**
-     * 根据id查询学生信息
-     *
+     * @Author 卢益铭
+     * @Describe 根据id查询学生信息
      * @param id
      * @return
      * @throws Exception
@@ -45,8 +45,8 @@ public interface StudentMapper {
     public Student getStudentById(int id) throws Exception;
 
     /**
-     * 根据name查询学生信息
-     *
+     * @Author 卢益铭
+     * @Describe 根据name查询学生信息
      * @param name
      * @return
      * @throws Exception
@@ -54,16 +54,16 @@ public interface StudentMapper {
     public List<Student> getStudentByName(String name) throws Exception;
 
     /**
-     * 查询所有的学生信息
-     *
+     * @Author 卢益铭
+     * @Describe 查询所有的学生信息
      * @return
      * @throws Exception
      */
     public List<Student> listAllStudent() throws Exception;
 
     /**
-     * 查询一个班级的学生信息
-     *
+     * @Author 卢益铭
+     * @Describe 查询一个班级的学生信息
      * @param className
      * @return
      * @throws Exception
@@ -71,8 +71,8 @@ public interface StudentMapper {
     public List<Student> listStudentByClass(String className) throws Exception;
 
     /**
-     * 查询一个专业的学生信息
-     *
+     * @Author 卢益铭
+     * @Describe 查询一个专业的学生信息
      * @param departName
      * @return
      * @throws Exception
@@ -80,6 +80,7 @@ public interface StudentMapper {
     public List<Student> listStudentByDepart(String departName) throws Exception;
 
     /**
+     *
      * @param stuField
      * @throws Exception
      */
@@ -98,4 +99,12 @@ public interface StudentMapper {
     public void insertOneStudentFace(Student student) throws Exception;
 
     public void insertStudentScore(ArrayList<Student> stuField)throws  Exception;
+
+    /**
+     * @Author 卢益铭
+     * @Describe 在积分表中插入一个学生的基础信息
+     * @param student
+     * @throws Exception
+     */
+    public void insertOneStudentScore(Student student)throws  Exception;
 }

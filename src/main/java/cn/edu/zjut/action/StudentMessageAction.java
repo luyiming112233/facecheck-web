@@ -30,6 +30,11 @@ public class StudentMessageAction {
         this.stuID = stuID;
     }
 
+    /**
+     * @Author 卢益铭
+     * @Describe 传入学生ID，返回学生的信息
+     * @return
+     */
     public String getStuMess() {
         try {
             if (studentService.showStudent(Integer.parseInt(stuID)))
@@ -41,6 +46,11 @@ public class StudentMessageAction {
         }
     }
 
+    /**
+     * @Author 卢益铭
+     * @Describe 传入一个学生的新的信息，并更新
+     * @return
+     */
     public String updateStuMess() {
         try {
             if (studentService.updateStudent(student))
@@ -52,6 +62,11 @@ public class StudentMessageAction {
         }
     }
 
+    /**
+     * @Author 卢益铭
+     * @Describe 传入一个学生ID，调用删除学生的方法
+     * @return
+     */
     public String deleteStuMess() {
         try {
             if (studentService.deleteStudent(Integer.valueOf(stuID)))

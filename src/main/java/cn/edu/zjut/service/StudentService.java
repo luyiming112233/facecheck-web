@@ -22,6 +22,7 @@ public class StudentService implements IStudentService {
         try {
             studentMapper.insertStudent(student);
             studentMapper.insertOneStudentFace(student);
+            studentMapper.insertOneStudentScore(student);
         } catch (Exception e) {
             e.printStackTrace();
             return false;

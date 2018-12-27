@@ -48,6 +48,11 @@ public class StudentAction implements RequestAware {
         this.searchType = searchType;
     }
 
+    /**
+     * @Author 卢益铭
+     * @Describe 传入学生信息，添加一条学生信息
+     * @return
+     */
     public String studentAdd() {
         try {
             if (student != null) {
@@ -64,6 +69,11 @@ public class StudentAction implements RequestAware {
         }
     }
 
+    /**
+     * @Author 卢益铭
+     * @Describe 传入搜索信息和搜索类型，返回搜索结果的list
+     * @return
+     */
     public String stuSearch() {
         try {
             boolean srarch = studentService.searchStudent(searchMess, searchType);
@@ -79,6 +89,11 @@ public class StudentAction implements RequestAware {
         }
     }
 
+    /**
+     * @Author 卢益铭
+     * @Describe 返回所有的学生信息
+     * @return
+     */
     public String allStudents() {
         try {
             if (studentService.listAllStudent()) {

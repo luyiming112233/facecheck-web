@@ -82,4 +82,8 @@
     </foreach>
     </insert>
 
+    <insert id="insertOneStudentScore" parameterType="cn.edu.zjut.po.Student">
+        insert into student_score(student_id) values (#{stuID})
+    </insert>
+
 </mapper>

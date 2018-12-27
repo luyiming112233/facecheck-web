@@ -30,6 +30,11 @@ public class TeacherMessageAction {
         this.teacher = teacher;
     }
 
+    /**
+     * @Author 卢益铭
+     * @Describe 传入教师的ID，返回教师信息
+     * @return
+     */
     public String getTeaMess() {
         try {
             teacher = (Teacher) teacherService.getTeacherByID(Integer.valueOf(teaID));
@@ -42,6 +47,11 @@ public class TeacherMessageAction {
         }
     }
 
+    /**
+     * @Author 卢益铭
+     * @Describe 传入学生ID，返回学生的信息
+     * @return
+     */
     public String updateTeaMess() {
         try {
             if (teacherService.updateTeacher(teacher))
@@ -53,6 +63,11 @@ public class TeacherMessageAction {
         }
     }
 
+    /**
+     * @Author 卢益铭
+     * @Describe 传入教师的ID，删除教师信息
+     * @return
+     */
     public String deleteTeaMess() {
         try {
             if (teacherService.deleteTeacher(Integer.valueOf(teaID)))
