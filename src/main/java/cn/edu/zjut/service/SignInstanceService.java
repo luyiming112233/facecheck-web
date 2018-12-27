@@ -8,6 +8,7 @@ import cn.edu.zjut.po.SignInstance;
 import cn.edu.zjut.po.SignInstanceTemplate;
 import cn.edu.zjut.po.Student;
 import cn.edu.zjut.po.StudentSign;
+import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
@@ -15,10 +16,13 @@ import org.springframework.stereotype.Service;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @Scope("prototype")
 public class SignInstanceService implements ISignInstanceService {
+    private Map<String, Object> request, session;
+
     @Autowired
     private TemplateMapper templateMapper;
     @Autowired
@@ -80,6 +84,18 @@ public class SignInstanceService implements ISignInstanceService {
 
         return 1;
     }
+
+
+    public List<Student> listAllStudents() {
+        try {
+            List<Student> studentList = studentMapper.listAllStudent();
+            return studentList;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 
 
 }

@@ -10,7 +10,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!DOCTYPE html>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<<script>
+<script>
 function  myclick() {
 var url=location.search;
 if (url.indexOf("?") != -1)  
@@ -24,7 +24,7 @@ return false;
 </script>
 <html>
 <body>
-<%@ include file="UIAdminHead.jsp" %>
+<%@ include file="UITeaHead.jsp" %>
 
 <div class="layui-body">
     <div class="layui-text" style="font-size: 25px; color: #393D49;width: 400px;height: 30px;padding: 35px">
