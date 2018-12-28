@@ -186,5 +186,5 @@ $(function() {
 });
 
 
-</script>>
+</script>
 

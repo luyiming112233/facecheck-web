@@ -1,12 +1,15 @@
 package cn.edu.zjut.service;
 
 import cn.edu.zjut.dao.StudentMapper;
+import cn.edu.zjut.dao.SuggestMapper;
 import cn.edu.zjut.po.Student;
+import cn.edu.zjut.po.Suggest;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -16,6 +19,9 @@ public class StudentService implements IStudentService {
 
     @Autowired
     StudentMapper studentMapper = null;
+
+    @Autowired
+    SuggestMapper suggestMapper = null;
 
     @Override
     public boolean insertStudent(Student student) {
@@ -65,6 +71,7 @@ public class StudentService implements IStudentService {
         return true;
     }
 
+    //有命名错误
     @Override
     public Student serachStudentByID(int stuID) {
         try {
@@ -170,4 +177,21 @@ public class StudentService implements IStudentService {
         }
     }
 
+    @Override
+    public boolean listAllStudentSuggest(){
+        ActionContext ctx = ActionContext.getContext();
+        request = (Map) ctx.get("request");
+        try {
+            List<Suggest> studentSuggestList = suggestMapper.listAllStudentSuggest();
+            Collections.reverse(studentSuggestList);
+            request.put("studentSuggestList", studentSuggestList);
+            for(Suggest suggest:studentSuggestList){
+                System.out.println(suggest.getName()+" "+suggest.getTime()+" "+suggest.getSuggest());
+            }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

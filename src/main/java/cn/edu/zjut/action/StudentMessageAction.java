@@ -78,4 +78,16 @@ public class StudentMessageAction {
 
         }
     }
+
+    public String getStuSuggest() {
+        try {
+            if (studentService.listAllStudentSuggest())
+                return "getStuSuggestSuccess";
+            else
+                return "getStuSuggestFail";
+        } catch (Exception e) {
+            return "login";
+
+        }
+    }
 }
