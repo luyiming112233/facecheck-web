@@ -31,9 +31,9 @@
             <result name="login">/admin.jsp</result>
         </action>
         <!--得到所有学生的建议-->
-        <action name="getStuSuggest" class="cn.edu.zjut.action.SuggestAction" method="getStuSuggest">
-            <result name="getStuSuggestSuccess">/displayStudentSuggest.jsp</result>
-            <result name="getStuSuggestFail">/error.jsp</result>
+        <action name="getStuSuggest" class="cn.edu.zjut.action.SuggestAction" method="checkStudentSuggest">
+            <result name="checkStudentSuggestSuccess">/displayStudentSuggest.jsp</result>
+            <result name="checkStudentSuggestFail">/error.jsp</result>
             <result name="login">/admin.jsp</result>
         </action>
         <!--删除学生信息-->
@@ -85,7 +85,12 @@
             <result name="insertTeacherSuggestFail">/error.jsp</result>
             <result name="login">/login.jsp</result>
         </action>
-
+        <!--得到所有教师的建议-->
+        <action name="getTeaSuggest" class="cn.edu.zjut.action.SuggestAction" method="checkTeacherSuggest">
+            <result name="checkTeacherSuggestSuccess">/displayTeacherSuggest.jsp</result>
+            <result name="checkTeacherSuggestFail">/error.jsp</result>
+            <result name="login">/admin.jsp</result>
+        </action>
         <!--***************************卢益铭部分结束****************************-->
 
         <!--***************************金炜炜部分开始****************************-->
