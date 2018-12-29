@@ -20,9 +20,6 @@ public class StudentService implements IStudentService {
     @Autowired
     StudentMapper studentMapper = null;
 
-    @Autowired
-    SuggestMapper suggestMapper = null;
-
     @Override
     public boolean insertStudent(Student student) {
         try {
