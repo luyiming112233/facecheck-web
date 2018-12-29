@@ -176,6 +176,38 @@
             <result name="success-Details">resultDetails.jsp</result>
             <result name="fail">login.jsp</result>
         </action>
+        <action name="giftAdd" class="cn.edu.zjut.action.GiftAction" method="addGift">
+            <result name="success-addGift">/uploadGift.jsp</result>
+            <result name="fail">/error.jsp</result>
+        </action>
+        <action name="lookAllGift" class="cn.edu.zjut.action.GiftAction" method="lookAllGift">
+            <result name="success-lookAllGift">/showGift.jsp</result>
+            <result name="fail">/error.jsp</result>
+        </action>
+        <action name="changeGift" class="cn.edu.zjut.action.GiftAction" method="changeGift">
+            <result name="success-changeGift">changeGift.jsp</result>
+            <result name="fail">fail.jsp</result>
+        </action>
+        <action name="updateGift" class="cn.edu.zjut.action.GiftAction" method="updateGift">
+            <result name="success-updateGift">/showGift.jsp</result>
+            <result name="fail">/error.jsp</result>
+        </action>
+        <action name="deleteGift" class="cn.edu.zjut.action.GiftAction" method="deleteGift">
+            <result name="success-deleteGift">/showGift.jsp</result>
+            <result name="fail">/error.jsp</result>
+        </action>
+        <action name="lookStudentGift" class="cn.edu.zjut.action.StudentGiftAction" method="lookStudentGift">
+            <result name="success-lookStudentGift">/showStuGift.jsp</result>
+            <result name="fail">/error.jsp</result>
+        </action>
+        <action name="refuseChange" class="cn.edu.zjut.action.StudentGiftAction" method="refuseChange">
+            <result name="success-refuseChange">/showStuGift.jsp</result>
+            <result name="fail">/error.jsp</result>
+        </action>
+        <action name="applyChange" class="cn.edu.zjut.action.StudentGiftAction" method="applyChange">
+            <result name="success-applyChange">/showStuGift.jsp</result>
+            <result name="fail">/error.jsp</result>
+        </action>
 
         <!--***************************李璐瑶部分结束****************************-->
 
