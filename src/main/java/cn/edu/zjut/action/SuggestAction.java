@@ -30,6 +30,12 @@ public class SuggestAction {
     @Autowired
     private ISuggestService suggestService = null;
 
+    /**
+     * @Author 卢益铭
+     * @Describe 调用suggestService的getStudentSuggest方法
+     * 根据结果返回对应的字符串
+     * @return
+     */
     public String checkStudentSuggest(){
         try{
             if(suggestService.getStudentSuggest()){
@@ -42,6 +48,12 @@ public class SuggestAction {
         }
     }
 
+    /**
+     * @Author 卢益铭
+     * @Describe 调用suggestService的getTeacherSuggest方法
+     * 根据结果返回对应的字符串
+     * @return
+     */
     public String checkTeacherSuggest(){
         try{
             if(suggestService.getTeacherSuggest()){
@@ -54,6 +66,12 @@ public class SuggestAction {
         }
     }
 
+    /**
+     * @Author 卢益铭
+     * @Describe 传入教师的teaID和输入的建议suggest
+     * 调用suggestService的insertTeacherSuggest方法
+     * @return
+     */
     public String insertTeacherSuggest(){
         try{
             if(suggestService.insertTeacherSuggest(teaID,suggest)){
