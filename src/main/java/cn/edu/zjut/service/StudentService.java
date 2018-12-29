@@ -177,21 +177,5 @@ public class StudentService implements IStudentService {
         }
     }
 
-    @Override
-    public boolean listAllStudentSuggest(){
-        ActionContext ctx = ActionContext.getContext();
-        request = (Map) ctx.get("request");
-        try {
-            List<Suggest> studentSuggestList = suggestMapper.listAllStudentSuggest();
-            Collections.reverse(studentSuggestList);
-            request.put("studentSuggestList", studentSuggestList);
-            for(Suggest suggest:studentSuggestList){
-                System.out.println(suggest.getName()+" "+suggest.getTime()+" "+suggest.getSuggest());
-            }
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
+
 }

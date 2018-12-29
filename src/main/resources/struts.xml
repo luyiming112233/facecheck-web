@@ -17,7 +17,6 @@
             <result name="allStudentsSuccess">/searchStudent.jsp</result>
             <result name="allStudentsFail">/error.jsp</result>
             <result name="login">/admin.jsp</result>
-
         </action>
         <!--查找学生-->
         <action name="stuSearch" class="cn.edu.zjut.action.StudentAction" method="stuSearch">
@@ -32,7 +31,7 @@
             <result name="login">/admin.jsp</result>
         </action>
         <!--得到所有学生的建议-->
-        <action name="getStuSuggest" class="cn.edu.zjut.action.StudentMessageAction" method="getStuSuggest">
+        <action name="getStuSuggest" class="cn.edu.zjut.action.SuggestAction" method="getStuSuggest">
             <result name="getStuSuggestSuccess">/displayStudentSuggest.jsp</result>
             <result name="getStuSuggestFail">/error.jsp</result>
             <result name="login">/admin.jsp</result>
@@ -60,7 +59,6 @@
             <result name="searchTeacherSuccess">/searchTeacher.jsp</result>
             <result name="searchTeacherFail">/error.jsp</result>
             <result name="login">/admin.jsp</result>
-
         </action>
         <!--显示教师信息-->
         <action name="teaMessage" class="cn.edu.zjut.action.TeacherMessageAction" method="getTeaMess">
@@ -81,6 +79,13 @@
             <result name="deleteTeaMessFail">/error.jsp</result>
             <result name="login">/admin.jsp</result>
         </action>
+        <!--教师插入一条建议-->
+        <action name="teaSuggestInsert" class="cn.edu.zjut.action.SuggestAction" method="insertTeacherSuggest">
+            <result name="insertTeacherSuggestSuccess">/addTeacherSuggest.jsp</result>
+            <result name="insertTeacherSuggestFail">/error.jsp</result>
+            <result name="login">/login.jsp</result>
+        </action>
+
         <!--***************************卢益铭部分结束****************************-->
 
         <!--***************************金炜炜部分开始****************************-->

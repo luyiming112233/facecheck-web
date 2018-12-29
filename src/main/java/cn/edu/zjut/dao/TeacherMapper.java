@@ -62,6 +62,4 @@ public interface TeacherMapper {
      */
     public List<Teacher> listTeacherByName(String name) throws Exception;
 
-
-
 }

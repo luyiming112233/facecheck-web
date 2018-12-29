@@ -69,12 +69,18 @@
         var code = document.getElementById("code").value;
         var cookiecode = getCookieValue("code");
         console.log(cookiecode);
-        if(code==null||code=="")
-        {alert("请输入验证码");return false;}
-        else if(cookiecode==null)
-        {alert("请先获取验证码");return false;}
-        else if(code!=cookiecode)
-        {alert("验证码不正确");return false;}
+        if (code == null || code == "") {
+            alert("请输入验证码");
+            return false;
+        }
+        else if (cookiecode == null) {
+            alert("请先获取验证码");
+            return false;
+        }
+        else if (code != cookiecode) {
+            alert("验证码不正确");
+            return false;
+        }
         else return true;
         return true;
 

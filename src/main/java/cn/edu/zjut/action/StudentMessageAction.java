@@ -2,6 +2,7 @@ package cn.edu.zjut.action;
 
 import cn.edu.zjut.po.Student;
 import cn.edu.zjut.service.IStudentService;
+import cn.edu.zjut.service.ISuggestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -73,18 +74,6 @@ public class StudentMessageAction {
                 return "deleteStuMessSuccess";
             else
                 return "deleteStuMessFail";
-        } catch (Exception e) {
-            return "login";
-
-        }
-    }
-
-    public String getStuSuggest() {
-        try {
-            if (studentService.listAllStudentSuggest())
-                return "getStuSuggestSuccess";
-            else
-                return "getStuSuggestFail";
         } catch (Exception e) {
             return "login";
 

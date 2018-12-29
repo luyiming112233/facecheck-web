@@ -79,11 +79,4 @@ public interface IStudentService {
      * @return
      */
     public boolean showStudent(int id);
-
-    /**
-     * @Author 卢益铭
-     * @Describe 查看所有学生的意见，并存入request
-     * @return
-     */
-    public boolean listAllStudentSuggest();
 }
