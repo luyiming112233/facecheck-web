@@ -95,7 +95,7 @@
 
         <!--***************************金炜炜部分开始****************************-->
         <action name="Teacherlogin" class="cn.edu.zjut.action.TeacherAction" method="login">
-            <result name="success">/allResults.jsp</result>
+            <result name="success">/suggestion.jsp</result>
             <result name="fail">/login.jsp</result>
         </action>
         <action name="Adminlogin" class="cn.edu.zjut.action.AdminAction" method="login">
@@ -116,8 +116,17 @@
             <result name="fail">Fail.jsp</result>
         </action>
         <action name="inputExcel" class="cn.edu.zjut.action.ListAction" method="inputExcel">
-            <result name="success">addStudent.jsp</result>
-            <result name="fail">Fail.jsp</result>
+            <result name="success">/addStudent.jsp</result>
+            <result name="fail">/Fail.jsp</result>
+        </action>
+
+        <action name="suggest" class="cn.edu.zjut.action.SuggestAction" method="suggest">
+            <result name="success">/suggestion.jsp</result>
+            <result name="fail">/Fail.jsp</result>
+        </action>
+        <action name="makeAnn" class="cn.edu.zjut.action.MakeAnnAction" method="makeAnn">
+            <result name="success">/makeAnn.jsp</result>
+            <result name="fail">/Fail.jsp</result>
         </action>
 
         <action name="notice" class="cn.edu.zjut.action.NoticeAction" method= "notice">
