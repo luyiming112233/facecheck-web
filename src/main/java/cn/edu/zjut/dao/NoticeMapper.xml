@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.zjut.dao.NoticeMapper">
+<insert id="insertNotice" parameterType="cn.edu.zjut.po.Notice">
+insert into notice(teacher_id,title,content) values
+(#{teaID},#{title},#{content})
+</insert>
+
+    <insert id="insertStuNotice" parameterType="java.util.ArrayList">
+    insert into student_notice (notice_id,student_id,createtime) values
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+        (#{item.noticeID},#{item.stuID},#{item.date})
+        </foreach>
+    </insert>
+    <select id="selectMaxId" parameterType="int" resultType="int">
+    select max(autoid) as sid from notice
+    </select>
+</mapper>

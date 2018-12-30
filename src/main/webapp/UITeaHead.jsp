@@ -60,6 +60,12 @@
                     </dl>
                 </li>
 
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">通知</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="makeNotice.jsp">发送通知</a></dd>
+                    </dl>
+                </li>
 
             </ul>
         </div>

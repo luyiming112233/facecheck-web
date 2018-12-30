@@ -119,6 +119,12 @@
             <result name="success">addStudent.jsp</result>
             <result name="fail">Fail.jsp</result>
         </action>
+
+        <action name="notice" class="cn.edu.zjut.action.NoticeAction" method= "notice">
+        <result name="success">/makeNotice.jsp</result>
+            <result name="fail">/Fail.jsp</result>
+        </action>
+
         <!--***************************金炜炜部分结束****************************-->
 
         <!--****************************黄丹部分开始*****************************-->
