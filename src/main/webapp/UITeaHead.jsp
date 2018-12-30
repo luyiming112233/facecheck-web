@@ -54,6 +54,7 @@
                 </li>
 
                 <li class="layui-nav-item layui-nav-itemed">
+<<<<<<< HEAD
                     <a class="" href="javascript:;">反馈建议</a>
                     <dl class="layui-nav-child">
                         <dd><a href="suggestion.jsp">反馈建议</a></dd>
@@ -66,6 +67,14 @@
                         <dd><a href="makeAnn.jsp">通知学生</a></dd>
                     </dl>
                 </li>
+=======
+                    <a class="" href="javascript:;">反馈</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="addTeacherSuggest.jsp">教师反馈</a></dd>
+                    </dl>
+                </li>
+
+>>>>>>> origin/master
 
             </ul>
         </div>

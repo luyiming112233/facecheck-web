@@ -44,5 +44,7 @@
         teacher_name=#{name},teacher_password=#{password},teacher_sex=#{sex},teacher_phone=#{phone}
         WHERE teacher_id = #{teaID}
     </update>
+
+
 </mapper>
 

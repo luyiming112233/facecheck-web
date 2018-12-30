@@ -17,63 +17,54 @@
             <result name="allStudentsSuccess">/searchStudent.jsp</result>
             <result name="allStudentsFail">/error.jsp</result>
             <result name="login">/admin.jsp</result>
-
         </action>
         <!--查找学生-->
         <action name="stuSearch" class="cn.edu.zjut.action.StudentAction" method="stuSearch">
             <result name="stuSearchSuccess">/searchStudent.jsp</result>
             <result name="stuSearchFail">/error.jsp</result>
             <result name="login">/admin.jsp</result>
-
         </action>
         <!--显示学生信息-->
         <action name="stuMessage" class="cn.edu.zjut.action.StudentMessageAction" method="getStuMess">
             <result name="getStuMessSuccess">/studentMessage.jsp</result>
             <result name="getStuMessFail">/error.jsp</result>
             <result name="login">/admin.jsp</result>
-
         </action>
-        <!--更新学生信息-->
-        <action name="stuMessageUpdate" class="cn.edu.zjut.action.StudentMessageAction" method="updateStuMess">
-            <result name="updateStuMessSuccess">/studentMessage.jsp</result>
-            <result name="updateStuMessFail">/error.jsp</result>
+        <!--得到所有学生的建议-->
+        <action name="getStuSuggest" class="cn.edu.zjut.action.SuggestAction" method="checkStudentSuggest">
+            <result name="checkStudentSuggestSuccess">/displayStudentSuggest.jsp</result>
+            <result name="checkStudentSuggestFail">/error.jsp</result>
             <result name="login">/admin.jsp</result>
-
         </action>
         <!--删除学生信息-->
         <action name="stuMessageDelete" class="cn.edu.zjut.action.StudentMessageAction" method="deleteStuMess">
             <result name="deleteStuMessSuccess">/searchStudent.jsp</result>
             <result name="deleteStuMessFail">/error.jsp</result>
             <result name="login">/admin.jsp</result>
-
         </action>
         <!--添加教师信息-->
         <action name="teacherAdd" class="cn.edu.zjut.action.TeacherAction" method="teacherAdd">
             <result name="teacherAddSuccess">/addTeacher.jsp</result>
             <result name="teacherAddFail">/error.jsp</result>
             <result name="login">/admin.jsp</result>
-
         </action>
         <!--获得所有教师信息-->
         <action name="allTeachers" class="cn.edu.zjut.action.TeacherAction" method="getAllTeachers">
             <result name="getAllTeachersSuccess">/searchTeacher.jsp</result>
             <result name="getAllTeachersFail">/error.jsp</result>
             <result name="login">/admin.jsp</result>
-
         </action>
         <!--查询教师信息-->
         <action name="teaSearch" class="cn.edu.zjut.action.TeacherAction" method="teacherSearch">
             <result name="searchTeacherSuccess">/searchTeacher.jsp</result>
             <result name="searchTeacherFail">/error.jsp</result>
             <result name="login">/admin.jsp</result>
-
         </action>
         <!--显示教师信息-->
         <action name="teaMessage" class="cn.edu.zjut.action.TeacherMessageAction" method="getTeaMess">
             <result name="getTeaMessSuccess">/teacherMessage.jsp</result>
             <result name="getTeaMessFail">/error.jsp</result>
             <result name="login">/admin.jsp</result>
-
         </action>
         <!--修改教师信息-->
         <action name="teaMessageUpdate" class="cn.edu.zjut.action.TeacherMessageAction" method="updateTeaMess">
@@ -87,7 +78,18 @@
             <result name="deleteTeaMessSuccess">/searchTeacher.jsp</result>
             <result name="deleteTeaMessFail">/error.jsp</result>
             <result name="login">/admin.jsp</result>
-
+        </action>
+        <!--教师插入一条建议-->
+        <action name="teaSuggestInsert" class="cn.edu.zjut.action.SuggestAction" method="insertTeacherSuggest">
+            <result name="insertTeacherSuggestSuccess">/addTeacherSuggest.jsp</result>
+            <result name="insertTeacherSuggestFail">/error.jsp</result>
+            <result name="login">/login.jsp</result>
+        </action>
+        <!--得到所有教师的建议-->
+        <action name="getTeaSuggest" class="cn.edu.zjut.action.SuggestAction" method="checkTeacherSuggest">
+            <result name="checkTeacherSuggestSuccess">/displayTeacherSuggest.jsp</result>
+            <result name="checkTeacherSuggestFail">/error.jsp</result>
+            <result name="login">/admin.jsp</result>
         </action>
         <!--***************************卢益铭部分结束****************************-->
 
@@ -182,6 +184,38 @@
         <action name="changeResult" class="cn.edu.zjut.action.ResultDetailAction" method="changeResult">
             <result name="success-Details">resultDetails.jsp</result>
             <result name="fail">login.jsp</result>
+        </action>
+        <action name="giftAdd" class="cn.edu.zjut.action.GiftAction" method="addGift">
+            <result name="success-addGift">/uploadGift.jsp</result>
+            <result name="fail">/error.jsp</result>
+        </action>
+        <action name="lookAllGift" class="cn.edu.zjut.action.GiftAction" method="lookAllGift">
+            <result name="success-lookAllGift">/showGift.jsp</result>
+            <result name="fail">/error.jsp</result>
+        </action>
+        <action name="changeGift" class="cn.edu.zjut.action.GiftAction" method="changeGift">
+            <result name="success-changeGift">changeGift.jsp</result>
+            <result name="fail">fail.jsp</result>
+        </action>
+        <action name="updateGift" class="cn.edu.zjut.action.GiftAction" method="updateGift">
+            <result name="success-updateGift">/showGift.jsp</result>
+            <result name="fail">/error.jsp</result>
+        </action>
+        <action name="deleteGift" class="cn.edu.zjut.action.GiftAction" method="deleteGift">
+            <result name="success-deleteGift">/showGift.jsp</result>
+            <result name="fail">/error.jsp</result>
+        </action>
+        <action name="lookStudentGift" class="cn.edu.zjut.action.StudentGiftAction" method="lookStudentGift">
+            <result name="success-lookStudentGift">/showStuGift.jsp</result>
+            <result name="fail">/error.jsp</result>
+        </action>
+        <action name="refuseChange" class="cn.edu.zjut.action.StudentGiftAction" method="refuseChange">
+            <result name="success-refuseChange">/showStuGift.jsp</result>
+            <result name="fail">/error.jsp</result>
+        </action>
+        <action name="applyChange" class="cn.edu.zjut.action.StudentGiftAction" method="applyChange">
+            <result name="success-applyChange">/showStuGift.jsp</result>
+            <result name="fail">/error.jsp</result>
         </action>
 
         <!--***************************李璐瑶部分结束****************************-->

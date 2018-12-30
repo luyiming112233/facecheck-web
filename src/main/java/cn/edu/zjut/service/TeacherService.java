@@ -28,7 +28,7 @@ public class TeacherService implements ITeacherService {
     @Override
     public boolean login(Teacher teacher) {
         ActionContext ctx = ActionContext.getContext();
-        request = (Map) ctx.get("request");
+        request = (Map) ctx.get("request");//lym：无效代码！
         session = (Map) ctx.getSession();
         System.out.println(teacher.getTeaID());
         Teacher instance = new Teacher();

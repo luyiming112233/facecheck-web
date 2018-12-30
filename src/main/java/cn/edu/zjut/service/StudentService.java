@@ -1,12 +1,15 @@
 package cn.edu.zjut.service;
 
 import cn.edu.zjut.dao.StudentMapper;
+import cn.edu.zjut.dao.SuggestMapper;
 import cn.edu.zjut.po.Student;
+import cn.edu.zjut.po.Suggest;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -65,6 +68,7 @@ public class StudentService implements IStudentService {
         return true;
     }
 
+    //有命名错误
     @Override
     public Student serachStudentByID(int stuID) {
         try {
@@ -169,5 +173,6 @@ public class StudentService implements IStudentService {
             return false;
         }
     }
+
 
 }

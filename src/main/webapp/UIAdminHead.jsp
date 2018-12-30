@@ -62,6 +62,21 @@
                     </dl>
                 </li>
 
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">反馈信息</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="getStuSuggest">学生反馈</a></dd>
+                        <dd><a href="getTeaSuggest">教师反馈</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">礼品兑换管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="lookAllGift">查看所有礼品</a></dd>
+                        <dd><a href="uploadGift.jsp">添加礼品</a></dd>
+                        <dd><a href="lookStudentGift">查看兑换请求</a></dd>
+                    </dl>
+                </li>
             </ul>
         </div>
     </div>
