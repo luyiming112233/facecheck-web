@@ -10,7 +10,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-/*
+/**
+ * quthor：黄丹
  * 用于进行查询显示sign表信息的action层
  * */
 @Controller

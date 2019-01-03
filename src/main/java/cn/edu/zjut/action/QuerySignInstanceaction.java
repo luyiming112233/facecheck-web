@@ -6,8 +6,9 @@ import cn.edu.zjut.service.QuerySignInstanceService;
 
 import java.util.List;
 
-/*
-用于查询显示signinsteance表信息的action层
+/**
+ * author：黄丹
+ * 用于查询显示signinsteance表信息的action层
  */
 public class QuerySignInstanceaction {
     IQuerySignInstanceService querySignInstanceService;
