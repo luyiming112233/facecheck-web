@@ -16,62 +16,65 @@
     <div class="layui-text" style="font-size: 25px; color: #393D49;width: 400px;height: 30px;padding: 35px">
         修改兑换礼品
     </div>
-    <form class="layui-form" action="updateGift" enctype="multipart/form-data" method="post">
+    <form class="layui-form"  id="gift" enctype="multipart/form-data">
 
         <div class="layui-form-item">
             <label class="layui-form-label">礼品编号</label>
             <div class="layui-input-block" style="width: 200px;">
-                <input type="text" name="gift.gift_id" readonly="true" value=
+                <input type="text" name="giftId" readonly="true" value=
                 <s:property value="gift.gift_id"/> class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">礼品名称</label>
             <div class="layui-input-block" style="width: 200px;">
-                <input type="text" name="gift.gift_name" value=
+                <input type="text" name="giftName" value=
                 <s:property value="gift.gift_name"/> class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">礼品简介</label>
             <div class="layui-input-block" style="width: 200px;">
-                <input type="text" name="gift.gift_descript" value=
+                <input type="text" name="giftDescript" value=
                 <s:property value="gift.gift_descript"/> class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">礼品积分</label>
             <div class="layui-input-block" style="width: 200px;">
-                <input type="text" name="gift.gift_score" value=
+                <input type="text" name="giftScore" value=
                 <s:property value="gift.gift_score"/> class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">礼品数量</label>
             <div class="layui-input-block" style="width: 200px;">
-                <input type="text" name="gift.gift_quantity" value=
+                <input type="text" name="giftQuantity" value=
                 <s:property value="gift.gift_quantity"/> class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">礼品图片</label>
-            <img src=<s:property value="gift.gift_id"/>
+            <img src="<s:property value="gift.gift_img"/>" >
+                    <input type="hidden" name="giftImg" value="<s:property value="gift.gift_img"/>"/>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">礼品图片</label>
             <div class="layui-input-block" style="width: 200px;">
-                <input type="file" name="giftFile">
-            </div>
-        </div>
-
-        <div class="layui-form-item">
-            <div class="layui-input-block">
-                <button class="layui-btn" lay-submit lay-filter="formDemo" onclick="showMessage()">修改</button>
-                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                <input type="file" name="file">
             </div>
         </div>
     </form>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn"  onclick="savegift()">修改</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
     <a href="lookAllGift">查看兑换礼品</a>
+</div>
+<script type="text/javascript" src="jsfile/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="jsfile/main.js" ></script>
     <script>
         //Demo
         layui.use('form', function () {
@@ -91,7 +94,7 @@
             });
         }
     </script>
-</div>
+
 
 
 <%@ include file="UIbottom.jsp" %>
