@@ -134,6 +134,11 @@
             <result name="fail">/Fail.jsp</result>
         </action>
 
+        <action name="searchNotice" class="cn.edu.zjut.action.NoticeAction" method="search">
+            <result name="success">/SearchNotice.jsp</result>
+            <result name="fail">/Fail.jsp</result>
+        </action>
+
         <!--***************************金炜炜部分结束****************************-->
 
         <!--****************************黄丹部分开始*****************************-->

@@ -65,6 +65,9 @@
                     <dl class="layui-nav-child">
                         <dd><a href="makeNotice.jsp">发送通知</a></dd>
                     </dl>
+                    <dl class="layui-nav-child">
+                        <dd><a href="SearchNotice.jsp">查询通知</a></dd>
+                    </dl>
                 </li>
 
             </ul>
