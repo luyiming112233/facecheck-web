@@ -7,10 +7,10 @@ insert into notice(teacher_id,title,content) values
 </insert>
 
     <insert id="insertStuNotice" parameterType="java.util.ArrayList">
-    insert into student_notice (notice_id,student_id,createtime) values
+    insert into student_notice (notice_id,student_id,createtime,openid,status) values
         <foreach collection="list" item="item" index="index"
                  separator=",">
-        (#{item.noticeID},#{item.stuID},#{item.date})
+        (#{item.noticeID},#{item.stuID},#{item.date},#{item.openid},0)
         </foreach>
     </insert>
     <select id="selectMaxId" parameterType="int" resultType="int">

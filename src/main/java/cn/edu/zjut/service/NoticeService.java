@@ -38,10 +38,15 @@ public class NoticeService implements  INoticeService {
             for (Iterator it = stu.iterator(); it.hasNext(); ) {
                 Notice notice1 = new Notice();
                 notice1.setStuID(((Student) it.next()).getStuID());
+                String ins=studentMapper.getOpenid(notice1.getStuID());
+                System.out.println(ins);
+                if(ins==null)
+                notice1.setOpenid("noid");
+                else
+                    notice1.setOpenid(ins);
                 notice1.setDate(notice.getDate());
                 notice1.setNoticeID(id);
                 notices.add(notice1);
-
             }
             noticeMapper.insertStuNotice(notices);
             return true;

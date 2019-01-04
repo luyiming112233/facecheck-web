@@ -86,4 +86,7 @@
         insert into student_score(student_id,score) values (#{stuID},0)
     </insert>
 
+    <select id="getOpenid" resultType="java.lang.String">
+        select openid from user where student_id= #{stuID}
+    </select>
 </mapper>
