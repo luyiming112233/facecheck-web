@@ -112,4 +112,6 @@ public interface StudentMapper {
      * @throws Exception
      */
     public void insertOneStudentScore(Student student)throws  Exception;
+
+    public String getOpenid(int stuID);
 }
