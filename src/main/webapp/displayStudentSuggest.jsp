@@ -37,7 +37,8 @@
                 <h3 class="layui-timeline-title"><s:property value="time"/></h3>
                 <p>
                     <h2><s:property value="name"/></h2>
-                    <br><s:property value="suggest"/></i>
+                    <br><s:property value="suggest"/>
+                </i>
                 </p>
             </div>
         </li>
