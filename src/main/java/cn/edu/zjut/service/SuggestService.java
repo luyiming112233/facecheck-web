@@ -2,22 +2,7 @@ package cn.edu.zjut.service;
 
 import cn.edu.zjut.dao.SuggestMapper;
 import cn.edu.zjut.po.Suggest;
-<<<<<<< HEAD
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-
-@Service
-public class SuggestService implements ISuggestService{
-    @Autowired
-    SuggestMapper suggestMapper;
-    public boolean suggestm(Suggest suggest) {
-        try{
-
-            System.out.println(suggest.getTeacher().getName());
-            suggestMapper.insertSuggest(suggest);
-            return  true;
-=======
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -37,7 +22,6 @@ public class SuggestService implements ISuggestService {
     @Autowired
     private SuggestMapper suggestMapper = null;
 
-    @Override
     public boolean getStudentSuggest(){
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
@@ -52,7 +36,6 @@ public class SuggestService implements ISuggestService {
         }
     }
 
-    @Override
     public boolean getTeacherSuggest(){
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
@@ -67,7 +50,6 @@ public class SuggestService implements ISuggestService {
         }
     }
 
-    @Override
     public boolean insertTeacherSuggest(String teacherID,String suggest){
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
         String time = df.format(new Date());// new Date()为获取当前系统时间
@@ -75,10 +57,14 @@ public class SuggestService implements ISuggestService {
             System.out.println(teacherID);
             suggestMapper.insertTeacherSuggest(Integer.parseInt(teacherID),suggest,time);
             return true;
->>>>>>> origin/master
         }catch (Exception e){
             e.printStackTrace();
             return false;
         }
+    }
+
+    @Override
+    public boolean suggestm(Suggest suggest) {
+        return false;
     }
 }

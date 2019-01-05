@@ -9,6 +9,15 @@ public class Notice {
     private String title;
     private  String content;
     private Date date;
+    private String openid;
+
+    public void setOpenid(String openid) {
+        this.openid = openid;
+    }
+    public String getOpenid(){
+        return  openid;
+    }
+
     public void setTeaID(int teaID){
         this.teaID=teaID;
     }

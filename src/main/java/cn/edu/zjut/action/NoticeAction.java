@@ -34,4 +34,15 @@ public Notice getNotice(){
             return "fail";
         }
     }
+    public String search(){
+    try {
+        System.out.println(notice.getTeaID());
+        if (noticeService.searchNotice(notice.getTeaID())){
+           return "success";
+        }
+        return "fail";
+    }catch (Exception e){
+        return "fail";
+    }
+    }
 }
