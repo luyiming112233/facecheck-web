@@ -34,41 +34,43 @@ public class SignInstanceService implements ISignInstanceService {
 
     private SignInstanceTemplate temp;
 
-    private List<Student> studentlist = new ArrayList<Student>();
+    private List<Student> studentlist = new ArrayList<Student>();//存储学生信息的List
 
-    private List<SignInstance> signInstances = new ArrayList<SignInstance>();
+    private List<SignInstance> signInstances = new ArrayList<SignInstance>();//存储实例信息的List
 
+
+    /**
+     *
+     * @param stu 学生的id
+     * @param dates 需要打卡的日期
+     * @param templateid 选择的模板id
+     * @param chooseid 选择的计划id
+     * @Describe 生成签到信息的实现类
+     * @return
+     */
     public int insertSignInstance(String[] stu, String[] dates, int templateid, int chooseid) {
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 
-        for (int i = 0; i < stu.length; i++)
-            System.out.println(stu[i]);
 
-        for (int i = 0; i < dates.length; i++)
-            System.out.println(dates[i]);
 
         try {
-            System.out.println(templateMapper);
-            temp = templateMapper.getTemplateByid(templateid);
-            System.out.println(temp.getStartTime());
-            System.out.println("diming" + temp.getPlaceName());
-            System.out.println("jingdu" + temp.getLatitude());
-            System.out.println("tid" + temp.getTeaID());
-            System.out.println("id" + temp.getTempID());
+
+            temp = templateMapper.getTemplateByid(templateid);//根据id得到签到模板
+
             for (int i = 0; i < stu.length; i++) {
-                studentlist.add(studentMapper.getStudentById(Integer.parseInt(stu[i])));
+                studentlist.add(studentMapper.getStudentById(Integer.parseInt(stu[i])));//根据学生id获得相应学生的信息插入List
             }
 
             for (int j = 0; j < dates.length; j++) {
-                signInstances.add(new SignInstance(chooseid, temp.getStartTime(), temp.getEndTime(), temp.getLongitude(), temp.getLatitude(), temp.getRadius(), temp.getPlaceName(), sdf.parse(dates[j])));
+                signInstances.add(new SignInstance(chooseid, temp.getStartTime(), temp.getEndTime(), temp.getLongitude(), temp.getLatitude(), temp.getRadius(), temp.getPlaceName(), sdf.parse(dates[j])));//根据模板学生以日期个特征插入相应的签到实例
             }
-
-            instanceMapper.insertSignInstance(signInstances);
-/*System.out.println(signInstances.get(0).getSignInstID());
-            System.out.println(signInstances.get(1).getSignInstID());*/
+            instanceMapper.insertSignInstance(signInstances);//签到实例表插入
             StudentSign studentSig = new StudentSign();
+            /**
+             * 学生信息表的插入
+             */
             for (int i = 0; i < dates.length; i++)
                 for (int j = 0; j < stu.length; j++) {
                     studentSig.setStuID(studentlist.get(j).getStuID());
@@ -86,6 +88,10 @@ public class SignInstanceService implements ISignInstanceService {
     }
 
 
+    /**
+     * @Describe 得到所有的学生信息 为选择学生生成实例做铺垫
+     * @return
+     */
     public List<Student> listAllStudents() {
         try {
             List<Student> studentList = studentMapper.listAllStudent();

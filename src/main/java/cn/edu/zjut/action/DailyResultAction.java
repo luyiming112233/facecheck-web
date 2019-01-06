@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import cn.edu.zjut.po.*;
 import cn.edu.zjut.service.*;
 
-//处理大打卡下的小打卡有关的action
 @Controller
 public class DailyResultAction {
     private SignInstance signinstance; //签到实例
@@ -65,6 +64,12 @@ public class DailyResultAction {
         this.dailyresultService = dailyresultService;
     }
 
+    /**
+     * 根据签到的ID获得该签到的列表
+     *
+     * @return
+     * @Author 李璐瑶
+     */
     public String getDailyResult() {//根据大打卡的sign_id得到小打卡的列表
         System.out.println("now the getDailyResult" + signinstance.getSignID());
         //signinsatnce的sign_id由jsp传过来

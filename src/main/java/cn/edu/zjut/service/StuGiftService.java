@@ -22,46 +22,76 @@ public class StuGiftService implements IStuGiftService {
         this.stuGiftMapper = stuGiftMapper;
     }
 
+    /**
+     * 获得所有的兑换请求
+     *
+     * @return
+     * @Author 李璐瑶
+     */
     @Override
     public List<GiftChange> getStudentGift() {
         System.out.println("now getStudentGift");
-        List<GiftChange> list=new ArrayList<>();
-        try{
-           list=stuGiftMapper.selectStudentGift();
-           System.out.println("now the service"+list.size());
-        }catch(Exception e){
+        List<GiftChange> list = new ArrayList<>();
+        try {
+            list = stuGiftMapper.selectStudentGift();
+            System.out.println("now the service" + list.size());
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return list;
     }
 
+    /**
+     * 修改兑换状态
+     *
+     * @param result
+     * @param autoid
+     * @Author 李璐瑶
+     */
     @Override
-    public void updateStuGift(Boolean result,int autoid) {
+    public void updateStuGift(Boolean result, int autoid) {
         try {
             System.out.println("now updateStuGift");
-            stuGiftMapper.updateStudentGift(result,autoid);
-        }catch(Exception e){
+            stuGiftMapper.updateStudentGift(result, autoid);
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
 
+    /**
+     * 根据礼品的ID得到该礼品未被兑换的请求数量
+     *
+     * @param gift_id
+     * @return
+     * @Author 李璐瑶
+     */
+    @Override
+    public int getListSize(int gift_id) {
+        System.out.println("now the getListSize,the gift_id=" + gift_id);
+        List<GiftChange> list = new ArrayList<>();
+        try {
+            list = stuGiftMapper.selectByGiftId(gift_id);
+            System.out.println("the size is " + list.size());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list.size();
+    }
+
+    /**
+     * 根据兑换请求ID删除某个请求
+     *
+     * @param autoid
+     * @Author 李璐瑶
+     */
     @Override
     public void deleteStuGift(int autoid) {
-        try{
+        try {
             stuGiftMapper.deleteById(autoid);
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    @Override
-    public void insert(GiftChange g) {
-        try{
-            System.out.println("now the insert");
-            stuGiftMapper.insert(g);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 }
