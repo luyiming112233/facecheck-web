@@ -13,8 +13,8 @@ import java.util.Map;
 
 @Service
 public class ResultDetailService implements IResultDetailService {
-    @Autowired
     private Map<String, Object> request, session;
+    @Autowired
     private ResultDetailMapper resultdetailmapper;
 
     public ResultDetailService() {
@@ -26,7 +26,13 @@ public class ResultDetailService implements IResultDetailService {
         this.resultdetailmapper = resultdetailmapper;
     }
 
-
+    /**
+     * 根据某个详细签到的ID获得学生的签到情况
+     *
+     * @param signInstID
+     * @return
+     * @Author 李璐瑶
+     */
     @Override
     public List<ResultDetail> getBySignInstance_id(int signInstID) {//根据小打卡id获得该打卡的学生打卡情况
         System.out.println("resultdetailservice-getBySigninstance_id    " + signInstID);
@@ -46,6 +52,13 @@ public class ResultDetailService implements IResultDetailService {
         return list;
     }
 
+    /**
+     * 修改指定学生指定签到下的签到情况
+     *
+     * @param StuSignID
+     * @param status
+     * @Author 李璐瑶
+     */
     @Override
     public void update(Integer StuSignID, Integer status) {//修改学生打卡情况
         System.out.println("resultdetailservice-update" + StuSignID + status);

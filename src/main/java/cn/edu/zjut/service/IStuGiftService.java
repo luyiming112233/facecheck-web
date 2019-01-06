@@ -8,7 +8,10 @@ import java.util.List;
 
 public interface IStuGiftService {
     List<GiftChange> getStudentGift();
-    void updateStuGift(Boolean result,int autoid);
+
+    int getListSize(int gift_id);
+
+    void updateStuGift(Boolean result, int autoid);
+
     void deleteStuGift(int autoid);
-    void insert(GiftChange g);
 }

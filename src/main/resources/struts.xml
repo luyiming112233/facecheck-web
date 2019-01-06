@@ -176,14 +176,6 @@
             <result name="success-find">allResults.jsp</result>
             <result name="fail">login.jsp</result>
         </action>
-        <action name="getByName" class="cn.edu.zjut.action.ResultAction" method="getByName">
-            <result name="success-Byname">allResults.jsp</result>
-            <result name="fail">login.jsp</result>
-        </action>
-        <action name="getByTime" class="cn.edu.zjut.action.ResultAction" method="getByTime">
-            <result name="success-Bytime">allResults.jsp</result>
-            <result name="fail">login.jsp</result>
-        </action>
         <action name="getDailyResult" class="cn.edu.zjut.action.DailyResultAction" method="getDailyResult">
             <result name="success-Daily">dailyResult.jsp</result>
             <result name="fail">login.jsp</result>
@@ -206,11 +198,7 @@
         </action>
         <action name="changeGift" class="cn.edu.zjut.action.GiftAction" method="changeGift">
             <result name="success-changeGift">changeGift.jsp</result>
-            <result name="fail">fail.jsp</result>
-        </action>
-        <action name="updateGift" class="cn.edu.zjut.action.GiftAction" method="updateGift">
-            <result name="success-updateGift">/showGift.jsp</result>
-            <result name="fail">/error.jsp</result>
+            <result name="fail">error.jsp</result>
         </action>
         <action name="deleteGift" class="cn.edu.zjut.action.GiftAction" method="deleteGift">
             <result name="success-deleteGift">/showGift.jsp</result>

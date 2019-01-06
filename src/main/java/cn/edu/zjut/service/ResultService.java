@@ -30,8 +30,15 @@ public class ResultService implements IResultService {
         this.resultmapper = resultmapper;
     }
 
+    /**
+     * 根据教师的ID获得该教师发布的签到
+     *
+     * @param teacher_id
+     * @return
+     * @Author 李璐瑶
+     */
     @Override
-    public List<Sign> getByTeacher_id(int teacher_id) {//根据老师的id查找它的所有打卡任务
+    public List<Sign> getByTeacher_id(int teacher_id) {
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
         session = (Map) ctx.getSession();
@@ -46,8 +53,16 @@ public class ResultService implements IResultService {
         return list;
     }
 
+    /**
+     * 根据签到名称查找签到
+     *
+     * @param sign_name
+     * @param teacher_id
+     * @return
+     * @Author 李璐瑶
+     */
     @Override
-    public List<Sign> getBySign_name(String sign_name, int teacher_id) {//按名次查找
+    public List<Sign> getBySign_name(String sign_name, int teacher_id) {
         System.out.println("resultservice-getBySign_name");
         List<Sign> list = new ArrayList();
         try {
@@ -58,8 +73,16 @@ public class ResultService implements IResultService {
         return list;
     }
 
+    /**
+     * 根据创建时间查询签到
+     *
+     * @param createtime
+     * @param teacher_id
+     * @return
+     * @Author 李璐瑶
+     */
     @Override
-    public List<Sign> getByCreatetime(String createtime, int teacher_id) {//按创建时间查找
+    public List<Sign> getByCreatetime(String createtime, int teacher_id) {
         System.out.println("resultservice-getByCreatetime" + createtime);
         List<Sign> list = new ArrayList();
         try {
@@ -71,7 +94,16 @@ public class ResultService implements IResultService {
         return list;
     }
 
-    public List<Sign> find(String message, int type, int teaID) {//按创建时间查找
+    /**
+     * 根据查找类别，和输入的查询信息查询签到信息
+     *
+     * @param message
+     * @param type
+     * @param teaID
+     * @return
+     * @Author 李璐瑶
+     */
+    public List<Sign> find(String message, int type, int teaID) {
         System.out.println("resultservice-find" + teaID);
         ActionContext ctx = ActionContext.getContext();
         session = ctx.getSession();
@@ -80,8 +112,6 @@ public class ResultService implements IResultService {
             if (type == 1) {
                 System.out.println(message + "***********");
                 DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-                //Date createtime = df.parse(message);
-                //Date createtime=new Date(message);
                 System.out.println(message + "*");
                 return this.getByCreatetime(message, teaID);
             } else {
@@ -93,8 +123,15 @@ public class ResultService implements IResultService {
         return list;
     }
 
+    /**
+     * 根据签到ID查询签到
+     *
+     * @param sign_id
+     * @return
+     * @Author 李璐瑶
+     */
     @Override
-    public Sign getBySign_id(String sign_id) {//查找某个具体的大打卡
+    public Sign getBySign_id(String sign_id) {
         System.out.println("resultservice-getBySign_id" + sign_id);
         Sign sign = null;
         try {

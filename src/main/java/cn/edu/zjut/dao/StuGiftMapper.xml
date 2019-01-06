@@ -26,6 +26,11 @@
         DELETE FROM student_gift
         WHERE autoid=#{id}
     </delete>
+    <select id="selectByGiftId" resultType="cn.edu.zjut.po.GiftChange" parameterType="cn.edu.zjut.po.GiftChange" resultMap="stugiftMapper">
+        select student_gift.*,Gift.gift_name
+        from Gift,student_gift
+        where student_gift.gift_id=Gift.gift_id and student_gift.gift_id=#{gift_id} and student_gift.result=0
+    </select>
 
 </mapper>
 
