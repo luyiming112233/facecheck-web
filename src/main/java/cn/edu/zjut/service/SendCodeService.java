@@ -18,9 +18,7 @@ import java.util.List;
 
 
 /**
- * 发送验证码
- * @author liuxuanlin
- *
+ * @Describe 发送验证码
  */
 @Service
 @Scope("prototype")

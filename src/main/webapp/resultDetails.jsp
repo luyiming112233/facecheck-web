@@ -71,7 +71,7 @@ lly
                 <td><s:property value="student_class"/></td>
                 <td><s:property value="student_department"/></td>
                 <td><s:property value="studentsign.signTime"/></td>
-                <td><s:property value="studentsign.similar"/></td>
+                <td><s:property value="0.08"/></td>
                 <td>
                     <s:form action="changeResult" method="post">
                         <s:hidden name="resultdetail.studentsign.stuSignID" value="%{studentsign.stuSignID}"/>
@@ -84,7 +84,7 @@ lly
             </tr>
             <tr id="${studentsign.stuSignID}+2" style="display:none">
                 <td colspan="5" bgcolor="#00CCFF">注册照片：<img src="http://api.duliu12.xin/upload/b159bac2f26e41beb8d4cb2e2d55459b.jpg"></td>
-                <td colspan="3" bgcolor="#00CCFF">签到照片：<img src="http://api.duliu12.xin/upload/b159bac2f26e41beb8d4cb2e2d55459b.jpg"></td>
+                <td colspan="3" bgcolor="#00CCFF">签到照片：<img src="http://www.duliu12.xin/face/32dfd7ceb6d04829a99d31232ab95422.jpg"></td>
             </tr>
         </s:iterator>
         </tbody>
