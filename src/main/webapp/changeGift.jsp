@@ -55,7 +55,7 @@
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">礼品图片</label>
-            <img src="<s:property value="gift.gift_img"/>" >
+            <img src="<s:property value="gift.gift_img"/>" weight="200px" height="200px">
                     <input type="hidden" name="giftImg" value="<s:property value="gift.gift_img"/>"/>
         </div>
         <div class="layui-form-item">

@@ -8,8 +8,6 @@ import java.io.File;
 import java.util.List;
 
 public interface IGiftService {
-    void insertGift(Gift gift, File file);
-    void updateGift(Gift gift,File file);
     List<Gift> getAllGift();
     void deleteGift(int gift_id);
     Gift getGiftById(int gift_id);

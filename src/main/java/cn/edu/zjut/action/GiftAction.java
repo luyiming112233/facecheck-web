@@ -2,6 +2,8 @@ package cn.edu.zjut.action;
 
 import cn.edu.zjut.po.Gift;
 import cn.edu.zjut.service.IGiftService;
+import cn.edu.zjut.service.IStuGiftService;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,9 +11,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class GiftAction extends ActionSupport {
+    private Map<String, Object> request, session;
     private File giftFile;
     private String giftFileContentType;    //得到上传文件的类型
     private String giftFileFileName;
@@ -20,6 +24,16 @@ public class GiftAction extends ActionSupport {
     private Gift gift;
     @Autowired
     private IGiftService giftService;
+    @Autowired
+    private IStuGiftService stuGiftService;
+
+    public void setStuGiftService(IStuGiftService stuGiftService) {
+        this.stuGiftService = stuGiftService;
+    }
+
+    public IStuGiftService getStuGiftService() {
+        return stuGiftService;
+    }
 
     public List<Gift> getGifts() {
         return gifts;
@@ -72,21 +86,15 @@ public class GiftAction extends ActionSupport {
 
     /**
      * 上传用于兑换的礼品信息
+     *@Author 李璐瑶
      * @return
      */
-    public String addGift() {
-        System.out.println("now giftAction");
-        System.out.println("now giftAction" + giftFile.getName() + "--" + giftFile.getAbsolutePath());
-        System.out.println("filename   :" + this.getGiftFileFileName());
-        System.out.println("uploadType    :" + this.getGiftFileContentType());
-        System.out.println("file" + this.giftFile);
-        giftService.insertGift(gift, giftFile);
-        return "success-addGift";
-    }
 
     /**
      * 点击修改后获取该礼品信息
+     *
      * @return
+     * @Author 李璐瑶
      */
     public String changeGift() {
         // giftService.updateGift(gift,giftFile);
@@ -96,32 +104,34 @@ public class GiftAction extends ActionSupport {
         return "success-changeGift";
     }
 
-    /**
-     * 修改礼品信息
-     * @return
-     */
-    public String updateGift() {
-        System.out.println("now action updateGift");
-
-        giftService.updateGift(gift, giftFile);
-        gifts = giftService.getAllGift();
-        return "success-updateGift";
-    }
 
     /**
-     * 根据id删除礼品
+     * 根据id删除礼品,若该礼品存在未兑换的请求，则删除失败
+     *
      * @return
+     * @Author 李璐瑶
      */
     public String deleteGift() {
         System.out.println("now the deleteAction");
-        giftService.deleteGift(gift.getGift_id());
-        gifts = giftService.getAllGift();
-        return "success-deleteGift";
+        ActionContext ctx = ActionContext.getContext();
+        request = (Map) ctx.get("request");
+        if (stuGiftService.getListSize(gift.getGift_id()) > 0) {
+            String tip = "该礼品存在未兑换请求，删除失败";
+            request.put("tip", tip);
+            return "fail";
+        } else {
+            giftService.deleteGift(gift.getGift_id());
+            gifts = giftService.getAllGift();
+            return "success-deleteGift";
+
+        }
     }
 
     /**
      * 查看所有礼品信息
+     *
      * @return
+     * @Author 李璐瑶
      */
     public String lookAllGift() {
         gifts = giftService.getAllGift();
