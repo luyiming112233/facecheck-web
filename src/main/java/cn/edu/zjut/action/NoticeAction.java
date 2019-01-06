@@ -10,8 +10,11 @@ public class NoticeAction {
     private Notice notice;
     @Autowired
     private INoticeService noticeService;
+
+
 public  void setNotice(Notice notice){
     this.notice=notice;
+
 }
 public Notice getNotice(){
     return notice;

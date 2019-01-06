@@ -6,8 +6,9 @@ import cn.edu.zjut.po.Sign;
 import java.util.Date;
 import java.util.List;
 
-/*
-用于与sign表交互得到数据库信息的dao层
+/**
+ * author：黄丹
+ *用于与sign表交互得到数据库信息的dao层
  */
 public interface QuerySignMapper {
     List<Sign> getAllSign() throws Exception;//查询所有打卡记录

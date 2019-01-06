@@ -22,7 +22,8 @@
     <div class="layui-text" style="font-size: 25px; color: #393D49;width: 400px;height: 30px;padding: 35px">
         查询所有通知
     </div>
-    <table class="layui-table" lay-data="{height:500, page:true, id:'stuTable'}" lay-filter="test" >
+
+    <table class="layui-table" lay-data="{height:500, page:true, id:'noticeTable'}" lay-filter="test" >
         <thead>
         <tr>
             <th lay-data="{field:'title', width:100}">标题</th>
@@ -45,6 +46,21 @@
     </form>
 
 
+    <script src="../layui/layui.js" charset="utf-8"></script>
+
+    <script>
+        layui.use('form', function () {
+            var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+
+
+            form.render();
+        });
+
+    </script>
+
 </div>
 </body>
+
+<%@ include file="UIbottom.jsp" %>
+
 </html>

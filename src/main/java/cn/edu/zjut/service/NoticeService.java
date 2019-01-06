@@ -43,7 +43,7 @@ public class NoticeService implements  INoticeService {
                 Notice notice1 = new Notice();
                 notice1.setStuID(((Student) it.next()).getStuID());
                 String ins=studentMapper.getOpenid(notice1.getStuID());
-                System.out.println(ins);
+
                 if(ins==null)
                 notice1.setOpenid("noid");
                 else
