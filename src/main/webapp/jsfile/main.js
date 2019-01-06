@@ -12,13 +12,13 @@ function savegift() {
                   if(data.code==10000)
                       layui.use('layer', function () {
                           var layer = layui.layer;
-                          layer.msg('添加成功');
+                          layer.msg('操作成功');
                       });
               },
               fail: function (data) {
                   layui.use('layer', function () {
                       var layer = layui.layer;
-                      layer.msg('添加失败');
+                      layer.msg('操作失败');
                   });
               }
           })
