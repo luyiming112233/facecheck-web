@@ -83,27 +83,30 @@ public class ResultDetailAction {
         return dailyresult;
     }
 
-
-    public String getResultDetail() {//根据小打卡的id查找这个小打卡下的学生打卡情况
+    /**
+     * 根据某次详细签到的ID获得该次签到的学生签到情况
+     *
+     * @return
+     * @Author 李璐瑶
+     */
+    public String getResultDetail() {
         try {
             System.out.println("now the getDetail    " + dailyresult.getSigninstance().getSignInstID());
             resultdetails = resultdetailService.getBySignInstance_id(dailyresult.getSigninstance().getSignInstID());//获取签到结果情况
-            // System.out.println(resultdetails.get(0).getStudent_name());
             dailyresult = dailyresultService.getBySigninstance_id(dailyresult.getSigninstance().getSignInstID());
-            // System.out.println(dailyresult.getSign_name());
             System.out.println("the fact and all" + dailyresult.getAll() + "***" + dailyresult.getFact());
-		/*System.out.println(resultdetails.get(0).getSimilar()+"**"+resultdetails.get(0).getSignTime());
-		result=resultService.getBySign_id(signinstance.getSignID());//获取签到项目
-		signinstance=dailyresultService.getBySigninstance_id(signinstance.getSignInstID());//获取签到日期，时间
-		//System.out.println(result.getSign_name());
-		System.out.println(signinstance.getPlaceName());*/
-
             return "success-getDetail";
         } catch (Exception e) {
             return "fail";
         }
     }
 
+    /**
+     * 修改学生的签到情况
+     *
+     * @return
+     * @Author 李璐瑶
+     */
     public String changeResult() {//修改学生签到情况
         try {
             System.out.println("now the changeDetails*******");
@@ -119,23 +122,5 @@ public class ResultDetailAction {
         }
     }
 
-        public String AutoPlay () {
-            try {
-
-                System.out.println("now the AutoPlay" + dailyresult.getSigninstance().getSignInstID());
-                resultdetails = resultdetailService.getBySignInstance_id(dailyresult.getSigninstance().getSignInstID());//获取签到结果情况
-                dailyresult = dailyresultService.getBySigninstance_id(dailyresult.getSigninstance().getSignInstID());
-                System.out.println(dailyresult.getAll() + "***" + dailyresult.getFact());
-		/*System.out.println(resultdetails.get(0).getSimilar()+"**"+resultdetails.get(0).getSignTime());
-		result=resultService.getBySign_id(signinstance.getSignID());//获取签到项目
-		signinstance=dailyresultService.getBySigninstance_id(signinstance.getSignInstID());//获取签到日期，时间
-		//System.out.println(result.getSign_name());
-		System.out.println(signinstance.getPlaceName());*/
-
-                return "success-AutoPlay";
-            } catch (Exception e) {
-                return "fail";
-            }
-        }
 
 }

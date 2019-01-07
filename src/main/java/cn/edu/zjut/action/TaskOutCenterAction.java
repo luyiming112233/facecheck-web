@@ -32,7 +32,6 @@ public class TaskOutCenterAction {
 
     @Autowired
     private IStudentService studentService;
-
     private String datelist;
     private String stulist;
     private Map<String, Object> actionRequest;
@@ -93,13 +92,16 @@ public class TaskOutCenterAction {
         this.templateid = templateid;
     }
 
-
+    /**
+     * @Describe 教师生成签到的实例
+     * @return
+     */
     public String buildTask() {
         try {
             if (sign != null) {
                 SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
                 sign.setCreateTime((new Date()));
-                taskService.insertSign(sign);
+                taskService.insertSign(sign);//插入计划
             }
             return "success";
 
@@ -108,7 +110,10 @@ public class TaskOutCenterAction {
         }
     }
 
-
+    /**
+     * @Describe 教师创建合适的模板
+     * @return
+     */
     public String buildTemplate()
     {
 
@@ -120,7 +125,9 @@ public class TaskOutCenterAction {
         System.out.println(beginTime);
         String endTime = request.getParameter("template.endTime");//字符串
         endTime = endTime + ":00";
-
+/**
+ * 转换日期格式
+ */
         try {
             date = format.parse(beginTime);
 
@@ -131,12 +138,16 @@ public class TaskOutCenterAction {
             e.printStackTrace();
             return "fail";
         }
-        taskService.insertTemplate(template);
+        taskService.insertTemplate(template);//插入到模板类
 
 
         return "success";
     }
 
+    /**
+     * @Describe 登入教师界面时 把信息录入到session 并存储计划表的List
+     * @return
+     */
     public String inToPlatform() {
         try {
             Map session = ActionContext.getContext().getSession();
@@ -146,9 +157,8 @@ public class TaskOutCenterAction {
             TaskList taskList = taskService.getTaskList(teacher.getTeaID());
 
 
-            session.put("taskList", taskList);
-
-            session.put("teaID", teacher.getTeaID());
+            session.put("taskList", taskList);//存储计划信息
+            session.put("teaID", teacher.getTeaID());//存储教师id
 
 
             return "success";
@@ -157,6 +167,10 @@ public class TaskOutCenterAction {
         }
     }
 
+    /**
+     * @Describe 根据模板名称 计划名称 进入到打卡实例的创建目录
+     * @return
+     */
     public String gotoinstance() {
         try {
             actionRequest = (Map) ActionContext.getContext().get("request");
@@ -167,13 +181,15 @@ public class TaskOutCenterAction {
             String chooseid = request.getParameter("chooseid");
             String choosename = request.getParameter("choosename");
             System.out.println(templateid);
+            /**
+             * 存储相应的计划id 模板id 选择的计划名称
+             */
             request.setAttribute("templateid", templateid);
             request.setAttribute("chooseid", chooseid);
             request.setAttribute("choosename", choosename);
             System.out.println(chooseid);
             System.out.println(choosename);
             System.out.println(templateid);
-
             actionRequest.put("students", students);
 
             return "success";
@@ -181,19 +197,21 @@ public class TaskOutCenterAction {
             return "fail";
         }
     }
+
+    /**
+     * @Describe 根据所选的学生和打卡日期生成打卡实例
+     * @return
+     */
     public String newIns() {
         try {
             HttpServletRequest request = ServletActionContext.getRequest();
             System.out.println("学号是" + stulist);
-
             int chooseid = Integer.parseInt(request.getParameter("chooseid"));
+            /**
+             * 解析发送来的日期信息和学生内容
+             */
             String[] date_list = datelist.split(",");
             String[] stu_list = stulist.split(",");
-  /*      System.out.println("模板是" + templateid);
-        System.out.println(date_list[0]);
-        System.out.println(date_list[1]);
-        System.out.println("学号是" + stu_list[0]);
-        System.out.println("chooseid:" + chooseid);*/
             signInstanceService.insertSignInstance(stu_list, date_list, templateid, chooseid);
             return "success";
 
@@ -202,12 +220,16 @@ public class TaskOutCenterAction {
         }
     }
 
+    /**
+     * @Describe 删除打卡模板
+     * @return
+     */
     public String deleteInstance() {
         try {
             HttpServletRequest request = ServletActionContext.getRequest();
             String templateid = request.getParameter("templateid");
-            int templateId = Integer.parseInt(templateid);
-            taskService.deleteTemplate(templateId);
+            int templateId = Integer.parseInt(templateid);//获得模板id
+            taskService.deleteTemplate(templateId);//删除模板id
             return "success";
         } catch (Exception e) {
             return "fail";

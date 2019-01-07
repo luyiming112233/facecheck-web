@@ -22,9 +22,16 @@ public class DailyResultService implements IDailyResultService {
         this.dailyresultmapper = dailyresultmapper;
     }
 
+    /**
+     * 根据大打卡的id得到小打卡列表
+     *
+     * @param signID
+     * @return
+     * @Author 李璐瑶
+     */
 
     @Override
-    public List<SignInstance> getBySign_id(String signID) {//根据大打卡的id得到小打卡列表
+    public List<SignInstance> getBySign_id(String signID) {
         System.out.println("dailyresultservice-getBySign_id" + signID);
         List<SignInstance> list = new ArrayList();
         try {
@@ -37,8 +44,15 @@ public class DailyResultService implements IDailyResultService {
         // TODO Auto-generated method stub
     }
 
+    /**
+     * 根据小打卡id查找某个具体的小打卡
+     *
+     * @param signInstID
+     * @return
+     * @Author 李璐瑶
+     */
     @Override
-    public DailyResult getBySigninstance_id(int signInstID) {//根据小打卡id查找某个具体的 小打卡
+    public DailyResult getBySigninstance_id(int signInstID) {
         System.out.println("dailyresultservice-getBySigninstance_id");
         DailyResult dailyresult = new DailyResult();
         SignInstance signinstance = null;

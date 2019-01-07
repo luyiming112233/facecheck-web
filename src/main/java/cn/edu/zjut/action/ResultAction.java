@@ -1,4 +1,5 @@
 package cn.edu.zjut.action;
+
 import java.util.List;
 import java.util.Map;
 
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import com.opensymphony.xwork2.ActionSupport;
 import cn.edu.zjut.po.*;
 import cn.edu.zjut.service.*;
+
 //大打卡有关
 @Controller
 public class ResultAction extends ActionSupport {
@@ -75,7 +77,12 @@ public class ResultAction extends ActionSupport {
         this.resultService = resultService;
     }
 
-    //查看所有签到
+    /**
+     * 根据教师的ID查看该教师发布的所有签到
+     *
+     * @return
+     * @Author 李璐瑶
+     */
     public String lookAllSign()//根据teacher_id查看该老师发布的所有签到信息
     {
         try {
@@ -92,7 +99,12 @@ public class ResultAction extends ActionSupport {
         }
     }
 
-    //按签到名查找
+    /**
+     * 根据签到名查询签到
+     *
+     * @return
+     * @Author 李璐瑶
+     */
     public String getByName()//根据签到名称查找       teacher_id和sign_name查看该老师发布的信息
     {
         try {
@@ -104,7 +116,12 @@ public class ResultAction extends ActionSupport {
         }
     }
 
-    //按创建时间查找
+    /**
+     * 根据创建时间查询签到
+     *
+     * @return
+     * @Author 李璐瑶
+     */
     public String getByTime()//根据签到发布时间       teacher_id和createtime查看该老师发布的所有签到信息
     {
         try {
@@ -116,6 +133,12 @@ public class ResultAction extends ActionSupport {
         }
     }
 
+    /**
+     * 用户选择查询类别，输入查询信息，查询签到
+     *
+     * @return
+     * @Author 李璐瑶
+     */
     public String findSign() {
         try {
             System.out.println("now the find message:" + message + "searchType" + searchType + "teaID" + teacher.getTeaID());
