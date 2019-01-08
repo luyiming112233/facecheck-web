@@ -31,8 +31,7 @@ public class NoticeService implements  INoticeService {
 
     public boolean makeNotice(Notice notice) {
         try {
-            System.out.println(notice.getTeaID());
-            System.out.println(notice.getContent()+notice.getTitle());
+
             notice.setDate(new Date());
             notice.incre();
             noticeMapper.insertNotice(notice);

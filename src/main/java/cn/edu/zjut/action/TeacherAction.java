@@ -72,13 +72,14 @@ public class TeacherAction {
         try {
             if (teacherService.login(teacher)) {
                 ActionContext ctx = ActionContext.getContext();
-                session = (Map) ctx.getSession();
-                String id = ((Teacher) (session.get("teacher"))).getName();
-                results = (List<Sign>) resultService.getByTeacher_id(teacher.getTeaID());
+             //   session = (Map) ctx.getSession();
+                //String id = ((Teacher) (session.get("teacher"))).getName();
+               // results = (List<Sign>) resultService.getByTeacher_id(teacher.getTeaID());
                 return "success";
             } else
                 return "fail";
         } catch (Exception e) {
+            e.printStackTrace();
             return "login";
         }
     }
