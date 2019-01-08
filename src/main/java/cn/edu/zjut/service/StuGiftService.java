@@ -30,11 +30,9 @@ public class StuGiftService implements IStuGiftService {
      */
     @Override
     public List<GiftChange> getStudentGift() {
-        System.out.println("now getStudentGift");
         List<GiftChange> list = new ArrayList<>();
         try {
             list = stuGiftMapper.selectStudentGift();
-            System.out.println("now the service" + list.size());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -51,7 +49,6 @@ public class StuGiftService implements IStuGiftService {
     @Override
     public void updateStuGift(Boolean result, int autoid) {
         try {
-            System.out.println("now updateStuGift");
             stuGiftMapper.updateStudentGift(result, autoid);
         } catch (Exception e) {
             e.printStackTrace();
@@ -68,11 +65,9 @@ public class StuGiftService implements IStuGiftService {
      */
     @Override
     public int getListSize(int gift_id) {
-        System.out.println("now the getListSize,the gift_id=" + gift_id);
         List<GiftChange> list = new ArrayList<>();
         try {
             list = stuGiftMapper.selectByGiftId(gift_id);
-            System.out.println("the size is " + list.size());
         } catch (Exception e) {
             e.printStackTrace();
         }

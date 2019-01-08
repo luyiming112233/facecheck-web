@@ -89,10 +89,7 @@ public class ResultAction extends ActionSupport {
             ActionContext ctx = ActionContext.getContext();
             session = (Map) ctx.getSession();
             teacher = ((Teacher) (session.get("teacher")));
-            System.out.println(teacher.getTeaID() + "***********");
             results = (List<Sign>) resultService.getByTeacher_id(teacher.getTeaID());
-            // System.out.println("*************"+results.get(0).getSignID()+results.get(0).getTeaID());
-            //  System.out.println("the time is"+results.get(0).getCreateTime());
             return "success-lookAll";
         } catch (Exception e) {
             return "fail";
@@ -108,7 +105,6 @@ public class ResultAction extends ActionSupport {
     public String getByName()//根据签到名称查找       teacher_id和sign_name查看该老师发布的信息
     {
         try {
-            System.out.println("now the ResultAction-ByName" + result.getName());
             results = (List<Sign>) resultService.getBySign_name(result.getName(), teacher.getTeaID());
             return "success-Byname";
         } catch (Exception e) {
@@ -125,7 +121,6 @@ public class ResultAction extends ActionSupport {
     public String getByTime()//根据签到发布时间       teacher_id和createtime查看该老师发布的所有签到信息
     {
         try {
-            System.out.println("now the ResultAction-ByTime" + result.getCreateTime());
             results = (List<Sign>) resultService.getByCreatetime(String.valueOf(result.getCreateTime()), teacher.getTeaID());
             return "success-Bytime";
         } catch (Exception e) {
@@ -141,7 +136,6 @@ public class ResultAction extends ActionSupport {
      */
     public String findSign() {
         try {
-            System.out.println("now the find message:" + message + "searchType" + searchType + "teaID" + teacher.getTeaID());
             results = (List<Sign>) resultService.find(message, searchType, teacher.getTeaID());
             return "success-find";
         } catch (Exception e) {

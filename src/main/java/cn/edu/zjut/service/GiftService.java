@@ -28,7 +28,6 @@ public class GiftService implements IGiftService {
      */
     @Override
     public List<Gift> getAllGift() {
-        System.out.println("the size is" + giftMapper.selectAllGift().size());
         List<Gift> list = new ArrayList<>();
         try {
             list = giftMapper.selectAllGift();
@@ -46,7 +45,6 @@ public class GiftService implements IGiftService {
      */
     @Override
     public void deleteGift(int gift_id) {
-        System.out.println("now the deleteGift" + gift_id);
         try {
             giftMapper.deleteById(gift_id);
         } catch (Exception e) {
@@ -65,7 +63,6 @@ public class GiftService implements IGiftService {
     @Override
     public Gift getGiftById(int gift_id) {
         Gift gift = new Gift();
-        System.out.println("now service" + gift_id);
         try {
             gift = giftMapper.selectGiftById(gift_id);
 
@@ -84,7 +81,6 @@ public class GiftService implements IGiftService {
      */
     @Override
     public void changeQuantity(int gift_id, int gift_quantity) {
-        System.out.println("now changeQuantity");
         try {
             giftMapper.changeQuantity(gift_id, gift_quantity);
         } catch (Exception e) {
