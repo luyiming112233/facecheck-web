@@ -22,14 +22,14 @@
         <div class="layui-form-item">
             <label class="layui-form-label">工号</label>
             <div class="layui-input-block" style="width: 200px;">
-                <input type="text" name="teacher.teaID" required lay-verify="required" value="<s:property value="#request.teacher.teaID"/>"
+                <input type="text" name="teacher.teaID" lay-verify="number" value="<s:property value="#request.teacher.teaID"/>"
                        autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">姓名</label>
             <div class="layui-input-block" style="width: 200px;">
-                <input type="text" name="teacher.name" required lay-verify="required" value="<s:property value="#request.teacher.name"/>"
+                <input type="text" name="teacher.name" lay-verify="required" value="<s:property value="#request.teacher.name"/>"
                        autocomplete="off" class="layui-input">
             </div>
         </div>
@@ -50,7 +50,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">密码</label>
             <div class="layui-input-block" style="width: 200px;">
-                <input type="text" name="teacher.password" required lay-verify="required" value="<s:property value="#request.teacher.password"/>"
+                <input type="text" name="teacher.password" lay-verify="required" value="<s:property value="#request.teacher.password"/>"
                        autocomplete="off" class="layui-input">
             </div>
         </div>
@@ -58,7 +58,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">电话</label>
             <div class="layui-input-block" style="width: 200px;">
-                <input type="text" name="teacher.phone" required lay-verify="required" value="<s:property value="#request.teacher.phone"/>"
+                <input type="text" name="teacher.phone" lay-verify="phone" value="<s:property value="#request.teacher.phone"/>"
                        autocomplete="off" class="layui-input">
             </div>
         </div>

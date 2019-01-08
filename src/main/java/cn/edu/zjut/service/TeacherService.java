@@ -5,27 +5,24 @@ import cn.edu.zjut.dao.TeacherMapper;
 import cn.edu.zjut.po.Teacher;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 @Service
+@Scope("prototype")
 public class TeacherService implements ITeacherService {
     private Map<String, Object> request, session;
+
     @Autowired
     private TeacherMapper teacherMapper = null;
 
-    public TeacherMapper getTeacherMapper() {
-        return teacherMapper;
-    }
-
-    public void setTeacherMapper(TeacherMapper teacherMapper) {
-        this.teacherMapper = teacherMapper;
-    }
-
     @Override
+    @Transactional
     public boolean login(Teacher teacher) {
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");//lym：无效代码！
@@ -51,6 +48,7 @@ public class TeacherService implements ITeacherService {
     }
 
     @Override
+    @Transactional
     public boolean insertTeacher(Teacher teacher) {
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
@@ -70,6 +68,7 @@ public class TeacherService implements ITeacherService {
     }
 
     @Override
+    @Transactional
     public boolean updateTeacher(Teacher teacher) {
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
@@ -87,6 +86,7 @@ public class TeacherService implements ITeacherService {
     }
 
     @Override
+    @Transactional
     public boolean deleteTeacher(int teaID) {
         ActionContext ctx = ActionContext.getContext();
         session = ctx.getSession();
@@ -108,6 +108,7 @@ public class TeacherService implements ITeacherService {
     }
 
     @Override
+    @Transactional
     public boolean listAllTeacher() {
         ActionContext ctx = ActionContext.getContext();
         session = ctx.getSession();
@@ -122,6 +123,7 @@ public class TeacherService implements ITeacherService {
     }
 
     @Override
+    @Transactional
     public Teacher getTeacherByID(int teaID) {
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
@@ -134,6 +136,7 @@ public class TeacherService implements ITeacherService {
     }
 
     @Override
+    @Transactional
     public boolean searchTeacher(String teaMess, int type) {
         ActionContext ctx = ActionContext.getContext();
         session = ctx.getSession();

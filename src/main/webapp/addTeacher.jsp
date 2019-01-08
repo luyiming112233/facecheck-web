@@ -23,14 +23,14 @@
         <div class="layui-form-item">
             <label class="layui-form-label">工号</label>
             <div class="layui-input-block" style="width: 200px;">
-                <input type="text" name="teacher.teaID" required lay-verify="required" placeholder="请输入工号"
+                <input type="text" name="teacher.teaID"  lay-verify="number" placeholder="请输入工号"
                        autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">姓名</label>
             <div class="layui-input-block" style="width: 200px;">
-                <input type="text" name="teacher.name" required lay-verify="required" placeholder="请输入姓名"
+                <input type="text" name="teacher.name" lay-verify="required" placeholder="请输入姓名"
                        autocomplete="off" class="layui-input">
             </div>
         </div>
@@ -45,7 +45,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">电话</label>
             <div class="layui-input-block" style="width: 200px;">
-                <input type="text" name="teacher.phone" required lay-verify="required" placeholder="请输入电话"
+                <input type="text" name="teacher.phone" lay-verify="phone" placeholder="请输入电话"
                        autocomplete="off" class="layui-input">
             </div>
         </div>

@@ -22,7 +22,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">学号</label>
             <div class="layui-input-block" style="width: 200px;">
-                <input type="text" name="student.stuID" required lay-verify="required" value="<s:property value="#request.student.stuID"/>"
+                <input type="text" name="student.stuID" required lay-verify="number" value="<s:property value="#request.student.stuID"/>"
                        autocomplete="off" class="layui-input">
             </div>
         </div>
@@ -72,7 +72,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">邮箱</label>
             <div class="layui-input-block" style="width: 200px;">
-                <input type="text" name="student.email" required lay-verify="required" value="<s:property value="#request.student.email"/>"
+                <input type="text" name="student.email" required lay-verify="email" value="<s:property value="#request.student.email"/>"
                        autocomplete="off" class="layui-input">
             </div>
         </div>

@@ -65,7 +65,6 @@ public class StudentAction implements RequestAware {
             }
         } catch (Exception e) {
             return "login";
-
         }
     }
 

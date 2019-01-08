@@ -6,8 +6,6 @@
 
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <!--***************************卢益铭部分开始****************************-->
-
     <!--1 引入属性文件，在配置中占位使用 -->
     <context:property-placeholder location="classpath*:db.properties"/>
     <!--数据源配置 测试时记得修改为自己的数据库信息-->
@@ -34,7 +32,7 @@
         <property name="typeAliasesPackage" value="cn.edu.zjut.po"/>
     </bean>
 
-    <!--4 自动扫描对象关系映射 -->
+    <!--4 自动扫描对象关系映射，使mapper不需要配置bean -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!--指定会话工厂，如果当前上下文中只定义了一个则该属性可省去 -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
@@ -42,15 +40,12 @@
         <property name="basePackage" value="cn.edu.zjut.dao"></property>
     </bean>
 
-    <!--6 容器自动扫描IOC组件  -->
+    <!--6 容器自动扫描IOC组件，添加@Component、@Service、@Constroller不需要配置bean，添加@Autowired不需要setter和getter方法  -->
     <context:component-scan base-package="cn.edu.zjut.**.*"/>
 
     <!--7 aspectj支持自动代理实现AOP功能 -->
     <aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy>
 
-    <!--***************************卢益铭部分结束****************************-->
-
-    <!--***************************金炜炜部分开始****************************-->
     <!--aspect-->
     <bean id="CheckAdmin" class="cn.edu.zjut.aspect.CheckAdmin"/>
     <!-- 配置文件的方式 -->
@@ -62,13 +57,5 @@
             <aop:before method="checkAdmin" pointcut-ref="modify"></aop:before>
         </aop:aspect>
     </aop:config>
-<!--
-    <bean id="CheckTeacher1" class="cn.edu.zjut.aspect.CheckTeacher1"/>
-    <aop:config>
-        <aop:aspect id="checkT1" ref="CheckTeacher1">
-            <aop:pointcut id="modify" expression="execution(* cn.edu.zjut.service.*Sign*.*(..)) || execution(* cn.edu.zjut.service.Result*.*(..)) "  />
-            <aop:before method="checkTeacher" pointcut-ref="modify"></aop:before>
-        </aop:aspect>
-    </aop:config>
-    -->
+
 </beans>

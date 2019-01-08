@@ -28,7 +28,6 @@ public class AdminService implements IAdminService {
     }
 
     public boolean login(Admin admin) {
-        //lym:请删除测试代码，删除输出代码
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
         session = (Map) ctx.getSession();

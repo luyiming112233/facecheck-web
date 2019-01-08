@@ -33,14 +33,14 @@
         <div class="layui-form-item">
             <label class="layui-form-label">学号</label>
             <div class="layui-input-block" style="width: 200px;">
-                <input type="text" name="student.stuID" required lay-verify="required" placeholder="请输入学号"
+                <input type="text" name="student.stuID" lay-verify="number" placeholder="请输入学号"
                        autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">姓名</label>
             <div class="layui-input-block" style="width: 200px;">
-                <input type="text" name="student.name" required lay-verify="required" placeholder="请输入姓名"
+                <input type="text" name="student.name" lay-verify="required" placeholder="请输入姓名"
                        autocomplete="off" class="layui-input">
             </div>
         </div>
@@ -54,7 +54,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">班级</label>
             <div class="layui-input-block" style="width: 200px;">
-                <input type="text" name="student.clazz" required lay-verify="required" placeholder="请输入班级"
+                <input type="text" name="student.clazz" lay-verify="required" placeholder="请输入班级"
                        autocomplete="off" class="layui-input">
             </div>
         </div>
@@ -68,7 +68,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">邮箱</label>
             <div class="layui-input-block" style="width: 200px;">
-                <input type="text" name="student.email" required lay-verify="required" placeholder="请输入邮箱"
+                <input type="text" name="student.email" lay-verify="email" placeholder="请输入邮箱"
                        autocomplete="off" class="layui-input">
             </div>
         </div>

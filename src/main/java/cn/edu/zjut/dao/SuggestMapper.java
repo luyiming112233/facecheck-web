@@ -2,9 +2,11 @@ package cn.edu.zjut.dao;
 
 import cn.edu.zjut.po.Suggest;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface SuggestMapper {
 
     /**

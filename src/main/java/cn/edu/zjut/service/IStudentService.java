@@ -35,7 +35,7 @@ public interface IStudentService {
      * @param stuID
      * @return
      */
-    public Student serachStudentByID(int stuID);
+    public Student searchStudentByID(int stuID);
 
     /**
      * @Author 卢益铭

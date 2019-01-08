@@ -6,7 +6,9 @@ import cn.edu.zjut.po.Student;
 import cn.edu.zjut.po.Suggest;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
+@Scope("prototype")
 public class StudentService implements IStudentService {
     private Map<String, Object> request, session;
 
@@ -21,6 +24,7 @@ public class StudentService implements IStudentService {
     StudentMapper studentMapper = null;
 
     @Override
+    @Transactional
     public boolean insertStudent(Student student) {
         try {
             studentMapper.insertStudent(student);
@@ -34,6 +38,7 @@ public class StudentService implements IStudentService {
     }
 
     @Override
+    @Transactional
     public boolean updateStudent(Student student) {
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
@@ -48,6 +53,7 @@ public class StudentService implements IStudentService {
     }
 
     @Override
+    @Transactional
     public boolean deleteStudent(int stuID) {
         ActionContext ctx = ActionContext.getContext();
         session = ctx.getSession();
@@ -68,9 +74,9 @@ public class StudentService implements IStudentService {
         return true;
     }
 
-    //有命名错误
     @Override
-    public Student serachStudentByID(int stuID) {
+    @Transactional
+    public Student searchStudentByID(int stuID) {
         try {
             Student student = studentMapper.getStudentById(stuID);
             return student;
@@ -81,6 +87,7 @@ public class StudentService implements IStudentService {
     }
 
     @Override
+    @Transactional
     public List<Student> searchStudentByClass(String className) {
         try {
             List<Student> studentList = studentMapper.listStudentByClass(className);
@@ -92,6 +99,7 @@ public class StudentService implements IStudentService {
     }
 
     @Override
+    @Transactional
     public List<Student> searchStudentByDepart(String departName) {
         try {
             List<Student> studentList = studentMapper.listStudentByDepart(departName);
@@ -103,6 +111,7 @@ public class StudentService implements IStudentService {
     }
 
     @Override
+    @Transactional
     public boolean searchStudent(String stuMess, int type) {
         ActionContext ctx = ActionContext.getContext();
         session = ctx.getSession();
@@ -137,6 +146,7 @@ public class StudentService implements IStudentService {
     }
 
     @Override
+    @Transactional
     public boolean listAllStudent() {
         ActionContext ctx = ActionContext.getContext();
         session = ctx.getSession();
@@ -150,6 +160,8 @@ public class StudentService implements IStudentService {
         }
     }
 
+    @Override
+    @Transactional
     public List<Student> listAllStudents() {
         try {
             List<Student> studentList = studentMapper.listAllStudent();
@@ -161,6 +173,7 @@ public class StudentService implements IStudentService {
     }
 
     @Override
+    @Transactional
     public boolean showStudent(int stuID) {
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
@@ -173,6 +186,4 @@ public class StudentService implements IStudentService {
             return false;
         }
     }
-
-
 }

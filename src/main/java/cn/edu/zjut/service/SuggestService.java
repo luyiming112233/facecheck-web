@@ -22,6 +22,7 @@ public class SuggestService implements ISuggestService {
     @Autowired
     private SuggestMapper suggestMapper = null;
 
+    @Override
     public boolean getStudentSuggest(){
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
@@ -36,6 +37,7 @@ public class SuggestService implements ISuggestService {
         }
     }
 
+    @Override
     public boolean getTeacherSuggest(){
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
@@ -50,6 +52,7 @@ public class SuggestService implements ISuggestService {
         }
     }
 
+    @Override
     public boolean insertTeacherSuggest(String teacherID,String suggest){
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
         String time = df.format(new Date());// new Date()为获取当前系统时间
@@ -63,8 +66,4 @@ public class SuggestService implements ISuggestService {
         }
     }
 
-    @Override
-    public boolean suggestm(Suggest suggest) {
-        return false;
-    }
 }

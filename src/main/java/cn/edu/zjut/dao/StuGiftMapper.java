@@ -13,6 +13,4 @@ public interface StuGiftMapper {
     void updateStudentGift(Boolean result,int autoid);
     void deleteById(int id);
     void insert(GiftChange g);
-
-
 }
