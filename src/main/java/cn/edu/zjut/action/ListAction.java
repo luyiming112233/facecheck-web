@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
@@ -19,8 +20,7 @@ public class ListAction {
     private ArrayList fieldData = null; //excel数据内容
     private File file;
 
-    public void setFile(File file) {
-        System.out.println("set myfile");
+    public void setFile(File file) throws IOException {
         if (file == null)
             System.out.println("文件是空的");
         this.file = file;
@@ -35,9 +35,7 @@ public class ListAction {
      * @return
      */
     public String exportExcel() {
-        //System.out.println(11111);
         try {
-            System.out.println("4324324");
             byte[] ba = userService.exportExcel(fieldName, fieldData).toByteArray();
             excelFile = new ByteArrayInputStream(ba);
             return "success";
@@ -53,7 +51,6 @@ public class ListAction {
      * @return
      */
     public String inputExcel() {
-        System.out.println("Starting inport");
         if (userService.inputExcel(file)) {
             return "success";
         } else

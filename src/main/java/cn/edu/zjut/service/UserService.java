@@ -34,23 +34,17 @@ public class UserService implements IUserService {
             fieldData = getFieldData(); // excel数据内容
             String myexcel = "myexcel";
             // 回去输出流
-            System.out.println(11111);
             ByteArrayOutputStream out = new ByteArrayOutputStream();
-            // 重置输出流
-            // 设置导出Excel报表的导出形式
-            //response.setContentType("application/vnd.ms-excel");
-            //response.setHeader("Content-Disposition", "attachment;filename=" + myexcel + ".xls");
+
 
 
             excelFileGenerator.exportExcel(out, fieldName, fieldData);
 
             System.out.println(11111);
-            // 设置输出形式
-            //System.setOut(new PrintStream(out));
+
             // 刷新输出流
             out.flush();
             // 关闭输出流
-            System.out.println(11111);
             if (out != null) {
                 out.close();
             }
