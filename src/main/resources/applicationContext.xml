@@ -57,5 +57,13 @@
             <aop:before method="checkAdmin" pointcut-ref="modify"></aop:before>
         </aop:aspect>
     </aop:config>
+    <bean id="CheckTeacher1" class="cn.edu.zjut.aspect.CheckTeacher1"/>
+    <aop:config>
+        <aop:aspect id="checkT1" ref="CheckTeacher1">
+            <aop:pointcut id="modify2" expression="execution(* cn.edu.zjut.service.*Sign*.*(..)) || execution(* cn.edu.zjut.service.Result*.*(..)) "  />
+            <aop:before method="checkTeacher" pointcut-ref="modify2"></aop:before>
+        </aop:aspect>
+    </aop:config>
+
 
 </beans>

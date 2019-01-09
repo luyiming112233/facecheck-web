@@ -43,11 +43,6 @@ public class ResultDetailService implements IResultDetailService {
             list = (List<ResultDetail>) resultdetailmapper.selectBySigninstance_id(signInstID);
             request.put("list", list);
             session.put("list", list);
-            for (int i = 0; i < list.size(); i++) {
-                String url = list.get(i).getStudentsign().getStuImgUrl();
-                url = "https://www.duliu12.xin/register/" + url + ".jpg";
-                list.get(i).getStudentsign().setStuImgUrl(url);
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }
