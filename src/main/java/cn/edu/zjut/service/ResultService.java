@@ -22,7 +22,7 @@ public class ResultService implements IResultService {
     private ResultMapper resultmapper;
 
     public ResultService() {
-        System.out.println("create ResultService");
+
     }
 
     @Resource
@@ -42,7 +42,6 @@ public class ResultService implements IResultService {
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
         session = (Map) ctx.getSession();
-        System.out.println("resultservice-getByTeacher_id");
         List<Sign> list = new ArrayList();
         try {
             list = resultmapper.selectByTeacher_id(teacher_id);
@@ -63,7 +62,6 @@ public class ResultService implements IResultService {
      */
     @Override
     public List<Sign> getBySign_name(String sign_name, int teacher_id) {
-        System.out.println("resultservice-getBySign_name");
         List<Sign> list = new ArrayList();
         try {
             list = resultmapper.selectBySign_name(sign_name, teacher_id);
@@ -83,11 +81,9 @@ public class ResultService implements IResultService {
      */
     @Override
     public List<Sign> getByCreatetime(String createtime, int teacher_id) {
-        System.out.println("resultservice-getByCreatetime" + createtime);
         List<Sign> list = new ArrayList();
         try {
             list = resultmapper.selectByCreatetime(createtime, teacher_id);
-            System.out.println("find by name" + list.size());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -104,15 +100,12 @@ public class ResultService implements IResultService {
      * @Author 李璐瑶
      */
     public List<Sign> find(String message, int type, int teaID) {
-        System.out.println("resultservice-find" + teaID);
         ActionContext ctx = ActionContext.getContext();
         session = ctx.getSession();
         List<Sign> list = new ArrayList();
         try {
             if (type == 1) {
-                System.out.println(message + "***********");
                 DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-                System.out.println(message + "*");
                 return this.getByCreatetime(message, teaID);
             } else {
                 return this.getBySign_name(message, teaID);
@@ -132,7 +125,6 @@ public class ResultService implements IResultService {
      */
     @Override
     public Sign getBySign_id(String sign_id) {
-        System.out.println("resultservice-getBySign_id" + sign_id);
         Sign sign = null;
         try {
             sign = resultmapper.selectBySign_id(sign_id);

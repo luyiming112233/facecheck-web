@@ -97,10 +97,7 @@ public class GiftAction extends ActionSupport {
      * @Author 李璐瑶
      */
     public String changeGift() {
-        // giftService.updateGift(gift,giftFile);
-        System.out.println(gift.getGift_id());
         gift = giftService.getGiftById(gift.getGift_id());
-        System.out.println(gift.getGift_img() + "-" + gift.getGift_descript() + "-" + gift.getGift_name());
         return "success-changeGift";
     }
 
@@ -112,7 +109,6 @@ public class GiftAction extends ActionSupport {
      * @Author 李璐瑶
      */
     public String deleteGift() {
-        System.out.println("now the deleteAction");
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
         if (stuGiftService.getListSize(gift.getGift_id()) > 0) {

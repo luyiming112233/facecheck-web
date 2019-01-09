@@ -91,10 +91,8 @@ public class ResultDetailAction {
      */
     public String getResultDetail() {
         try {
-            System.out.println("now the getDetail    " + dailyresult.getSigninstance().getSignInstID());
             resultdetails = resultdetailService.getBySignInstance_id(dailyresult.getSigninstance().getSignInstID());//获取签到结果情况
             dailyresult = dailyresultService.getBySigninstance_id(dailyresult.getSigninstance().getSignInstID());
-            System.out.println("the fact and all" + dailyresult.getAll() + "***" + dailyresult.getFact());
             return "success-getDetail";
         } catch (Exception e) {
             return "fail";
@@ -109,10 +107,6 @@ public class ResultDetailAction {
      */
     public String changeResult() {//修改学生签到情况
         try {
-            System.out.println("now the changeDetails*******");
-            System.out.println(resultdetail.getStudentsign().getStatus());
-            System.out.println(resultdetail.getStudentsign().getSignInstID());
-            System.out.println(resultdetail.getStudentsign().getStuSignID());
             resultdetailService.update(resultdetail.getStudentsign().getStuSignID(), resultdetail.getStudentsign().getStatus());
             resultdetails = resultdetailService.getBySignInstance_id(resultdetail.getStudentsign().getSignInstID());
             dailyresult = dailyresultService.getBySigninstance_id(resultdetail.getStudentsign().getSignInstID());

@@ -83,8 +83,8 @@ lly
                 <td id="${studentsign.stuID}+1" onclick="TestBlack('${studentsign.stuSignID}+2','${studentsign.stuID}+1');">查看对比图</td>
             </tr>
             <tr id="${studentsign.stuSignID}+2" style="display:none">
-                <td colspan="5" bgcolor="#00CCFF">注册照片：<img src="http://api.duliu12.xin/upload/b159bac2f26e41beb8d4cb2e2d55459b.jpg"></td>
-                <td colspan="3" bgcolor="#00CCFF">签到照片：<img src="http://www.duliu12.xin/face/32dfd7ceb6d04829a99d31232ab95422.jpg"></td>
+                <td colspan="5" bgcolor="#00CCFF">注册照片：<img src="<s:property value="studentsign.stuImgUrl"/>" weight="200px" height="200px"></td>
+                <td colspan="3" bgcolor="#00CCFF">签到照片：<img src="<s:property value="studentsign.signImgUrl"/>" weight="200px" height="200px"></td>
             </tr>
         </s:iterator>
         </tbody>

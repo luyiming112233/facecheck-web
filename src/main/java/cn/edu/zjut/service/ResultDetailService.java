@@ -18,7 +18,6 @@ public class ResultDetailService implements IResultDetailService {
     private ResultDetailMapper resultdetailmapper;
 
     public ResultDetailService() {
-        System.out.println("create ResultDetailService");
     }
 
     @Resource
@@ -35,7 +34,6 @@ public class ResultDetailService implements IResultDetailService {
      */
     @Override
     public List<ResultDetail> getBySignInstance_id(int signInstID) {//根据小打卡id获得该打卡的学生打卡情况
-        System.out.println("resultdetailservice-getBySigninstance_id    " + signInstID);
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
         session = (Map) ctx.get("session");
@@ -45,7 +43,11 @@ public class ResultDetailService implements IResultDetailService {
             list = (List<ResultDetail>) resultdetailmapper.selectBySigninstance_id(signInstID);
             request.put("list", list);
             session.put("list", list);
-            System.out.println("service list.size()" + list.size());
+            for (int i = 0; i < list.size(); i++) {
+                String url = list.get(i).getStudentsign().getStuImgUrl();
+                url = "https://www.duliu12.xin/register/" + url + ".jpg";
+                list.get(i).getStudentsign().setStuImgUrl(url);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -61,7 +63,6 @@ public class ResultDetailService implements IResultDetailService {
      */
     @Override
     public void update(Integer StuSignID, Integer status) {//修改学生打卡情况
-        System.out.println("resultdetailservice-update" + StuSignID + status);
         try {
             resultdetailmapper.update(StuSignID, status);
         } catch (Exception e) {

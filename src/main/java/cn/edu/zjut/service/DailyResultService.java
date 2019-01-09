@@ -15,7 +15,7 @@ public class DailyResultService implements IDailyResultService {
     private DailyResultMapper dailyresultmapper;
 
     public DailyResultService() {
-        System.out.println("create DailyResultService");
+
     }
 
     public void setDailyresultmapper(DailyResultMapper dailyresultmapper) {
@@ -32,10 +32,8 @@ public class DailyResultService implements IDailyResultService {
 
     @Override
     public List<SignInstance> getBySign_id(String signID) {
-        System.out.println("dailyresultservice-getBySign_id" + signID);
         List<SignInstance> list = new ArrayList();
         try {
-            System.out.println("*****************************");
             list = (List<SignInstance>) dailyresultmapper.selectBySign_id(signID);
         } catch (Exception e) {
             e.printStackTrace();
@@ -53,7 +51,6 @@ public class DailyResultService implements IDailyResultService {
      */
     @Override
     public DailyResult getBySigninstance_id(int signInstID) {
-        System.out.println("dailyresultservice-getBySigninstance_id");
         DailyResult dailyresult = new DailyResult();
         SignInstance signinstance = null;
         try {

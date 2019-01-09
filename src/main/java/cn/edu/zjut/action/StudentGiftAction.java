@@ -61,10 +61,7 @@ public class StudentGiftAction extends ActionSupport {
      * @Author 李璐瑶
      */
     public String lookStudentGift() {
-        System.out.println("now the lookStudentGift");
         giftChanges = stuGiftService.getStudentGift();
-        System.out.println(giftChanges.size());
-        System.out.println(giftChanges.get(0).getSg().getAutoid() + "-" + giftChanges.get(0).getSg().getResult() + "-" + giftChanges.get(0).getSg().getQuantity());
         return "success-lookStudentGift";
     }
 
@@ -76,7 +73,6 @@ public class StudentGiftAction extends ActionSupport {
      */
 
     public String applyChange() {
-        System.out.println("now appplyChange" + giftChange.getSg().getAutoid() + giftChange.getSg().getQuantity());
         stuGiftService.updateStuGift(giftChange.getSg().getResult(), giftChange.getSg().getAutoid());
         giftChanges = stuGiftService.getStudentGift();
         return "success-applyChange";
@@ -89,9 +85,7 @@ public class StudentGiftAction extends ActionSupport {
      * @Author 李璐瑶
      */
     public String refuseChange() {
-        System.out.println("now refuseChange" + giftChange.getSg().getAutoid() + giftChange.getSg().getQuantity());
         if (!giftChange.getSg().getResult()) {
-            System.out.println("------------------");
             giftService.changeQuantity(giftChange.getSg().getGift_id(), giftChange.getSg().getQuantity());
             stuGiftService.deleteStuGift(giftChange.getSg().getAutoid());
         }

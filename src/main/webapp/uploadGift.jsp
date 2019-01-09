@@ -17,14 +17,6 @@
         添加兑换礼品
     </div>
     <form class="layui-form"  id="gift" enctype="multipart/form-data">
-
-        <div class="layui-form-item">
-            <label class="layui-form-label">礼品编号</label>
-            <div class="layui-input-block" style="width: 200px;">
-                <input type="text" name="giftId" required lay-verify="required" placeholder="请输入礼品编号"
-                       autocomplete="off" class="layui-input" id="giftId">
-            </div>
-        </div>
         <div class="layui-form-item">
             <label class="layui-form-label">礼品名称</label>
             <div class="layui-input-block" style="width: 200px;">

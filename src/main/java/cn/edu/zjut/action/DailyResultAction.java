@@ -71,7 +71,6 @@ public class DailyResultAction {
      * @Author 李璐瑶
      */
     public String getDailyResult() {//根据大打卡的sign_id得到小打卡的列表
-        System.out.println("now the getDailyResult" + signinstance.getSignID());
         //signinsatnce的sign_id由jsp传过来
         signinstances = (List<SignInstance>) dailyresultService.getBySign_id(String.valueOf(signinstance.getSignID()));
         //得到大打卡的名称

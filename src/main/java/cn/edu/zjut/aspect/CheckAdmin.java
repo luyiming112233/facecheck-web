@@ -5,6 +5,10 @@ import com.opensymphony.xwork2.ActionContext;
 import java.util.Map;
 
 /*lym：请修改命名*/
+
+/**
+ * 检查点
+ */
 public class CheckAdmin {
     private Map<String, Object> request, session;
 
