@@ -122,8 +122,8 @@ public class StudentService implements IStudentService {
                 case 0:
                     Student student = studentMapper.getStudentById(Integer.parseInt(stuMess));
                     studentList = new ArrayList<Student>();
-                    studentList.add(student);
-
+                    if(student!=null)
+                        studentList.add(student);
                     break;
                 case 1:
                     studentList = studentMapper.getStudentByName(stuMess);

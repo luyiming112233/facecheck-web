@@ -147,7 +147,8 @@ public class TeacherService implements ITeacherService {
                 case 0:
                     Teacher teacher = teacherMapper.getTeacherById(Integer.parseInt(teaMess));
                     teacherList = new ArrayList<Teacher>();
-                    teacherList.add(teacher);
+                    if(teacher!=null)
+                        teacherList.add(teacher);
                     break;
                 case 1:
                     teacherList = teacherMapper.listTeacherByName(teaMess);
